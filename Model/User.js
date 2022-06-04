@@ -9,4 +9,4 @@ let userSchema=new mongoose.Schema({
 },{timestamps:true})
 
 
-export default model("User",userSchema)
+export default mongoose.models.User || model("User",userSchema)

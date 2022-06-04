@@ -12,4 +12,4 @@ let orderSchema=new mongoose.Schema({
     status:{type:String,default:"Pending",required:true}
 },{timestamps:true})
 
-export default model("Order",orderSchema)
+export default mongoose.models.Order || model("Order",orderSchema)

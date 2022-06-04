@@ -1,16 +1,17 @@
-import mongoose, { model } from "mongoose"
-
+import mongoose from "mongoose"
 
 let productSchema=new mongoose.Schema({
     title:{type:String,required:true},
     desc:{type:String,required:true},
-    products:[{
-        productId:String,
-        quantity:{type:Number,default:1}
-    }],
-    address:{type:String,required:true},
-    amount:{type:Number,required:true},
-    status:{type:String,default:"Pending",required:true}
+    about:{type:String,required:true},
+    img:{type:String,required:true},
+    category:{type:String,required:true},
+    size:{type:String},
+    color:{type:String},
+    price:{type:Number,required:true},
+    availableQty:{type:Number,required:true},
+    stock:{type:Object,required:true}
+   
 },{timestamps:true})
 
-export default mongoose.model("Order",productSchema)
+export default mongoose.models.Product || mongoose.model("Product",productSchema)

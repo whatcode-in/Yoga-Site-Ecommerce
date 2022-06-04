@@ -42,7 +42,7 @@ const Navbar = () => {
         <Link href="/Mugs"><a><li className='hover:text-pink-500'>Mugs</li></a></Link>
       </ul>
       <div  className="cart flex space-x-2 sm:space-x-5 cursor-pointer absolute text-2xl right-6 top-4 sm:top-6 sm:text-3xl ">
-        <Link href={"/Login"}><CgProfile/></Link>
+        <Link href={"/Login"}><a><CgProfile/></a></Link>
         <AiOutlineShoppingCart onClick={toggle} />
       </div>
 
