@@ -6,11 +6,11 @@ let productSchema=new mongoose.Schema({
     about:{type:String,required:true},
     img:{type:String,required:true},
     category:{type:String,required:true},
-    size:{type:String},
-    color:{type:String},
+    size:[String],
+    color:[String],
     price:{type:Number,required:true},
-    availableQty:{type:Number,required:true},
-    stock:{type:Object,required:true}
+    availableQty:{type:Number,default:0},
+    stock:{type:Object,default:{}}
    
 },{timestamps:true})
 

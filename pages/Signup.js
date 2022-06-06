@@ -43,7 +43,7 @@ const Sginup = () => {
           <input className="appearance-none block w-full  text-gray-700 border-2 border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-500" id="cpassword" name='cpassword' type="password" />
         </div>
         <button className="mx-3 w-full text-white rounded-sm bg-indigo-500 py-2 font-bold duration-300 hover:bg-indigo-700">
-          Sign in
+          Sign up
         </button>
 
         <p className="text-center w-full text-base my-2">

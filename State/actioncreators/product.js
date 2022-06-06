@@ -1,5 +1,5 @@
 let addToCart=(data)=>async (dispatch)=>{
-    // console.log(data);
+    console.log(data);
     dispatch({type:"ADD",payload:data})
 }
 

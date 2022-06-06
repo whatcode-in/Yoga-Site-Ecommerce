@@ -1,0 +1,135 @@
+{
+    "products": [
+      {
+        "_id": "629a3632c4a77321cb868c2d",
+        "title": "Graete T-shirt",
+        "desc": "this is first product ",
+        "about": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime officia eaque, numquam sequi non nulla repellendus quisquam autem cumque enim deleniti facere in quod hic ullam labore amet molestias saepe eligendi! Soluta dolore culpa, ducimus fuga cum corrupti molestiae, vel aliquid, rerum quis adipisci porro.!",
+        "img": "https://m.media-amazon.com/images/I/61qSidquxlL._UX679_.jpg",
+        "category": "T-shirts",
+        "price": 999,
+        "size": "lg,xl,sm",
+        "color": "red,black,white,yellow",
+        "availableQty": 6,
+        "createdAt": "2022-06-03T16:26:26.041Z",
+        "updatedAt": "2022-06-05T05:22:11.712Z",
+        "__v": 0,
+        "stock": {
+          "red": {
+            "size": [
+              "sm",
+              "lg"
+            ],
+            "img": "https://m.media-amazon.com/images/I/61qSidquxlL._UX679_.jpg"
+          },
+          "yellow": {
+            "size": [
+              "sm",
+              "m",
+              "lg"
+            ],
+            "img": "https://m.media-amazon.com/images/I/51IvGqU9GxL._SX679._SX._UX._SY._UY_.jpg"
+          },
+          "black": {
+            "size": [
+              "sm",
+              "m"
+            ],
+            "img": "https://m.media-amazon.com/images/I/51xeCPdiHiL._SX679._SX._UX._SY._UY_.jpg"
+          },
+          "white": {
+            "size": [
+              "sm",
+              "m"
+            ],
+            "img": "https://m.media-amazon.com/images/I/519BWhkvmIL._SX679._SX._UX._SY._UY_.jpg"
+          }
+        }
+      },
+      {
+        "_id": "629a4cd9c4a77321cb868c6f",
+        "title": " commet",
+        "desc": "this is random text",
+        "about": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime officia eaque, numquam sequi non nulla repellendus quisquam autem cumque enim deleniti facere in quod hic ullam labore amet molestias saepe eligendi! Soluta dolore culpa, ducimus fuga cum corrupti molestiae, vel aliquid, rerum quis adipisci porro nesciunt maiores ipsum velit exercitationem consectetur nisi. Laudantium ex tenetur ipsam! Nam a rerum, veritatis quos neque eos provident debitis vel, facere accusamus numquam nulla!",
+        "img": "https://m.media-amazon.com/images/I/81Lt9LJ2LeL._AC_UL480_FMwebp_QL65_.jpg",
+        "category": "T-shirts",
+        "size": "sm,lg,xl",
+        "color": "black,pink,white",
+        "price": 99,
+        "availableQty": 1,
+        "createdAt": "2022-06-03T18:03:05.092Z",
+        "updatedAt": "2022-06-04T17:33:55.459Z",
+        "__v": 0,
+        "stock": {
+          "pink": {
+            "size": [
+              "sm",
+              "m"
+            ],
+            "img": "https://m.media-amazon.com/images/I/81Lt9LJ2LeL._AC_UL480_FMwebp_QL65_.jpg"
+          },
+          "black": {
+            "size": [
+              "sm",
+              "lg"
+            ],
+            "img": "https://m.media-amazon.com/images/I/71TjIRBAIEL._SX569._SX._UX._SY._UY_.jpg"
+          },
+          "white": {
+            "size": [
+              "sm",
+              "m"
+            ],
+            "img": "https://m.media-amazon.com/images/I/71SUG+jA6PL._SX569._SX._UX._SY._UY_.jpg"
+          }
+        }
+      },
+      {
+        "_id": "629a4d405930654b08fc31ab",
+        "title": " commet",
+        "desc": "this is random text",
+        "about": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime officia eaque, numquam sequi non nulla repellendus quisquam autem cumque enim deleniti facere in quod hic ullam labore amet molestias saepe eligendi! Soluta dolore culpa, ducimus fuga cum corrupti molestiae, vel aliquid, rerum quis adipisci porro nesciunt maiores ipsum velit exercitationem consectetur nisi. Laudantium ex tenetur ipsam! Nam a rerum, veritatis quos neque eos provident debitis vel, facere accusamus numquam nulla!",
+        "img": "https://m.media-amazon.com/images/I/91TndAyYh0L._UY879_.jpg",
+        "category": "T-shirts",
+        "size": "sm,lg,xl",
+        "color": "orange,pink,white,blue",
+        "price": 99,
+        "availableQty": 1,
+        "stock": {
+          "blue": {
+            "size": [
+              "sm",
+              "lg",
+              "xxl"
+            ],
+            "img": "https://m.media-amazon.com/images/I/91TndAyYh0L._UY879_.jpg"
+          },
+          "orange": {
+            "size": [
+              "xs",
+              "lg",
+              "xl"
+            ],
+            "img": "https://m.media-amazon.com/images/I/81FBjHKhNoS._SX569._SX._UX._SY._UY_.jpg"
+          },
+          "pink": {
+            "size": [
+              "sm",
+              "m"
+            ],
+            "img": "https://m.media-amazon.com/images/I/61dYntXb0PL._SY741._SX._UX._SY._UY_.jpg"
+          },
+          "white": {
+            "size": [
+              "m",
+              "xl"
+            ],
+            "img": "https://m.media-amazon.com/images/I/71DaKKQ93ZL._AC_UL480_FMwebp_QL65_.jpg"
+          }
+        },
+        "createdAt": "2022-06-03T18:04:48.890Z",
+        "updatedAt": "2022-06-05T06:03:56.512Z",
+        "__v": 0
+      }
+    ]
+  }

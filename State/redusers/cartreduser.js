@@ -7,9 +7,10 @@ let reduser=(state={cart:{},subtotal:0},action)=>{
                 state.subtotal+=state.cart[action.payload.itemcode].price*action.payload.qty
                 // console.log("hey");
             } else {
+                console.log(action.payload);
                 state.cart[action.payload.itemcode]=action.payload
                 state.subtotal+=action.payload.price
-                // console.log("hello");
+                console.log(state.cart);
             }
             // console.log("state",state);
             

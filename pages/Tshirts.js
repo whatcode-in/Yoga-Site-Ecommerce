@@ -3,7 +3,7 @@ import React from 'react'
 
 const Tshirts = ({ res }) => {
   let { products } = res
-  // console.log(products);
+  console.log(products);
   let count=0;
    count+=products.map(item=>{
     return item.availableQty
@@ -28,11 +28,11 @@ const Tshirts = ({ res }) => {
                   <h2 className="text-gray-900 title-font text-xl font-medium">{item.title}</h2>
                   <p className="mt-1">{item.desc}</p>
                   <p className="mt-1 text-lg">₹{item.price}</p>
-                  <p className="mt-1 text-lg flex justify-center">{item?.size?.split(",").map(i=>{
+                  <p className="mt-1 text-lg flex justify-center">{item?.size.map(i=>{
                     return <span key={i} className='border border-gray-500 px-1 mx-2 flex justify-center items-center flex-col'>{i}</span>
                   })}</p>
 
-                  <p className="mt-2 text-lg flex justify-center">{item?.color?.split(",").map(i=>{
+                  <p className="mt-2 text-lg flex justify-center">{item?.color.map(i=>{
                     // return <button key={i} className={`border-2 border-gray-300 ml-1 ${JSON.stringify(fun(i))}`}></button>
                     return <button key={i} className={`border-2 border-gray-300 ml-1 ${i=="black" ||i=="white"?`bg-${i}`:`bg-${i}-500`} rounded-full w-6 h-6 focus:outline-none`}></button>
                   })}</p>
@@ -47,6 +47,7 @@ const Tshirts = ({ res }) => {
 }
 
 export async function getServerSideProps(context) {
+  // let response = await fetch(`http://192.168.52.135:3000/api/getProducts?category=T-shirts`);
   let response = await fetch(`http://localhost:3000/api/getProducts?category=T-shirts`);
   let res = await response.json();
   // console.log(res);

@@ -1,16 +1,18 @@
 import { useRouter } from 'next/router'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { actioncreators } from '../../State';
 
-let fun=async (id,setproduct,setcolor,setimage)=>{
+let fun=async (id,setproduct,setcolor,setimage,setsize)=>{
   let product=await fetch(`http://localhost:3000/api/getProductById?id=${id}`)
+  // let product=await fetch(`http://192.168.52.135:3000/api/getProductById?id=${id}`)
   let res=await product.json()
   console.log(res);
   // console.log(res.product.size.split(","));
   setproduct(res.product)
   setimage(res.product.img)
+  setsize(Object.keys(res.product.stock[Object.keys(res.product.stock)[0]].size)[0])
   setcolor(Object.keys(res.product.stock)[0])
   // return res.product
 }
@@ -21,15 +23,18 @@ const item =() => {
    let [product,setproduct]=useState(null);
    let [color,setcolor]=useState(null);
    let [image,setimage]=useState(null);
+   let [size,setsize]=useState("");
    useEffect(()=>{
      if(id){
-     setproduct(fun(id,setproduct,setcolor,setimage))
+     setproduct(fun(id,setproduct,setcolor,setimage,setsize))
      }
    },[id])
 
    let handleclick=(e)=>{
         setcolor(e.target.name);
-        setimage(product.stock[color].img)
+        setimage(product.stock[e.target.name].img)
+        // setsize(product.stock[product.stock[e.target.name]].size[0])
+        setsize(Object.keys(product.stock[e.target.name].size)[0])
    }
 
     // console.log("final",product);
@@ -56,6 +61,10 @@ const item =() => {
         setservicebiliby(null)
       }, 3000);
    }
+
+   let refressize=(newsize)=>{
+    setsize(newsize)
+   }
     
     return (
       product!==null && <section className="text-gray-600 body-font overflow-hidden">
@@ -64,9 +73,9 @@ const item =() => {
           <div className='h-64 lg:h-full lg:w-[500px] m-auto'>
           <img alt="ecommerce" className="lg:w-1/2 w-full h-full object-cover object-center rounded m-auto" src={`${image}`}/>
           </div>
-          <div className="md:2/3 2xl:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0 m-auto">
+          <div className="2xl:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0 m-auto">
             <h2 className="text-sm title-font text-gray-500 tracking-widest">{product.title}</h2>
-            <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">{product.desc}</h1>
+            <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">{product.desc}({size}/{color})</h1>
             <div className="flex mb-4">
               <span className="flex items-center">
                 <svg fill="currentColor" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-4 h-4 text-pink-500" viewBox="0 0 24 24">
@@ -121,11 +130,11 @@ const item =() => {
               <div className="flex ml-6 items-center">
                 <span className="mr-3">Size</span>
                 <div className="">
-                  <select disabled={color===null?true:false} className="rounded border appearance-none border-gray-300 py-2 focus:outline-none focus:ring-2 focus:ring-pink-200 focus:border-pink-500 text-base pl-3 pr-10">
+                  <select disabled={color===null?true:false} className="rounded border appearance-none border-gray-300 py-2 focus:outline-none focus:ring-2 focus:ring-pink-200 focus:border-pink-500 text-base pl-3 pr-10" value={size} onChange={(e)=>refressize(e.target.value)}>
                     {
                        product?.stock!=null &&
-                      product?.stock[color].size.map((item)=>{
-                        return <option key={item}>{item}</option>
+                      Object.keys(product?.stock[color].size).map((item)=>{
+                        return <option key={item} value={item}>{item}</option>
                       })
                     }
                     
@@ -134,9 +143,9 @@ const item =() => {
               </div>
             </div>
             <div className="flex">
-              <span className="title-font font-medium text-2xl text-gray-900">₹499.00</span>
+              <span className="title-font font-medium text-2xl text-gray-900">₹{product.price}</span>
               <button className="flex ml-4 text-white bg-pink-500 border-0 text-sm sm:text-base py-2 px-2 md:px-6 focus:outline-none hover:bg-pink-600 rounded">Buy Now</button>
-              <button className="flex ml-4 text-white bg-pink-500 border-0 text-sm sm:text-base py-2 px-2 md:px-6 focus:outline-none hover:bg-pink-600 rounded" onClick={()=>addToCart({itemcode:123,price:499,qty:1,name:"Parth",size:"lg",variant:"black"})}>Add to Cart</button>
+              <button className="flex ml-4 text-white bg-pink-500 border-0 text-sm sm:text-base py-2 px-2 md:px-6 focus:outline-none hover:bg-pink-600 rounded" onClick={()=>addToCart({itemcode:product?.stock[color].size[size].item,price:product.price,qty:1,name:product.desc,size:size,variant:color})}>Add to Cart</button>
               <button className="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
                 <svg fill="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-5 h-5" viewBox="0 0 24 24">
                   <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"></path>

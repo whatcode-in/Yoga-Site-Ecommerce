@@ -16,10 +16,11 @@ let  handler=async (req, res) =>{
                 size:req.body[i].size,
                 color:req.body[i].color,
                 price:req.body[i].price,
-                availableQty:req.body[i].availableQty,
-                stock:req.body[i].stock
+                availableQty:req.body[i].availableQty
+                // stock:req.body[i].stock
             })
             // await p.save();
+            console.log(p);
         }
         return res.status(200).json({ success:true })
     }
