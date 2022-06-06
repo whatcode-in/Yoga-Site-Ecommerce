@@ -53,9 +53,9 @@
         "about": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime officia eaque, numquam sequi non nulla repellendus quisquam autem cumque enim deleniti facere in quod hic ullam labore amet molestias saepe eligendi! Soluta dolore culpa, ducimus fuga cum corrupti molestiae, vel aliquid, rerum quis adipisci porro nesciunt maiores ipsum velit exercitationem consectetur nisi. Laudantium ex tenetur ipsam! Nam a rerum, veritatis quos neque eos provident debitis vel, facere accusamus numquam nulla!",
         "img": "https://m.media-amazon.com/images/I/81Lt9LJ2LeL._AC_UL480_FMwebp_QL65_.jpg",
         "category": "T-shirts",
+        "price": 99,
         "size": "sm,lg,xl",
         "color": "black,pink,white",
-        "price": 99,
         "availableQty": 1,
         "createdAt": "2022-06-03T18:03:05.092Z",
         "updatedAt": "2022-06-04T17:33:55.459Z",
@@ -91,9 +91,9 @@
         "about": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime officia eaque, numquam sequi non nulla repellendus quisquam autem cumque enim deleniti facere in quod hic ullam labore amet molestias saepe eligendi! Soluta dolore culpa, ducimus fuga cum corrupti molestiae, vel aliquid, rerum quis adipisci porro nesciunt maiores ipsum velit exercitationem consectetur nisi. Laudantium ex tenetur ipsam! Nam a rerum, veritatis quos neque eos provident debitis vel, facere accusamus numquam nulla!",
         "img": "https://m.media-amazon.com/images/I/91TndAyYh0L._UY879_.jpg",
         "category": "T-shirts",
+        "price": 99,
         "size": "sm,lg,xl",
         "color": "orange,pink,white,blue",
-        "price": 99,
         "availableQty": 1,
         "stock": {
           "blue": {

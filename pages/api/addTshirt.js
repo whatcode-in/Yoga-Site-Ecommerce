@@ -26,7 +26,7 @@ let  handler=async (req, res) =>{
             newsize.add(tshirt.size)
             let b={}
             if(parent._doc.stock[tshirt.color]!==undefined){
-                console.log("heyeyey");
+                // console.log("heyeyey");
              b={...parent._doc.stock[tshirt.color].size}
             }
             // else{
@@ -36,7 +36,13 @@ let  handler=async (req, res) =>{
           
             b[tshirt.size]={item:tshirt._id}
             let s={...parent._doc.stock}
-            s[tshirt.color]={size:b,img:tshirt.img}
+            // s[tshirt.color]={size:b,img:tshirt.img}
+            if(s[tshirt.color]===undefined){
+                s[tshirt.color]={size:b,img:tshirt.img,price:tshirt.price,availableQty:tshirt.availableQty}
+            }
+            else{
+                s[tshirt.color]={...s[tshirt.color],size:b}
+            }
             parent._doc.stock=s
             // let newstock={...parent._doc.stock,tshirt.color:}
             let newproduct={...parent._doc,color:Array.from(newcolor),size:Array.from(newsize),availableQty:parent._doc.availableQty+tshirt.availableQty}
