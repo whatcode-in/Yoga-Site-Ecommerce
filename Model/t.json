@@ -1,135 +1,282 @@
 {
-    "products": [
-      {
-        "_id": "629a3632c4a77321cb868c2d",
-        "title": "Graete T-shirt",
-        "desc": "this is first product ",
-        "about": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime officia eaque, numquam sequi non nulla repellendus quisquam autem cumque enim deleniti facere in quod hic ullam labore amet molestias saepe eligendi! Soluta dolore culpa, ducimus fuga cum corrupti molestiae, vel aliquid, rerum quis adipisci porro.!",
-        "img": "https://m.media-amazon.com/images/I/61qSidquxlL._UX679_.jpg",
-        "category": "T-shirts",
-        "price": 999,
-        "size": "lg,xl,sm",
-        "color": "red,black,white,yellow",
-        "availableQty": 6,
-        "createdAt": "2022-06-03T16:26:26.041Z",
-        "updatedAt": "2022-06-05T05:22:11.712Z",
-        "__v": 0,
-        "stock": {
-          "red": {
-            "size": [
-              "sm",
-              "lg"
-            ],
-            "img": "https://m.media-amazon.com/images/I/61qSidquxlL._UX679_.jpg"
+  "products": [
+    {
+      "_id": "629e322f344509c0281bc087",
+      "title": "Graete T-shirt",
+      "desc": "this is first product ",
+      "about": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime officia eaque, numquam sequi non nulla repellendus quisquam autem cumque enim deleniti facere in quod hic ullam labore amet molestias saepe eligendi! Soluta dolore culpa, ducimus fuga cum corrupti molestiae, vel aliquid, rerum quis adipisci porro.!",
+      "img": "https://m.media-amazon.com/images/I/61qSidquxlL._UX679_.jpg",
+      "category": "T-shirts",
+      "size": [
+        "s",
+        "lg",
+        "m",
+        "xl",
+        "xxl"
+      ],
+      "color": [
+        "red",
+        "yellow",
+        "black",
+        "white"
+      ],
+      "price": 999,
+      "availableQty": 125,
+      "createdAt": "2022-06-06T16:58:23.015Z",
+      "updatedAt": "2022-06-06T18:35:08.790Z",
+      "__v": 0,
+      "stock": {
+        "red": {
+          "size": {
+            "s": {
+              "item": "629e3288344509c0281bc08b"
+            },
+            "lg": {
+              "item": "629e328f344509c0281bc08f"
+            }
           },
-          "yellow": {
-            "size": [
-              "sm",
-              "m",
-              "lg"
-            ],
-            "img": "https://m.media-amazon.com/images/I/51IvGqU9GxL._SX679._SX._UX._SY._UY_.jpg"
-          },
-          "black": {
-            "size": [
-              "sm",
-              "m"
-            ],
-            "img": "https://m.media-amazon.com/images/I/51xeCPdiHiL._SX679._SX._UX._SY._UY_.jpg"
-          },
-          "white": {
-            "size": [
-              "sm",
-              "m"
-            ],
-            "img": "https://m.media-amazon.com/images/I/519BWhkvmIL._SX679._SX._UX._SY._UY_.jpg"
-          }
-        }
-      },
-      {
-        "_id": "629a4cd9c4a77321cb868c6f",
-        "title": " commet",
-        "desc": "this is random text",
-        "about": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime officia eaque, numquam sequi non nulla repellendus quisquam autem cumque enim deleniti facere in quod hic ullam labore amet molestias saepe eligendi! Soluta dolore culpa, ducimus fuga cum corrupti molestiae, vel aliquid, rerum quis adipisci porro nesciunt maiores ipsum velit exercitationem consectetur nisi. Laudantium ex tenetur ipsam! Nam a rerum, veritatis quos neque eos provident debitis vel, facere accusamus numquam nulla!",
-        "img": "https://m.media-amazon.com/images/I/81Lt9LJ2LeL._AC_UL480_FMwebp_QL65_.jpg",
-        "category": "T-shirts",
-        "price": 99,
-        "size": "sm,lg,xl",
-        "color": "black,pink,white",
-        "availableQty": 1,
-        "createdAt": "2022-06-03T18:03:05.092Z",
-        "updatedAt": "2022-06-04T17:33:55.459Z",
-        "__v": 0,
-        "stock": {
-          "pink": {
-            "size": [
-              "sm",
-              "m"
-            ],
-            "img": "https://m.media-amazon.com/images/I/81Lt9LJ2LeL._AC_UL480_FMwebp_QL65_.jpg"
-          },
-          "black": {
-            "size": [
-              "sm",
-              "lg"
-            ],
-            "img": "https://m.media-amazon.com/images/I/71TjIRBAIEL._SX569._SX._UX._SY._UY_.jpg"
-          },
-          "white": {
-            "size": [
-              "sm",
-              "m"
-            ],
-            "img": "https://m.media-amazon.com/images/I/71SUG+jA6PL._SX569._SX._UX._SY._UY_.jpg"
-          }
-        }
-      },
-      {
-        "_id": "629a4d405930654b08fc31ab",
-        "title": " commet",
-        "desc": "this is random text",
-        "about": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime officia eaque, numquam sequi non nulla repellendus quisquam autem cumque enim deleniti facere in quod hic ullam labore amet molestias saepe eligendi! Soluta dolore culpa, ducimus fuga cum corrupti molestiae, vel aliquid, rerum quis adipisci porro nesciunt maiores ipsum velit exercitationem consectetur nisi. Laudantium ex tenetur ipsam! Nam a rerum, veritatis quos neque eos provident debitis vel, facere accusamus numquam nulla!",
-        "img": "https://m.media-amazon.com/images/I/91TndAyYh0L._UY879_.jpg",
-        "category": "T-shirts",
-        "price": 99,
-        "size": "sm,lg,xl",
-        "color": "orange,pink,white,blue",
-        "availableQty": 1,
-        "stock": {
-          "blue": {
-            "size": [
-              "sm",
-              "lg",
-              "xxl"
-            ],
-            "img": "https://m.media-amazon.com/images/I/91TndAyYh0L._UY879_.jpg"
-          },
-          "orange": {
-            "size": [
-              "xs",
-              "lg",
-              "xl"
-            ],
-            "img": "https://m.media-amazon.com/images/I/81FBjHKhNoS._SX569._SX._UX._SY._UY_.jpg"
-          },
-          "pink": {
-            "size": [
-              "sm",
-              "m"
-            ],
-            "img": "https://m.media-amazon.com/images/I/61dYntXb0PL._SY741._SX._UX._SY._UY_.jpg"
-          },
-          "white": {
-            "size": [
-              "m",
-              "xl"
-            ],
-            "img": "https://m.media-amazon.com/images/I/71DaKKQ93ZL._AC_UL480_FMwebp_QL65_.jpg"
-          }
+          "img": "https://m.media-amazon.com/images/I/61qSidquxlL._UX679_.jpg",
+          "price": 10,
+          "availableQty": 5
         },
-        "createdAt": "2022-06-03T18:04:48.890Z",
-        "updatedAt": "2022-06-05T06:03:56.512Z",
-        "__v": 0
+        "yellow": {
+          "size": {
+            "s": {
+              "item": "629e32bb344509c0281bc093"
+            },
+            "m": {
+              "item": "629e32bf344509c0281bc097"
+            },
+            "lg": {
+              "item": "629e32c5344509c0281bc09b"
+            }
+          },
+          "img": "https://m.media-amazon.com/images/I/51IvGqU9GxL._SX679._SX._UX._SY._UY_.jpg",
+          "price": 999,
+          "availableQty": 9
+        },
+        "black": {
+          "size": {
+            "lg": {
+              "item": "629e32e5344509c0281bc09f"
+            },
+            "xl": {
+              "item": "629e32eb344509c0281bc0a3"
+            },
+            "xxl": {
+              "item": "629e32f1344509c0281bc0a7"
+            }
+          },
+          "img": "https://m.media-amazon.com/images/I/51xeCPdiHiL._SX679._SX._UX._SY._UY_.jpg",
+          "price": 1000,
+          "availableQty": 9
+        },
+        "white": {
+          "size": {
+            "m": {
+              "item": "629e3308344509c0281bc0ab"
+            },
+            "xl": {
+              "item": "629e330d344509c0281bc0af"
+            }
+          },
+          "img": "https://m.media-amazon.com/images/I/519BWhkvmIL._SX679._SX._UX._SY._UY_.jpg",
+          "price": 950,
+          "availableQty": 9
+        }
       }
-    ]
-  }
+    },
+    {
+      "_id": "629e3346344509c0281bc0b2",
+      "title": " commet",
+      "desc": "this is random text",
+      "about": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime officia eaque, numquam sequi non nulla repellendus quisquam autem cumque enim deleniti facere in quod hic ullam labore amet molestias saepe eligendi! Soluta dolore culpa, ducimus fuga cum corrupti molestiae, vel aliquid, rerum quis adipisci porro nesciunt maiores ipsum velit exercitationem consectetur nisi. Laudantium ex tenetur ipsam! Nam a rerum, veritatis quos neque eos provident debitis vel, facere accusamus numquam nulla!",
+      "img": "https://m.media-amazon.com/images/I/81Lt9LJ2LeL._AC_UL480_FMwebp_QL65_.jpg",
+      "category": "T-shirts",
+      "size": [
+        "m",
+        "lg",
+        "xxl",
+        "s"
+      ],
+      "color": [
+        "pink",
+        "black",
+        "white"
+      ],
+      "price": 499,
+      "availableQty": 48,
+      "createdAt": "2022-06-06T17:03:02.326Z",
+      "updatedAt": "2022-06-06T17:43:40.900Z",
+      "__v": 0,
+      "stock": {
+        "pink": {
+          "size": {
+            "m": {
+              "item": "629e338d344509c0281bc0b6",
+              "price": 499,
+              "availableQty": 6
+            },
+            "lg": {
+              "item": "629e3394344509c0281bc0ba",
+              "price": 499,
+              "availableQty": 6
+            },
+            "xxl": {
+              "item": "629e3399344509c0281bc0be",
+              "price": 499,
+              "availableQty": 6
+            }
+          },
+          "img": "https://m.media-amazon.com/images/I/81Lt9LJ2LeL._AC_UL480_FMwebp_QL65_.jpg"
+        },
+        "black": {
+          "size": {
+            "s": {
+              "item": "629e33ac344509c0281bc0c2",
+              "price": 499,
+              "availableQty": 6
+            },
+            "m": {
+              "item": "629e33b0344509c0281bc0c6",
+              "price": 499,
+              "availableQty": 6
+            },
+            "lg": {
+              "item": "629e33b6344509c0281bc0ca",
+              "price": 499,
+              "availableQty": 6
+            }
+          },
+          "img": "https://m.media-amazon.com/images/I/71TjIRBAIEL._SX569._SX._UX._SY._UY_.jpg"
+        },
+        "white": {
+          "size": {
+            "lg": {
+              "item": "629e33da344509c0281bc0ce",
+              "price": 499,
+              "availableQty": 6
+            },
+            "xxl": {
+              "item": "629e33de344509c0281bc0d2",
+              "price": 499,
+              "availableQty": 6
+            }
+          },
+          "img": "https://m.media-amazon.com/images/I/71SUG+jA6PL._SX569._SX._UX._SY._UY_.jpg"
+        }
+      }
+    },
+    {
+      "_id": "629e3416344509c0281bc0d7",
+      "title": " commet",
+      "desc": "this is random text",
+      "about": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime officia eaque, numquam sequi non nulla repellendus quisquam autem cumque enim deleniti facere in quod hic ullam labore amet molestias saepe eligendi! Soluta dolore culpa, ducimus fuga cum corrupti molestiae, vel aliquid, rerum quis adipisci porro nesciunt maiores ipsum velit exercitationem consectetur nisi. Laudantium ex tenetur ipsam! Nam a rerum, veritatis quos neque eos provident debitis vel, facere accusamus numquam nulla!",
+      "img": "https://m.media-amazon.com/images/I/91TndAyYh0L._UY879_.jpg",
+      "category": "T-shirts",
+      "size": [
+        "m",
+        "lg",
+        "xl",
+        "xxl",
+        "s"
+      ],
+      "color": [
+        "blue",
+        "orange",
+        "pink",
+        "white"
+      ],
+      "price": 1999,
+      "availableQty": 18,
+      "createdAt": "2022-06-06T17:06:30.456Z",
+      "updatedAt": "2022-06-08T14:16:14.579Z",
+      "__v": 0,
+      "stock": {
+        "blue": {
+          "size": {
+            "m": {
+              "item": "629e36b4344509c0281bc0dc"
+            },
+            "lg": {
+              "item": "629e36ba344509c0281bc0e0"
+            },
+            "xl": {
+              "item": "629e36be344509c0281bc0e4",
+              "price": 99,
+              "availableQty": 6
+            },
+            "xxl": {
+              "item": "629e36c2344509c0281bc0e8",
+              "price": 99,
+              "availableQty": 6
+            }
+          },
+          "img": "https://m.media-amazon.com/images/I/91TndAyYh0L._UY879_.jpg",
+          "price": 566,
+          "availableQty": 16
+        },
+        "orange": {
+          "size": {
+            "s": {
+              "item": "629e36d9344509c0281bc0ec",
+              "price": 99,
+              "availableQty": 6
+            },
+            "m": {
+              "item": "629e36dd344509c0281bc0f0",
+              "price": 99,
+              "availableQty": 6
+            },
+            "lg": {
+              "item": "629e36e5344509c0281bc0f4",
+              "price": 99,
+              "availableQty": 6
+            },
+            "xl": {
+              "item": "629e36e9344509c0281bc0f8",
+              "price": 99,
+              "availableQty": 6
+            },
+            "xxl": {
+              "item": "629e36f0344509c0281bc0fc",
+              "price": 99,
+              "availableQty": 6
+            }
+          },
+          "img": "https://m.media-amazon.com/images/I/81FBjHKhNoS._SX569._SX._UX._SY._UY_.jpg"
+        },
+        "pink": {
+          "size": {
+            "lg": {
+              "item": "629e373e344509c0281bc100",
+              "price": 99,
+              "availableQty": 6
+            },
+            "xl": {
+              "item": "629e3743344509c0281bc104",
+              "price": 99,
+              "availableQty": 6
+            }
+          },
+          "img": "https://m.media-amazon.com/images/I/61dYntXb0PL._SY741._SX._UX._SY._UY_.jpg"
+        },
+        "white": {
+          "size": {
+            "m": {
+              "item": "629e375a344509c0281bc108",
+              "price": 99,
+              "availableQty": 6
+            },
+            "lg": {
+              "item": "629e375e344509c0281bc10c",
+              "price": 99,
+              "availableQty": 6
+            }
+          },
+          "img": "https://m.media-amazon.com/images/I/71DaKKQ93ZL._AC_UL480_FMwebp_QL65_.jpg"
+        }
+      }
+    }
+  ]
+}

@@ -34,14 +34,14 @@ let  handler=async (req, res) =>{
             //  parent._doc.stock={}
             // }
           
-            b[tshirt.size]={item:tshirt._id}
+            b[tshirt.size]={item:tshirt._id,availableQty:tshirt.availableQty}
             let s={...parent._doc.stock}
             // s[tshirt.color]={size:b,img:tshirt.img}
             if(s[tshirt.color]===undefined){
                 s[tshirt.color]={size:b,img:tshirt.img,price:tshirt.price,availableQty:tshirt.availableQty}
             }
             else{
-                s[tshirt.color]={...s[tshirt.color],size:b}
+                s[tshirt.color]={...s[tshirt.color],size:b,availableQty:tshirt.availableQty+s[tshirt.color].availableQty}
             }
             parent._doc.stock=s
             // let newstock={...parent._doc.stock,tshirt.color:}

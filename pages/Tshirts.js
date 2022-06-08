@@ -1,9 +1,25 @@
 import Link from 'next/link'
-import React from 'react'
-
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import actions from "../State/actioncreators/Tshirts"
 const Tshirts = ({ res }) => {
-  let { products } = res
-  console.log(products);
+  let dispatch=useDispatch();
+  let {gettshirts}=bindActionCreators(actions,dispatch);
+  useEffect(()=>{
+    if (tshirts.length===0){
+      gettshirts();
+    }
+    setTimeout(() => {
+      if (tshirts.length===0) {
+        setmsg("No Items available")
+      }
+    }, 3000);
+  },[])
+  let [msg,setmsg]=useState("LOADING.........");
+  let {tshirts}=useSelector((state)=>state.tshirts)
+  // let { products } = res
+  let  products  = tshirts
   let count=0;
    count+=products.map(item=>{
     return item.availableQty
@@ -14,7 +30,7 @@ const Tshirts = ({ res }) => {
     <section className="text-gray-600 body-font bg-">
       <div className="container px-5 py-24 mx-auto">
         <div className="flex flex-wrap -m-4 justify-around">
-        {products.length===0 || count==0?<h1 className='text-2xl font-bold flex justify-center items-center'>No Items available</h1>:products.map((item) => {
+        {products.length===0 || count==0?<h1 className='text-2xl font-bold flex justify-center items-center text-gray-500'>{msg}</h1>:products.map((item) => {
            return (
              item.availableQty>0?
             <Link key={item._id} passHref={true} href={`/Products/${item._id}`}>
@@ -46,14 +62,14 @@ const Tshirts = ({ res }) => {
   )
 }
 
-export async function getServerSideProps(context) {
-  // let response = await fetch(`http://192.168.52.135:3000/api/getProducts?category=T-shirts`);
-  let response = await fetch(`http://localhost:3000/api/getProducts?category=T-shirts`);
-  let res = await response.json();
-  // console.log(res);
-  return {
-    props: { res }, // will be passed to the page component as props
-  }
-}
+// export async function getServerSideProps(context) {
+//   // let response = await fetch(`http://192.168.52.135:3000/api/getProducts?category=T-shirts`);
+//   let response = await fetch(`http://localhost:3000/api/getProducts?category=T-shirts`);
+//   let res = await response.json();
+//   // console.log(res);
+//   return {
+//     props: { res }, // will be passed to the page component as props
+//   }
+// }
 
 export default Tshirts

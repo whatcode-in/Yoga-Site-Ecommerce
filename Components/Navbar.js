@@ -46,7 +46,7 @@ const Navbar = () => {
         <AiOutlineShoppingCart onClick={toggle} />
       </div>
 
-      <div ref={ref} className="sidecart h-[100vh] w-72 top-28 md:top-16 right-0 absolute bg-pink-200  transform transition-transform translate-x-full z-10">
+      <div ref={ref} className="sidecart h-[100vh] w-72 top-28 md:top-16 right-0 absolute bg-pink-200 overflow-y-scroll  transform transition-transform translate-x-full z-10">
         <div className='bg-pink-200 p-10 pt-14 z-10'>
 
           <h2 className='text-2xl'>Shooping Cart</h2>

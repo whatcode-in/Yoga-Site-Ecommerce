@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import { AiOutlineClose, AiFillMinusCircle, AiFillPlusCircle } from "react-icons/ai"
 import { actioncreators } from '../State';
 const Checkout = () => {
-  
+
   let { cart, subtotal } = useSelector((state) => state.cart);
   let dispatch = useDispatch()
   let { addToCart, removeFromCart } = bindActionCreators(actioncreators.default, dispatch);
@@ -55,37 +55,38 @@ const Checkout = () => {
             <input type="text" id="state" name="state" className="w-full bg-opacity-50 rounded border border-gray-300 focus:border-pink-500 focus:bg-white focus:ring-2 focus:ring-pink-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
           </div>
         </div>
-      </div>      
+      </div>
       <h2 className='text-xl font-semibold mt-8'>2.&nbsp; Review Cart items</h2>
 
       <div className="sidecar bg-pink-50 mb-10 mt-4">
         <div className=' px-10 py-6 '>
-          <ol className='list-decimal flex flex-col'>
+          {/* <ol className={`list-decimal flex "flex-col"> */}
+          <ol className={`list-decimal flex ${Object.keys(cart).length>5?"flex-wrap justify-around m-5":"flex-col"}`}>
             {Object.keys(cart).length === 0 ? <div className='my-3'>Your cart is empty </div> :
-            Object.keys(cart).map((itemcode)=>{
-              // console.log(item);
-            return (
-              <li key={`${itemcode}`}>
-                <div className="flex my-3 space-x-5">
-                  <div className='p-3'>
-                    Lorem ipsum dolor sit amet, consectetur
-                  </div>
-                  <div className='flex flex-row space-x-2 items-center justify-center'>
-                    <AiFillMinusCircle onClick={()=>removeFromCart({itemcode,qty:1})} className='text-pink-700 cursor-pointer' /> <span>{cart[itemcode].qty}</span><AiFillPlusCircle onClick={()=>addToCart({itemcode,qty:1})} className='text-pink-700 cursor-pointer' />
-                  </div>
-                </div>
-              </li>)
-            })
+              Object.keys(cart).map((itemcode) => {
+                // console.log(item);
+                return (
+                  <li key={`${itemcode}`} >
+                    <div className="flex my-3 space-x-5">
+                      <div className='p-3'>
+                        {cart[itemcode].name}({cart[itemcode].size}/{cart[itemcode].variant})
+                      </div>
+                      <div className='flex flex-row space-x-2 items-center justify-center'>
+                        <AiFillMinusCircle onClick={() => removeFromCart({ itemcode, qty: 1 })} className='text-pink-700 cursor-pointer' /> <span>{cart[itemcode].qty}</span><AiFillPlusCircle onClick={() => addToCart({ itemcode, qty: 1 })} className='text-pink-700 cursor-pointer' />
+                      </div>
+                    </div>
+                  </li>)
+              })
             }
           </ol>
           <div className='my-3 font-bold text-center'>Amount: ₹{subtotal}</div>
           <div className='flex justify-center'>
 
-          <button className="flex text-white bg-pink-500 border-0 text-sm sm:text-base py-2 px-2 md:px-6 focus:outline-none hover:bg-pink-600 rounded">Pay Now</button>
+            <button className="flex text-white bg-pink-500 border-0 text-sm sm:text-base py-2 px-2 md:px-6 focus:outline-none hover:bg-pink-600 rounded">Pay Now</button>
           </div>
         </div>
-        </div>
-     
+      </div>
+
     </div>
   )
 }

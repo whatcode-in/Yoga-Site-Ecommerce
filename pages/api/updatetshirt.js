@@ -26,10 +26,14 @@ let result=null;
             //  parent.stock={}
             // }
           
-            b[tshirt.size]={item:tshirt._id}
+            b[tshirt.size]={item:tshirt._id,availableQty:tshirt.availableQty}
             let s={...parent.stock}
             // s[tshirt.color]={size:b,img:tshirt.img}
-            s[tshirt.color]={size:b,img:tshirt.img,price:tshirt.price,availableQty:tshirt.availableQty}
+            if(s[tshirt.color].availableQty===undefined){
+                s[tshirt.color]={size:b,img:tshirt.img,price:tshirt.price,availableQty:tshirt.availableQty}
+            }else{
+                s[tshirt.color]={size:b,img:tshirt.img,price:tshirt.price,availableQty:tshirt.availableQty+s[tshirt.color].availableQty}
+            }
             parent.stock=s
             // let newstock={...parent.stock,tshirt.color:}
             let newproduct={...parent._doc,color:Array.from(newcolor),size:Array.from(newsize),availableQty:parent.availableQty+req.body.availableQty}

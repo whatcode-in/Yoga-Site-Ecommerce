@@ -10,7 +10,7 @@ let reduser=(state={cart:{},subtotal:0},action)=>{
                 console.log(action.payload);
                 state.cart[action.payload.itemcode]=action.payload
                 state.subtotal+=action.payload.price
-                console.log(state.cart);
+                // console.log(state.cart);
             }
             // console.log("state",state);
             

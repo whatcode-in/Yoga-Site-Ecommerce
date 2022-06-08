@@ -7,7 +7,7 @@ const Mugs = ({res}) => {
       <section className="text-gray-600 body-font">
   <div className="container px-5 py-24 mx-auto">
     <div className="flex flex-wrap -m-4 justify-around">
-    {products.length===0?<h1 className='text-2xl font-bold flex justify-center items-center'>No Items available</h1>:products.map((item) => {
+    {products.length===0?<h1 className='text-2xl font-bold flex justify-center items-center text-gray-500'>No Items available</h1>:products.map((item) => {
             return <Link key={item._id} passHref={true} href={`/Products/${item._id}`}>
               <div className="lg:w-1/5 md:w-1/2 p-4 hover:cursor-pointer w-full m-12 border-2 rounded-md shadow-lg">
                 <a className="block h-48 rounded overflow-hidden pb-2">
