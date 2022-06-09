@@ -2,7 +2,7 @@ import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import actions from "../State/actioncreators/Tshirts"
+import actions from "../State/actioncreators/products"
 const Tshirts = ({ res }) => {
   let dispatch=useDispatch();
   let {gettshirts}=bindActionCreators(actions,dispatch);
@@ -14,10 +14,10 @@ const Tshirts = ({ res }) => {
       if (tshirts.length===0) {
         setmsg("No Items available")
       }
-    }, 3000);
+    }, 6000);
   },[])
   let [msg,setmsg]=useState("LOADING.........");
-  let {tshirts}=useSelector((state)=>state.tshirts)
+  let {tshirts}=useSelector((state)=>state.products)
   // let { products } = res
   let  products  = tshirts
   let count=0;
@@ -48,10 +48,19 @@ const Tshirts = ({ res }) => {
                     return <span key={i} className='border border-gray-500 px-1 mx-2 flex justify-center items-center flex-col'>{i}</span>
                   })}</p>
 
-                  <p className="mt-2 text-lg flex justify-center">{item?.color.map(i=>{
-                    // return <button key={i} className={`border-2 border-gray-300 ml-1 ${JSON.stringify(fun(i))}`}></button>
+                  <p className="mt-2 text-lg flex justify-center">
+                    {/* {item?.color.map(i=>{
                     return <button key={i} className={`border-2 border-gray-300 ml-1 ${i=="black" ||i=="white"?`bg-${i}`:`bg-${i}-500`} rounded-full w-6 h-6 focus:outline-none`}></button>
-                  })}</p>
+                  })} */}
+                  {item?.color.includes("black")&&<button key={"black"} className={`border-2 border-gray-300 ml-1 bg-black rounded-full w-6 h-6 focus:outline-none`}></button>}
+                  {item?.color.includes("white")&&<button key={"white"} className={`border-2 border-gray-300 ml-1 bg-white rounded-full w-6 h-6 focus:outline-none`}></button>}
+                  {item?.color.includes("pink")&&<button key={"pink"} className={`border-2 border-gray-300 ml-1 bg-pink-500 rounded-full w-6 h-6 focus:outline-none`}></button>}
+                  {item?.color.includes("orange")&&<button key={"orange"} className={`border-2 border-gray-300 ml-1 bg-orange-500 rounded-full w-6 h-6 focus:outline-none`}></button>}
+                  {item?.color.includes("red")&&<button key={"red"} className={`border-2 border-gray-300 ml-1 bg-red-500 rounded-full w-6 h-6 focus:outline-none`}></button>}
+                  {item?.color.includes("blue")&&<button key={"blue"} className={`border-2 border-gray-300 ml-1 bg-blue-500 rounded-full w-6 h-6 focus:outline-none`}></button>}
+                  {item?.color.includes("yellow")&&<button key={"yellow"} className={`border-2 border-gray-300 ml-1 bg-yellow-500 rounded-full w-6 h-6 focus:outline-none`}></button>}
+                  {item?.color.includes("green")&&<button key={"green"} className={`border-2 border-gray-300 ml-1 bg-green-500 rounded-full w-6 h-6 focus:outline-none`}></button>}
+                  </p>
                 </div>
               </div>
             </Link>:null)

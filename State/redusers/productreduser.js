@@ -1,4 +1,4 @@
-export let tshirtreduser=(state={tshirts:[],hoodies:[]},action)=>{
+export let productreduser=(state={tshirts:[],hoodies:[]},action)=>{
         switch (action.type) {
             case "GETALLTSHIRTS":
                 state.tshirts=action.payload

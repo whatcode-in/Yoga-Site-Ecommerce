@@ -1,1 +1,1 @@
-export * as actioncreators from "./actioncreators/product"
+export * as actioncreators from "./actioncreators/cart"
