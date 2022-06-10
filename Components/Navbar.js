@@ -59,7 +59,7 @@ const Navbar = () => {
               <li key={`${itemcode}`}>
                 <div className="flex my-3">
                   <div className='p-3'>
-                    {cart[itemcode].name}({cart[itemcode].size}/{cart[itemcode].variant})
+                    {cart[itemcode].name}({cart[itemcode].size!==undefined?cart[itemcode].size+"/":""}{cart[itemcode].variant})
                   </div>
                   <div className='flex flex-row space-x-2 items-center justify-center'>
                     <AiFillMinusCircle onClick={()=>removeFromCart({itemcode,qty:1})} className='text-pink-700 cursor-pointer' /> <span>{cart[itemcode].qty}</span><AiFillPlusCircle onClick={()=>addToCart({itemcode,qty:1})} className='text-pink-700 cursor-pointer' />

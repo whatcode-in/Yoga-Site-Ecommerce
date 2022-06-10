@@ -15,7 +15,7 @@ let fun = async (id, setproduct, setcolor, setimage, setsize) => {
   // console.log(res.product.size.split(","));
   setproduct(res.product)
   setimage(res.product.img)
-  setsize(Object.keys(res.product.stock[Object.keys(res.product.stock)[0]].size)[0])
+//   setsize(Object.keys(res.product.stock[Object.keys(res.product.stock)[0]].size)[0])
   setcolor(Object.keys(res.product.stock)[0])
   // return res.product
 }
@@ -37,7 +37,7 @@ const item = () => {
     setcolor(e.target.name);
     setimage(product.stock[e.target.name].img)
     // setsize(product.stock[product.stock[e.target.name]].size[0])
-    setsize(Object.keys(product.stock[e.target.name].size)[0])
+    // setsize(Object.keys(product.stock[e.target.name].size)[0])
   }
 
   // console.log("final",product);
@@ -96,7 +96,7 @@ const item = () => {
   }
 
   let refressize = (newsize) => {
-    setsize(newsize)
+    // setsize(newsize)
   }
 
   let buynow = (params) => {
@@ -115,7 +115,7 @@ const item = () => {
           </div>
           <div className="2xl:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0 m-auto">
             <h2 className="text-sm title-font text-gray-500 tracking-widest">{product.title}</h2>
-            <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">{product.desc}({size}/{color})</h1>
+            <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">{product.desc}({color})</h1>
             <div className="flex mb-4">
               <span className="flex items-center">
                 <svg fill="currentColor" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-4 h-4 text-pink-500" viewBox="0 0 24 24">
@@ -159,34 +159,17 @@ const item = () => {
                 <span className="mr-3">Color</span>
                 {
                   product?.stock != null &&
-                  product?.color.map(i => {
+                  product?.color?.map(i => {
                     return <button key={i} className={`border-2 ${color === i ? "border-black border-4" : "border-gray-300"} ml-1 ${i == "black" || i == "white" ? `bg-${i}` : `bg-${i}-500`} rounded-full w-6 h-6 focus:outline-none`} name={i} onClick={handleclick} hidden={product?.stock[i]?.availableQty <= 0 ? true : false}></button>
                   })
                 }
-                {/* <button className="border-2 border-gray-300 ml-1 rounded-full w-6 h-6 focus:outline-none"></button>
-                <button className="border-2 border-gray-300 ml-1 bg-gray-700 rounded-full w-6 h-6 focus:outline-none"></button>
-                <button className="border-2 border-gray-300 ml-1 bg-pink-500 rounded-full w-6 h-6 focus:outline-none"></button> */}
-              </div>
-              <div className="flex ml-6 items-center">
-                <span className="mr-3">Size</span>
-                <div className="">
-                  <select disabled={color === null ? true : false} className="rounded border appearance-none border-gray-300 py-2 focus:outline-none focus:ring-2 focus:ring-pink-200 focus:border-pink-500 text-base pl-3 pr-10" value={size} onChange={(e) => refressize(e.target.value)}>
-                    {
-                      product?.stock != null &&
-                      Object.keys(product?.stock[color].size).map((s) => {
-
-                        return <option key={s} value={s} disabled={product?.stock[color]["size"][s]?.availableQty <= 0 ? true : false} className={product?.stock[color]["size"][s]?.availableQty <= 0 ? "text-gray-300" : ""}>{s}</option>
-                      })
-                    }
-
-                  </select>
-                </div>
-              </div>
+                  </div>
+            
             </div>
             <div className="flex">
               <span className="title-font font-medium text-2xl text-gray-900">₹{product.stock !== undefined ? product?.stock[color]?.price : ""}</span>
-              <Link href={"/Checkout"}><a><button className="flex ml-4 text-white bg-pink-500 border-0 text-sm sm:text-base py-2 px-2 md:px-6 focus:outline-none hover:bg-pink-600 rounded" onClick={() => buynow({ itemcode: product?.stock[color].size[size].item, price: product?.stock[color]?.price, qty: 1, name: product.desc, size: size, variant: color })}>Buy Now</button></a></Link>
-              <button className="flex ml-4 text-white bg-pink-500 border-0 text-sm sm:text-base py-2 px-2 md:px-6 focus:outline-none hover:bg-pink-600 rounded" onClick={() =>{ addToCart({ itemcode: product?.stock[color].size[size].item, price: product?.stock[color]?.price, qty: 1, name: product.desc, size: size, variant: color });
+              <Link href={"/Checkout"}><a><button className="flex ml-4 text-white bg-pink-500 border-0 text-sm sm:text-base py-2 px-2 md:px-6 focus:outline-none hover:bg-pink-600 rounded" onClick={() => buynow({ itemcode: product?.stock[color].item, price: product?.stock[color]?.price, qty: 1, name: product.desc, variant: color })}>Buy Now</button></a></Link>
+              <button className="flex ml-4 text-white bg-pink-500 border-0 text-sm sm:text-base py-2 px-2 md:px-6 focus:outline-none hover:bg-pink-600 rounded" onClick={() =>{ addToCart({ itemcode: product?.stock[color].item, price: product?.stock[color]?.price, qty: 1, name: product.desc, variant: color });
               calltoast({type:"success",msg:"Item added successfully to the cart"})
               }}>Add to Cart</button>
             <button className="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
