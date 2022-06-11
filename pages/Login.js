@@ -1,27 +1,80 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Link from 'next/link'
+
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useRouter } from 'next/router';
+
 const Login = () => {
+  let router=useRouter()
+  let [data,setdata]=useState({email:"",password:""});
+  let handlechange=(event)=>{
+      setdata({...data,[event.target.name]:event.target.value});
+  }
+
+  let handlesubmit=async(event)=>{
+    event.preventDefault();
+    let res=await fetch('http://localhost:3000/api/login', {
+      method: 'POST', // or 'PUT'
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+
+    let response=await res.json();
+    if (response.success) {
+      toast.success("login Successful", {
+        position: "bottom-right",
+        autoClose: 1800,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark"
+      });
+     
+    } else {
+      toast.error(response.error, {
+        position: "bottom-right",
+        autoClose: 1800,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark"
+      });
+    }
+    if(response.success){
+      setTimeout(() => {
+        router.push("/")
+        
+      }, 100);
+    }
+  }
   return (
     <div
       className="mx-auto flex my-16 max-w-lg items-center justify-center text-black">
-      <section className="flex w-full flex-col space-y-10 px-5">
+      <form method='POST' onSubmit={handlesubmit} className="flex w-full flex-col space-y-10 px-5">
         <div className="text-center text-4xl font-medium">Log In</div>
 
         <div className="w-full px-3">
           <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="email">
             Email
           </label>
-          <input className="appearance-none block w-full  text-gray-700 border-2 border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-500" id="email" name='email' type="email" />
+          <input value={data.email} onChange={handlechange} className="appearance-none block w-full  text-gray-700 border-2 border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-500" id="email" name='email' type="email" />
         </div>
 
         <div className="w-full px-3">
           <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="password">
             password
           </label>
-          <input className="appearance-none block w-full  text-gray-700 border-2 border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-500" id="password" name='password' type="password" />
+          <input value={data.password} onChange={handlechange} className="appearance-none block w-full  text-gray-700 border-2 border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-500" id="password" name='password' type="password" />
         </div>
 
-        <button className="rounded-sm text-white bg-indigo-500 py-2 font-bold duration-300 hover:bg-indigo-700">
+        <button className="rounded-sm text-white bg-indigo-500 py-2 font-bold duration-300 hover:bg-indigo-700" type='submit'>
           LOG IN
         </button>
         <section className="flex w-full flex-col space-y-5">
@@ -32,7 +85,7 @@ const Login = () => {
           <Link href={"/Signup"}><a  href="#" className="font-medium  text-indigo-500 underline-offset-4 hover:underline" >Create One</a ></Link>
         </p>
         </section>
-      </section>
+      </form>
     </div>
   )
 }
