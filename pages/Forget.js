@@ -1,6 +1,14 @@
 import React from 'react'
 import Link from "next/link"
+import { useState } from 'react'
+import Router, { useRouter } from 'next/router'
 const Forget = () => {
+  let router=useRouter()
+  useState(()=>{
+    if (localStorage.getItem("token")) {
+      router.push("/")
+    }
+  })
   return (
     <div
       className="mx-auto flex my-16 max-w-lg items-center justify-center text-black">

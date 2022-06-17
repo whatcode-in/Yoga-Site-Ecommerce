@@ -4,10 +4,18 @@ import Link from 'next/link'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 
 const Login = () => {
   let router=useRouter()
   let [data,setdata]=useState({email:"",password:""});
+
+  useEffect(()=>{
+    if (localStorage.getItem("token")) {
+      router.push("/")
+    }
+  })
+
   let handlechange=(event)=>{
       setdata({...data,[event.target.name]:event.target.value});
   }
@@ -34,7 +42,7 @@ const Login = () => {
         progress: undefined,
         theme: "dark"
       });
-     
+     localStorage.setItem("token",response.token)
     } else {
       toast.error(response.error, {
         position: "bottom-right",

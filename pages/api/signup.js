@@ -1,6 +1,6 @@
 import connectdb from "../../Middleware/connectdb"
 import User from "../../Model/User"
-
+const CryptoJS = require("crypto-js");
 
 let  handler=async (req, res) =>{
 
@@ -13,7 +13,7 @@ let  handler=async (req, res) =>{
             lname:req.body.lname,
             name:req.body.fname+" "+ req.body.lname,
             email:req.body.email,
-            password:req.body.password,
+            password:CryptoJS.AES.encrypt(req.body.password, 'secret key 123').toString(),
             address:{
                 housenumber:addr[0],
                 socity:addr[1],

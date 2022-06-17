@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
 import React, { useEffect, useRef, useState } from 'react'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { actioncreators } from '../../State';
 import Link from "next/link"
@@ -13,6 +13,7 @@ let fun = async (id, setproduct, setcolor, setimage, setsize) => {
   let res = await product.json()
   // console.log(res);
   // console.log(res.product.size.split(","));
+ 
   setproduct(res.product)
   setimage(res.product.img)
   setsize(Object.keys(res.product.stock[Object.keys(res.product.stock)[0]].size)[0])
@@ -23,6 +24,7 @@ const item = () => {
   let router = useRouter();
   let { id } = router.query;
   //  console.log(id);
+  let {user}=useSelector((state)=>state.user)
   let [product, setproduct] = useState(null);
   let [color, setcolor] = useState(null);
   let [image, setimage] = useState(null);
@@ -185,8 +187,8 @@ const item = () => {
             </div>
             <div className="flex">
               <span className="title-font font-medium text-2xl text-gray-900">₹{product.stock !== undefined ? product?.stock[color]?.price : ""}</span>
-              <Link href={"/Checkout"}><a><button className="flex ml-4 text-white bg-pink-500 border-0 text-sm sm:text-base py-2 px-2 md:px-6 focus:outline-none hover:bg-pink-600 rounded" onClick={() => buynow({ itemcode: product?.stock[color].size[size].item, price: product?.stock[color]?.price, qty: 1, name: product.desc, size: size, variant: color })}>Buy Now</button></a></Link>
-              <button className="flex ml-4 text-white bg-pink-500 border-0 text-sm sm:text-base py-2 px-2 md:px-6 focus:outline-none hover:bg-pink-600 rounded" onClick={() =>{ addToCart({ itemcode: product?.stock[color].size[size].item, price: product?.stock[color]?.price, qty: 1, name: product.desc, size: size, variant: color });
+              <Link href={"/Checkout"}><a><button disabled={user===null?true:false} className="flex ml-4 text-white bg-pink-500 border-0 text-sm sm:text-base py-2 px-2 md:px-6 focus:outline-none hover:bg-pink-600 rounded" onClick={() => buynow({ itemcode: product?.stock[color].size[size].item, price: product?.stock[color]?.price, qty: 1, name: product.desc, size: size, variant: color })}>Buy Now</button></a></Link>
+              <button disabled={user===null?true:false} className="flex ml-4 text-white bg-pink-500 border-0 text-sm sm:text-base py-2 px-2 md:px-6 focus:outline-none hover:bg-pink-600 rounded" onClick={() =>{ addToCart({ itemcode: product?.stock[color].size[size].item, price: product?.stock[color]?.price, qty: 1, name: product.desc, size: size, variant: color });
               calltoast({type:"success",msg:"Item added successfully to the cart"})
               }}>Add to Cart</button>
             <button className="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">

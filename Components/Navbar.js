@@ -1,17 +1,29 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React, { useRef } from 'react'
+import { useState } from 'react'
 import { AiOutlineShoppingCart, AiOutlineClose, AiFillMinusCircle, AiFillPlusCircle } from "react-icons/ai"
 import { BsFillBagCheckFill } from "react-icons/bs"
 import { CgProfile } from "react-icons/cg"
 import { useDispatch, useSelector } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { actioncreators } from '../State/index'
+
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useRouter } from 'next/router'
+import { useEffect } from 'react'
+      
 const Navbar = () => {
   let ref = useRef();
   // let ref=React.forwardRef();
+  let router=useRouter();
 
   let { cart, subtotal } = useSelector((state) => state.cart);
+  let {user}=useSelector((state)=>state.user)
+  // console.log(user);
+
+  let [dropdown,setdropdown]=useState(false)
   let dispatch = useDispatch()
   let { addToCart, removeFromCart, clearCart } = bindActionCreators(actioncreators.default, dispatch);
 
@@ -24,6 +36,24 @@ const Navbar = () => {
       ref.current.classList.remove("translate-x-0")
       ref.current.classList.add("translate-x-full")
     }
+  }
+
+  let logout=()=>{
+    toast.success("logout Successful", {
+      position: "bottom-right",
+      autoClose: 1800,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark"
+    });
+   localStorage.removeItem("token")
+    setTimeout(() => {
+      router.push("/")
+      window.location.reload(false)
+    }, 100);
   }
   return (
     <nav className='navbar flex flex-col sticky top-0 justify-center items-center py-2 md:flex-row bg-white shadow-lg'>
@@ -41,10 +71,23 @@ const Navbar = () => {
         <Link href="/Stickers"><a><li className='hover:text-pink-500'>Stickers</li></a></Link>
         <Link href="/Mugs"><a><li className='hover:text-pink-500'>Mugs</li></a></Link>
       </ul>
+          {user===null && <Link href={"/Login"}><a><button className='bg-pink-400 rounded-lg absolute right-6 top-4 text-white text-lg py-1 px-2'>Login</button>  </a></Link>}
+          
+          {user!==null && 
       <div  className="cart flex space-x-2 sm:space-x-5 cursor-pointer absolute text-2xl right-6 top-4 sm:top-6 sm:text-3xl ">
-        <Link href={"/Login"}><a><CgProfile/></a></Link>
+        <Link href=""><a  onMouseOver={()=>setdropdown(true)} onMouseLeave={()=>setdropdown(false)}>
+          <CgProfile/>
+          </a></Link>
         <AiOutlineShoppingCart onClick={toggle} />
-      </div>
+       
+      </div>}
+      {dropdown==true && <div className='absolute top-10 md:top-12 font-semibold right-14  md:right-20 w-36 bg-white text-center py-3 flex flex-col rounded-lg'  onMouseOver={()=>setdropdown(true)} onMouseLeave={()=>setdropdown(false)}>
+            <ul>
+              <Link href={"/Myaccount"}><a><li className='hover:text-pink-700 hover:cursor-pointer py-2'>My Account</li></a></Link>
+              <Link href={"/Order"}><a><li className='hover:text-pink-700 hover:cursor-pointer py-2'>Orders</li></a></Link>
+              <a><li onClick={logout} className='hover:text-pink-700 hover:cursor-pointer py-2'>Logout</li></a>
+            </ul>
+            </div>}
 
       <div ref={ref} className="sidecart h-[100vh] w-72 top-28 md:top-16 right-0 absolute bg-pink-200 overflow-y-scroll  transform transition-transform translate-x-full z-10">
         <div className='bg-pink-200 p-10 pt-14 z-10'>

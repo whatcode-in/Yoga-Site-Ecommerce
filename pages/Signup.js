@@ -11,6 +11,12 @@ const Sginup = () => {
     setdata({ ...data, [event.target.name]: event.target.value })
   }
 
+  useState(()=>{
+    if (localStorage.getItem("token")) {
+      router.push("/")
+    }
+  })
+
   let submit = async (event) => {
     event.preventDefault()
     if (data.cpassword===data.password) {
