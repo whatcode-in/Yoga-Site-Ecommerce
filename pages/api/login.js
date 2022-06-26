@@ -10,7 +10,7 @@ let  handler=async (req, res) =>{
         let user=await User.findOne({"email":req.body.email})
         if (user) {
             if (CryptoJS.AES.decrypt(user.password, 'secret key 123').toString(CryptoJS.enc.Utf8)===req.body.password && user.email===req.body.email){
-                const token = jwt.sign({email:user.email,password:user.password}, 'jwttoeknsecret');
+                const token = jwt.sign({email:user.email,password:user.password,id:user._id}, 'jwttoeknsecret');
                
                 return res.status(200).json({success:true,user,token})
             }
@@ -20,7 +20,7 @@ let  handler=async (req, res) =>{
         }
     }
     else{
-        return  res.status(400).json({ error:"this method is not allowed" })
+        return  res.status(400).json({success:false, error:"this method is not allowed" })
     }
   }
   

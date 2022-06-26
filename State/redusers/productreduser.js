@@ -1,15 +1,17 @@
+import { GETALLHOODIES, GETALLMUGS, GETALLSTCIKERS, GETALLTSHIRTS } from "../../Constents"
+
 export let productreduser=(state={tshirts:[],hoodies:[],mugs:[],stickers:[]},action)=>{
         switch (action.type) {
-            case "GETALLTSHIRTS":
+            case GETALLTSHIRTS:
                 state.tshirts=action.payload
                 return {...state}
-            case "GETALLHOODIES":
+            case GETALLHOODIES:
                 state.hoodies=action.payload
                 return {...state}
-            case "GETALLMUGS":
+            case GETALLMUGS:
                 state.mugs=action.payload
                 return {...state}
-            case "GETALLSTICKERS":
+            case GETALLSTCIKERS:
                 state.stickers=action.payload
                 return {...state}
             default:

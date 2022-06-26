@@ -27,7 +27,7 @@ const Tshirts = ({ res }) => {
 
 
   return (
-    <section className="text-gray-600 body-font bg-">
+    <section className="text-gray-600 body-font">
       <div className="container px-5 py-24 mx-auto">
         <div className="flex flex-wrap -m-4 justify-around">
         {products.length===0 || count==0?<h1 className='text-2xl font-bold flex justify-center items-center text-gray-500'>{msg}</h1>:products.map((item) => {
@@ -73,7 +73,7 @@ const Tshirts = ({ res }) => {
 
 // export async function getServerSideProps(context) {
 //   // let response = await fetch(`http://192.168.52.135:3000/api/getProducts?category=T-shirts`);
-//   let response = await fetch(`http://localhost:3000/api/getProducts?category=T-shirts`);
+//   let response = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/getProducts?category=T-shirts`);
 //   let res = await response.json();
 //   // console.log(res);
 //   return {

@@ -51,9 +51,9 @@ const Navbar = () => {
     });
    localStorage.removeItem("token")
     setTimeout(() => {
-      router.push("/")
       window.location.reload(false)
-    }, 100);
+      router.push("/")
+    }, 200);
   }
   return (
     <nav className='navbar flex flex-col sticky top-0 justify-center items-center py-2 md:flex-row bg-white shadow-lg'>
@@ -84,12 +84,12 @@ const Navbar = () => {
       {dropdown==true && <div className='absolute top-10 md:top-12 font-semibold right-14  md:right-20 w-36 bg-white text-center py-3 flex flex-col rounded-lg'  onMouseOver={()=>setdropdown(true)} onMouseLeave={()=>setdropdown(false)}>
             <ul>
               <Link href={"/Myaccount"}><a><li className='hover:text-pink-700 hover:cursor-pointer py-2'>My Account</li></a></Link>
-              <Link href={"/Order"}><a><li className='hover:text-pink-700 hover:cursor-pointer py-2'>Orders</li></a></Link>
+              <Link href={"/Orders"}><a><li className='hover:text-pink-700 hover:cursor-pointer py-2'>Orders</li></a></Link>
               <a><li onClick={logout} className='hover:text-pink-700 hover:cursor-pointer py-2'>Logout</li></a>
             </ul>
             </div>}
 
-      <div ref={ref} className="sidecart h-[100vh] w-72 top-28 md:top-16 right-0 absolute bg-pink-200 overflow-y-scroll  transform transition-transform translate-x-full z-10">
+      <div ref={ref} className="sidecart h-[100vh] w-72 top-28 md:top-16 right-0 absolute bg-pink-200  transform transition-transform translate-x-full z-10">
         <div className='bg-pink-200 p-10 pt-14 z-10'>
 
           <h2 className='text-2xl'>Shooping Cart</h2>

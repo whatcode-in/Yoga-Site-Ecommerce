@@ -1,7 +1,9 @@
+import { SETUSER } from '../../Constents';
+
 const jwt=require('jsonwebtoken')
 export let userreduser=(state={user:null},action)=>{
     switch (action.type) {
-        case "SETUSER":
+        case SETUSER:
             state.user=jwt.decode(action.payload,"jwttoeknsecret");
             return {...state}
     

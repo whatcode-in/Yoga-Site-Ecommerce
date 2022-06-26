@@ -86,7 +86,7 @@ const Hoodies = ({ res }) => {
 
 
 // export async function getServerSideProps(context) {
-//   let response = await fetch(`http://localhost:3000/api/getProducts?category=Hoodies`);
+//   let response = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/getProducts?category=Hoodies`);
 //   let res = await response.json();
 //   // console.log(res);
 //   return {

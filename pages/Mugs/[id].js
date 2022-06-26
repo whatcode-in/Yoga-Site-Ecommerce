@@ -8,7 +8,7 @@ import Link from "next/link"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 let fun = async (id, setproduct, setcolor, setimage, setsize) => {
-  let product = await fetch(`http://localhost:3000/api/getProductById?id=${id}`)
+  let product = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/getProductById?id=${id}`)
   // let product=await fetch(`http://192.168.52.135:3000/api/getProductById?id=${id}`)
   let res = await product.json()
   // console.log(res);

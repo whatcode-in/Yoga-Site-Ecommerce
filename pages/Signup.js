@@ -11,6 +11,7 @@ const Sginup = () => {
     setdata({ ...data, [event.target.name]: event.target.value })
   }
 
+
   useState(()=>{
     if (localStorage.getItem("token")) {
       router.push("/")
@@ -21,7 +22,7 @@ const Sginup = () => {
     event.preventDefault()
     if (data.cpassword===data.password) {
       
-    let res=await fetch('http://localhost:3000/api/signup', {
+    let res=await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/signup`, {
       method: 'POST', // or 'PUT'
       headers: {
         'Content-Type': 'application/json',

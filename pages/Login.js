@@ -6,10 +6,13 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 
+import { useDispatch } from 'react-redux';
+import { setuser} from "../State/actioncreators/user"
 const Login = () => {
   let router=useRouter()
   let [data,setdata]=useState({email:"",password:""});
 
+  let dispatch=useDispatch()
   useEffect(()=>{
     if (localStorage.getItem("token")) {
       router.push("/")
@@ -22,7 +25,7 @@ const Login = () => {
 
   let handlesubmit=async(event)=>{
     event.preventDefault();
-    let res=await fetch('http://localhost:3000/api/login', {
+    let res=await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/login`, {
       method: 'POST', // or 'PUT'
       headers: {
         'Content-Type': 'application/json',
@@ -43,6 +46,7 @@ const Login = () => {
         theme: "dark"
       });
      localStorage.setItem("token",response.token)
+     dispatch(setuser(response.token))
     } else {
       toast.error(response.error, {
         position: "bottom-right",

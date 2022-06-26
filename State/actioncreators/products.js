@@ -1,26 +1,28 @@
+import { GETALLHOODIES, GETALLMUGS, GETALLSTCIKERS, GETALLTSHIRTS} from "../../Constents";
+
 export let  gettshirts = () => async (dispatch) => {
-    // console.log(data);
-    let response = await fetch(`http://localhost:3000/api/getProducts?category=T-shirts`);
+    // console.log(process.env.NEXT_PUBLIC_HOST);
+    let response = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/getProducts?category=T-shirts`);
     let {products} = await response.json();
-    dispatch({ type: "GETALLTSHIRTS", payload: products })
+    dispatch({ type: GETALLTSHIRTS, payload: products })
 }
 export let  gethoodies = () => async (dispatch) => {
     // console.log(data);
-    let response = await fetch(`http://localhost:3000/api/getProducts?category=Hoodies`);
+    let response = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/getProducts?category=Hoodies`);
     let {products} = await response.json();
-    dispatch({ type: "GETALLHOODIES", payload: products })
+    dispatch({ type: GETALLHOODIES, payload: products })
 }
 export let  getmugs = () => async (dispatch) => {
     // console.log(data);
-    let response = await fetch(`http://localhost:3000/api/getProducts?category=Mugs`);
+    let response = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/getProducts?category=Mugs`);
     let {products} = await response.json();
-    dispatch({ type: "GETALLMUGS", payload: products })
+    dispatch({ type: GETALLMUGS, payload: products })
 }
 export let  getstickers = () => async (dispatch) => {
     // console.log(data);
-    let response = await fetch(`http://localhost:3000/api/getProducts?category=STICKERS`);
+    let response = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/getProducts?category=STICKERS`);
     let {products} = await response.json();
-    dispatch({ type: "GETALLSTCIKERS", payload: products })
+    dispatch({ type:GETALLSTCIKERS, payload: products })
 }
 
 
