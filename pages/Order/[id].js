@@ -1,6 +1,21 @@
-import React from 'react'
-
+import React, { useEffect } from 'react'
+import { useRouter } from "next/router"
+import { useDispatch } from 'react-redux'
+import { getOrder } from '../../State/actioncreators/Order'
+import { useSelector } from 'react-redux'
 const Order = () => {
+  let router = useRouter()
+  let { id } = router.query
+  let dispatch = useDispatch();
+
+  let { order } = useSelector((state) => state.order)
+  useEffect(() => {
+    if (order == null) {
+      dispatch(getOrder(id));
+    }
+  }, [])
+
+  console.log(order);
   return (
     <section className="text-gray-600 body-font overflow-hidden">
       <div className="container px-5 py-24 mx-auto">
@@ -13,24 +28,20 @@ const Order = () => {
               <a className="flex-grow border-b-2 mx-auto py-2 text-lg px-1 w-1/3">Quantity</a>
               <a className="flex-grow border-b-2 mx-auto  py-2 text-lg px-1 w-1/3">Price</a>
             </div>
-            <div className="flex border-t border-gray-200 py-2 text-center">
-              <span className="text-gray-500 flex-grow border-b-2 mx-auto py-2 px-1 w-1/3">Wear the code (xl/black)</span>
-              <span className="text-gray-500 flex-grow border-b-2 mx-auto py-2 px-1 w-1/3">1</span>
-              <span className="text-gray-500 flex-grow border-b-2 mx-auto py-2 px-1 w-1/3">₹499.00</span>
-            </div>
-            <div className="flex border-t border-gray-200 py-2 text-center">
-              <span className="text-gray-500 flex-grow border-b-2 mx-auto py-2 px-1 w-1/3">Wear the code (xl/black)</span>
-              <span className="text-gray-500 flex-grow border-b-2 mx-auto py-2 px-1 w-1/3">1</span>
-              <span className="text-gray-500 flex-grow border-b-2 mx-auto py-2 px-1 w-1/3">₹499.00</span>
-            </div>
-            <div className="flex border-t border-gray-200 py-2 text-center">
-              <span className="text-gray-500 flex-grow border-b-2 mx-auto py-2 px-1 w-1/3">Wear the code (xl/black)</span>
-              <span className="text-gray-500 flex-grow border-b-2 mx-auto py-2 px-1 w-1/3">1</span>
-              <span className="text-gray-500 flex-grow border-b-2 mx-auto py-2 px-1 w-1/3">₹499.00</span>
-            </div>
+            {
+              order!==null &&
+              Object.keys(order.products).map((itemcode) => {
+                return <div className="flex border-t border-gray-200 py-2 text-center">
+                  <span className="text-gray-500 flex-grow border-b-2 mx-auto py-2 px-1 w-1/3">{order.products[itemcode].name} {order.products[itemcode].size==null?order.products[itemcode].variant:`(${order.products[itemcode].size}/${order.products[itemcode].variant})`}</span>
+                  <span className="text-gray-500 flex-grow border-b-2 mx-auto py-2 px-1 w-1/3">{order.products[itemcode].qty}</span>
+                  <span className="text-gray-500 flex-grow border-b-2 mx-auto py-2 px-1 w-1/3">₹{order.products[itemcode].qty*order.products[itemcode].price}</span>
+                </div>
+              })
+            }
+
 
             <div className="flex items-center flex-col space-y-3">
-              <span className="title-font font-medium text-2xl text-gray-900">₹1500.00</span>
+              <span className="title-font font-medium text-2xl text-gray-900">₹{order.amount}</span>
               <button className="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded w-fit">Track Order</button>
 
             </div>

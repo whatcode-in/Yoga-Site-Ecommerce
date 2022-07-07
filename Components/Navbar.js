@@ -13,7 +13,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
-      
+import logo from "../assets/images/home/logo.svg"
 const Navbar = () => {
   let ref = useRef();
   // let ref=React.forwardRef();
@@ -56,29 +56,32 @@ const Navbar = () => {
     }, 200);
   }
   return (
-    <nav className='navbar flex flex-col sticky top-0 justify-center items-center py-2 md:flex-row bg-white shadow-lg'>
+    <nav className='navbar flex flex-col sticky top-0 justify-center items-center py-2 md:flex-row bg-green-900 shadow-lg'>
       <div className='md:absolute md:left-5 md:top-3 '>
         <Link className="logo hover:cursor-pointer" href="/">
           <a>
-            <Image src="/logo.png" width={200} height={40} />
+          <img
+                  alt="logo"
+                  src={logo}
+                />
           </a>
         </Link>
       </div>
       <ul className='py-2 space-x-3 md:space-x-6 font-bold flex space-y-2 flex-row text-sm md:text-base'>
         <li></li>
-        <Link href="/Tshirts"><a><li className='hover:text-pink-500'>Tshirts</li></a></Link>
-        <Link href="/Hoodies"><a><li className='hover:text-pink-500'>Hoodies</li></a></Link>
-        <Link href="/Stickers"><a><li className='hover:text-pink-500'>Stickers</li></a></Link>
-        <Link href="/Mugs"><a><li className='hover:text-pink-500'>Mugs</li></a></Link>
+        <Link href="/Tshirts"><a><li className='text-white'>item1</li></a></Link>
+        <Link href="/Hoodies"><a><li className='text-white'>item2</li></a></Link>
+        <Link href="/Stickers"><a><li className='text-white'>item3</li></a></Link>
+        <Link href="/Mugs"><a><li className='text-white'>item3</li></a></Link>
       </ul>
           {user===null && <Link href={"/Login"}><a><button className='bg-pink-400 rounded-lg absolute right-6 top-4 text-white text-lg py-1 px-2'>Login</button>  </a></Link>}
           
           {user!==null && 
       <div  className="cart flex space-x-2 sm:space-x-5 cursor-pointer absolute text-2xl right-6 top-4 sm:top-6 sm:text-3xl ">
         <Link href=""><a  onMouseOver={()=>setdropdown(true)} onMouseLeave={()=>setdropdown(false)}>
-          <CgProfile/>
+          <CgProfile className='text-white'/>
           </a></Link>
-        <AiOutlineShoppingCart onClick={toggle} />
+        <AiOutlineShoppingCart onClick={toggle}  className="text-white"/>
        
       </div>}
       {dropdown==true && <div className='absolute top-10 md:top-12 font-semibold right-14  md:right-20 w-36 bg-white text-center py-3 flex flex-col rounded-lg'  onMouseOver={()=>setdropdown(true)} onMouseLeave={()=>setdropdown(false)}>
@@ -93,7 +96,7 @@ const Navbar = () => {
         <div className='bg-pink-200 p-10 pt-14 z-10'>
 
           <h2 className='text-2xl'>Shooping Cart</h2>
-          <span onClick={toggle} className='cursor-pointer absolute top-5 right-3 text-xl'><AiOutlineClose /></span>
+          <span onClick={toggle} className='cursor-pointer absolute top-5 right-3 text-xl'><AiOutlineClose/></span>
           <ol className='list-decimal flex flex-col'>
             {Object.keys(cart).length === 0 ? <div className='my-3'>Your cart is empty </div> :
             Object.keys(cart).map((itemcode)=>{
