@@ -18,17 +18,16 @@ import { actioncreators } from '../State';
 import { AiFillMinusCircle, AiFillPlusCircle } from 'react-icons/ai';
 export default function Home() {
   let dispatch = useDispatch();
-  let { gettshirts } = bindActionCreators(actions, dispatch);
   let { mugs } = useSelector((state) => state.products)
 
   let { cart, subtotal } = useSelector((state) => state.cart);
   console.log(cart);
-  let { addToCart, removeFromCart, clearCart } = bindActionCreators(actioncreators.default, dispatch);
   useEffect(() => {
     dispatch(getmugs())
     setproducts([...product, ...mugs])
     console.log([...product, ...mugs]);
   }, [])
+  let { addToCart, removeFromCart, clearCart } = bindActionCreators(actioncreators.default, dispatch);
 
   const [search, setSearch] = useState([]);
   let [product, setproducts] = useState([]);
@@ -59,7 +58,7 @@ export default function Home() {
       <div className="search-products">
         <div className="container">
           <div className="search-field-title-container">
-            <p className='text-3xl'>Find the best, organic and cleansing products for you at <br /> the MAVA Store</p>
+            <p className='text-3xl'>Find the best, organic and cleansing products for you at the MAVA Store</p>
             <div className="search-input-holder mb-5">
               <input
                 onChange={handleSearch}
