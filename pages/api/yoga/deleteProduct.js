@@ -10,8 +10,8 @@ import {
 export default async function handler(req, res) {
     if (req.method==='DELETE') {
   try {
-    let product = doc(db, "product",req.body.id)
-    let responce = await deleteDoc(product,req.body.data);
+    let product = doc(db, "product",req.body)
+    let responce = await deleteDoc(product);
     return res.status(200).json({ data: responce, success: true })
   }
   catch (error) {

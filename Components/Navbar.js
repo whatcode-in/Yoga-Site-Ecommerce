@@ -69,7 +69,7 @@ const Navbar = () => {
       </div>
       <ul className='py-2 space-x-3 md:space-x-6 font-bold flex space-y-2 flex-row text-sm md:text-base'>
         <li></li>
-        <Link href="/Tshirts"><a><li className='text-white'>item1</li></a></Link>
+        <Link href="/Category/Electronics"><a><li className='text-white'>Electronics</li></a></Link>
         <Link href="/Hoodies"><a><li className='text-white'>item2</li></a></Link>
         <Link href="/Stickers"><a><li className='text-white'>item3</li></a></Link>
         <Link href="/Mugs"><a><li className='text-white'>item3</li></a></Link>
@@ -105,7 +105,7 @@ const Navbar = () => {
               <li key={`${itemcode}`}>
                 <div className="flex my-3">
                   <div className='p-3'>
-                    {cart[itemcode].name}({cart[itemcode].size!==undefined?cart[itemcode].size+"/":""}{cart[itemcode].variant})
+                    {cart[itemcode].name}
                   </div>
                   <div className='flex flex-row space-x-2 items-center justify-center'>
                     <AiFillMinusCircle onClick={()=>removeFromCart({itemcode,qty:1})} className='text-pink-700 cursor-pointer' /> <span>{cart[itemcode].qty}</span><AiFillPlusCircle onClick={()=>addToCart({itemcode,qty:1})} className='text-pink-700 cursor-pointer' />

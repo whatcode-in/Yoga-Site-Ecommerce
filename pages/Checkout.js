@@ -73,13 +73,13 @@ const Checkout = () => {
         <div className="p-2 w-1/2">
           <div className="">
             <label htmlFor="city" className="leading-7 text-sm text-gray-600 mb-1">City</label>
-            <input type="text" id="city" name="city" className="w-full bg-opacity-50 rounded border border-gray-300 focus:border-pink-500 focus:bg-white focus:ring-2 focus:ring-pink-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" value={data.city} readOnly={true} />
+            <input type="text" id="city" name="city" className="w-full bg-opacity-50 rounded border border-gray-300 focus:border-pink-500 focus:bg-white focus:ring-2 focus:ring-pink-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" value={data.city}  onChange={handlechange}/>
           </div>
         </div>
         <div className="p-2 w-1/2">
           <div className="">
             <label htmlFor="state" className="leading-7 text-sm text-gray-600 mb-1">State</label>
-            <input type="text" id="state" name="state" className="w-full bg-opacity-50 rounded border border-gray-300 focus:border-pink-500 focus:bg-white focus:ring-2 focus:ring-pink-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" value={data.state} readOnly={true}/>
+            <input type="text" id="state" name="state" className="w-full bg-opacity-50 rounded border border-gray-300 focus:border-pink-500 focus:bg-white focus:ring-2 focus:ring-pink-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" value={data.state} onChange={handlechange} />
           </div>
         </div>
       </div>
@@ -96,7 +96,7 @@ const Checkout = () => {
                   <li key={`${itemcode}`} >
                     <div className="flex my-3 space-x-5">
                       <div className='p-3'>
-                        {cart[itemcode].name}({cart[itemcode].size!==undefined?cart[itemcode].size+"/":""}{cart[itemcode].variant})
+                        {cart[itemcode].name}
                       </div>
                       <div className='flex flex-row space-x-2 items-center justify-center'>
                         <AiFillMinusCircle onClick={() => removeFromCart({ itemcode, qty: 1 })} className='text-pink-700 cursor-pointer' /> <span>{cart[itemcode].qty}</span><AiFillPlusCircle onClick={() => addToCart({ itemcode, qty: 1 })} className='text-pink-700 cursor-pointer' />

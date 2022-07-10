@@ -1,3 +1,5 @@
+import { motion } from "framer-motion"
+import Backdrop from './Backdrop'
 import {
     Button,
     FormControl,
@@ -6,49 +8,57 @@ import {
     Select,
     TextField,
   } from "@mui/material";
-  import React from "react";
-import { useState } from "react";
-  import Temp from "./Temp"
+  
   import Filebase from "react-file-base64";
 import { useDispatch } from "react-redux";
-import { addProduct } from "../../State/actioncreators/mavaproduct";
-  export default function AddProduct() {
+import { updateProduct } from "../../State/actioncreators/mavaproduct";
+const dropin = {
+    hidden: {
+        y: "-100vh",
+        opacity: 0
+    },
+    visible: {
+        y: "0",
+        opacity: 1,
+        transition: {
+            duration: 0.1,
+            type: "spring",
+            damping: 25,
+            stiffness: 500
+        }
+    },
+    exit: {
+        y: "100vh",
+        opacity: 0
+    }
+}
 
-  
-    let [data,setdata]=useState({name:"",desc:"",category:"",rating:"",price:0,img:null,stock:""})
-  
+const Modal = ({handleClose,data,setdata}) => {
     let handleChange=(event)=>{
         setdata({...data,[event.target.name]:event.target.value})
     }
+    let dispstach=useDispatch();
 
-    let dispatch=useDispatch()
-
-    let handleSubmit=async(e)=>{
-        e.preventDefault();
-        if(data.name=="" || data.desc=="" || data.category=="" || data.rating=="" || data.price<=0 || data.img==null || data.stock==""){
-          alert("improper values")
-        }
-        else{
-
-          // let response = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/yoga/addProduct`,{
-          //   method: 'POST', // or 'PUT'
-          //   headers: {
-          //     'Content-Type': 'application/json',
-          //   },
-          //   body: JSON.stringify(data),
-          // });
-          // let id = await response.json();
-          // console.log(id);
-          dispatch(addProduct(data));
-          setdata({name:"",desc:"",category:"",rating:"",price:0,img:null,stock:""})
-        }
+    let handleSubmit=(e)=>{
+        e.preventDefault()
+        dispstach(updateProduct(data))
+        handleClose()
     }
+  return (
+    <Backdrop
+            onClick={handleClose}
+        >
 
-  
-    return (
-        <div className="flex">
-        <Temp/>
-      <div className="mt-5 p-5">
+<motion.div
+                    onClick={(e) => e.stopPropagation()}
+                    variants={dropin}
+                    initial="hidden"
+                    animate="visible"
+                    exit="exit"
+                     className="motion-modal"
+                >
+                    
+                    <div className="mt-5 p-5">
         <h3>Add Product</h3>
         <input
           onChange={handleChange}
@@ -131,7 +141,9 @@ import { addProduct } from "../../State/actioncreators/mavaproduct";
             Submit
           </Button>
       </div>
-      </div>
-    );
-  }
-  
+                    </motion.div>
+            </Backdrop>
+  )
+}
+
+export default Modal
