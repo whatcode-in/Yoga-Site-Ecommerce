@@ -41,7 +41,11 @@ const Modal = ({handleClose,data,setdata}) => {
 
     let handleSubmit=(e)=>{
         e.preventDefault()
+        if(data.name=="" || data.desc=="" || data.category=="" || data.rating=="" || data.price<=0 || data.img==null || data.stock==""){
+          alert("improper values")
+        }else{
         dispstach(updateProduct(data))
+        }
         handleClose()
     }
   return (

@@ -81,7 +81,7 @@ export default function Home() {
                               <h3 className="text-gray-500 text-md tracking-widest title-font mb-1">{item.category}</h3>
                               <h2 className="text-gray-900 title-font text-xl font-medium">{item.name}</h2>
                               <p className="mt-1">{item.desc.slice(0,60)}...</p>
-                              <p className="mt-1 text-lg">₹{item.price}</p>
+                              <p className="mt-1 text-lg">€{item.price}</p>
                             </div>
                           </div>
                         )
@@ -107,7 +107,7 @@ export default function Home() {
                       <div className=" mt-4">
                         <h2 className="text-gray-900 title-font text-xl font-medium">{item.name}</h2>
                         <div className='my-3 px-5 flex justify-between'>
-                          <p className="text-lg">₹{item.price}</p>
+                          <p className="text-lg">€{item.price}</p>
                           <div className='py-2 px-3 border-2 rounded inline-block'>
                             in stock
                           </div>

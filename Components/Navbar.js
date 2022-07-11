@@ -70,9 +70,9 @@ const Navbar = () => {
       <ul className='py-2 space-x-3 md:space-x-6 font-bold flex space-y-2 flex-row text-sm md:text-base'>
         <li></li>
         <Link href="/Category/Electronics"><a><li className='text-white'>Electronics</li></a></Link>
-        <Link href="/Hoodies"><a><li className='text-white'>item2</li></a></Link>
-        <Link href="/Stickers"><a><li className='text-white'>item3</li></a></Link>
-        <Link href="/Mugs"><a><li className='text-white'>item3</li></a></Link>
+        <Link href="/Category/Groceries"><a><li className='text-white'>Groceries</li></a></Link>
+        <Link href="/Category/Home-Kitchen"><a><li className='text-white'>Home & Kitchen</li></a></Link>
+        <Link href="/Category/Books"><a><li className='text-white'>Books</li></a></Link>
       </ul>
           {user===null && <Link href={"/Login"}><a><button className='bg-pink-400 rounded-lg absolute right-6 top-4 text-white text-lg py-1 px-2'>Login</button>  </a></Link>}
           
@@ -115,7 +115,7 @@ const Navbar = () => {
             })
             }
           </ol>
-          <div className='my-3 font-bold text-center'>Amount:&nbsp; ₹{subtotal}</div>
+          <div className='my-3 font-bold text-center'>Amount:&nbsp; €{subtotal}</div>
           <div className='flex'>
             <Link href={"/Checkout"}><a> <button className="flex mr-2 text-white bg-indigo-500 border-0 p-2 focus:outline-none hover:bg-indigo-600 rounded text-sm items-center my-4"><BsFillBagCheckFill className='mr-2' />Check out</button></a></Link>
             <button onClick={clearCart} className="flex mr-2 text-white bg-indigo-500 border-0 p-2 focus:outline-none hover:bg-indigo-600 rounded text-sm items-center my-4">Clear Cart</button>

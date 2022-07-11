@@ -70,7 +70,7 @@ const item = () => {
               <div className="flex mt-6 items-center pb-5 border-b-2 border-gray-100 mb-5">
               </div>
               <div className="flex">
-                <span className="title-font font-medium text-2xl text-gray-900">${product.price}</span>
+                <span className="title-font font-medium text-2xl text-gray-900">€{product.price}</span>
                
                 <Link href={"/Checkout"}><a><button disabled={user===null?true:false} className="flex ml-4 text-white bg-pink-500 border-0 text-sm sm:text-base py-2 px-2 md:px-6 focus:outline-none hover:bg-pink-600 rounded" onClick={() => buynow({ itemcode: product.id, price: parseInt(product.price), qty: 1, name: product.name })}>Buy Now</button></a></Link>
               <button disabled={user===null?true:false} className="flex ml-4 text-white bg-pink-500 border-0 text-sm sm:text-base py-2 px-2 md:px-6 focus:outline-none hover:bg-pink-600 rounded" onClick={() =>{ addToCart({ itemcode: product.id, price: parseInt( product.price), qty: 1, name: product.name});

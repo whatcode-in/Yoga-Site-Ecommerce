@@ -40,7 +40,7 @@ let { deleteProductById, getAllProducts }=bindActionCreators(actions,dispatch);
                       <div className="mt-4">
                         <h2 className="text-gray-900 title-font text-xl font-medium">{item.name}</h2>
                         <div className='my-3 px-5 flex justify-between'>
-                          <p className="text-lg">₹{item.price}</p>
+                          <p className="text-lg">€{item.price}</p>
                           <div className='py-2 px-3 border-2 rounded inline-block'>
                             {item.stock}
                           </div>

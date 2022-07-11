@@ -106,7 +106,7 @@ const Checkout = () => {
               })
             }
           </ol>
-          <div className='my-3 font-bold text-center'>Amount: ₹{subtotal}</div>
+          <div className='my-3 font-bold text-center'>Amount: €{subtotal}</div>
           <div className='flex justify-center'>
 
             <button className={`flex text-white  border-0 text-sm sm:text-base py-2 px-2 md:px-6 focus:outline-none hover:bg-pink-600 rounded bg-pink-500`} onClick={handlepay}>Pay Now</button>

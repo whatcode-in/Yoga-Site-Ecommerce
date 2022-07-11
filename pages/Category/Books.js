@@ -6,7 +6,7 @@ import { actioncreators } from '../../State';
 import  { getProductByCategory } from ".././../State/actioncreators/mavaproduct"
 import { AiFillMinusCircle, AiFillPlusCircle } from 'react-icons/ai';
 import { useRouter } from 'next/router';
-const Electronics = () => {
+const Books = () => {
     let dispatch=useDispatch();
     let [msg,setmsg]=useState("LOADING.........");
     let {products}=useSelector((state)=>state.mavaproducts)
@@ -15,11 +15,10 @@ const Electronics = () => {
     let router=useRouter()
     useEffect(()=>{
 
-        dispatch(getProductByCategory("Electronics"));
+        dispatch(getProductByCategory("Books"));
       
       setTimeout(() => {
           setmsg("No Items available")
-        
       }, 10000);
     },[router.pathname])
    
@@ -59,4 +58,4 @@ const Electronics = () => {
   )
 }
 
-export default Electronics
+export default Books 
