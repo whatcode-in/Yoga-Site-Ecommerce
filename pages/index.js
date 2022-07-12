@@ -42,7 +42,7 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>Mava.com</title>
+        <title>store.com</title>
         <meta name="description" content="Codeswear.com -wear the Code" />
         <link rel="icon" href="/codeswearcicle.png" />
       </Head>
@@ -114,7 +114,7 @@ export default function Home() {
                         </div>
                         <div className="cart">
                           <div className='flex flex-row space-x-2 items-center justify-center'>
-                           {cart[item.id]!=null?<> <AiFillMinusCircle onClick={() => removeFromCart({ itemcode:item.id, qty: 1 })} className='text-pink-700 cursor-pointer' /> <span>{cart[item.id].qty}</span><AiFillPlusCircle onClick={() => addToCart({ itemcode:item.id, qty: 1 })} className='text-pink-700 cursor-pointer' /></>: <button className="flex ml-4 text-white bg-pink-500 border-0 text-sm sm:text-base py-2 px-2 md:px-6 focus:outline-none hover:bg-pink-600 rounded" onClick={() =>{ addToCart({ itemcode: item.id, price:parseInt(item.price), qty: 1, name: item.name });
+                           {cart[item.id]!=null?<> <AiFillMinusCircle onClick={() => removeFromCart({ itemcode:item.id, qty: 1 })} className='text-green-700 cursor-pointer' /> <span>{cart[item.id].qty}</span><AiFillPlusCircle onClick={() => addToCart({ itemcode:item.id, qty: 1 })} className='text-green-700 cursor-pointer' /></>: <button className="flex ml-4 text-white bg-green-500 border-0 text-sm sm:text-base py-2 px-2 md:px-6 focus:outline-none hover:bg-green-600 rounded" onClick={() =>{ addToCart({ itemcode: item.id, price:parseInt(item.price), qty: 1, name: item.name });
               }}>Add to Cart</button>}
                           </div>
                         </div>
