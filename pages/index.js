@@ -70,7 +70,7 @@ export default function Home() {
                 {search.length > 0 &&
                   search.slice(0, 3).map((item) => {
                     return (
-                      <div className="lg:w-1/5 md:w-1/2 p-4 hover:cursor-pointer w-full m-12 border-2 rounded-md shadow-lg">
+                      <div className="lg:w-1/5 md:w-1/2 p-4 hover:cursor-pointer w-full m-12 border-2 rounded-md shadow-lg" key={item.id}>
                             <Link key={item.id} passHref={true} href={`/Product/${item.id}`}>
                             <a className="block h-48 rounded overflow-hidden pb-2">
                               <img alt="ecommerce" className="object-cover object-center m-auto h-full block" src={`${item.img}`} />

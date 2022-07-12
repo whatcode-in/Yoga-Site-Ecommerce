@@ -10,7 +10,7 @@ import { useEffect } from 'react';
 import { setuser } from '../State/actioncreators/user';
 import { useRouter } from 'next/router';
 import LoadingBar from 'react-top-loading-bar'
-const myexport = ({ Component, pageProps }) => {
+const Myexport = ({ Component, pageProps }) => {
     let dispatch=useDispatch()
     const [progress, setProgress] = useState(0)
   let router=useRouter()
@@ -50,5 +50,5 @@ const myexport = ({ Component, pageProps }) => {
   )
 }
 
-export default myexport
+export default Myexport
 

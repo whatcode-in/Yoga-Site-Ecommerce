@@ -31,7 +31,7 @@ const Order = () => {
             {
               order!==null &&
               Object.keys(order.products).map((itemcode) => {
-                return <div className="flex border-t border-gray-200 py-2 text-center">
+                return <div className="flex border-t border-gray-200 py-2 text-center" key={itemcode}>
                   <span className="text-gray-500 flex-grow border-b-2 mx-auto py-2 px-1 w-1/3">{order.products[itemcode].name} {order.products[itemcode].size==null?order.products[itemcode].variant:`(${order.products[itemcode].size}/${order.products[itemcode].variant})`}</span>
                   <span className="text-gray-500 flex-grow border-b-2 mx-auto py-2 px-1 w-1/3">{order.products[itemcode].qty}</span>
                   <span className="text-gray-500 flex-grow border-b-2 mx-auto py-2 px-1 w-1/3">₹{order.products[itemcode].qty*order.products[itemcode].price}</span>

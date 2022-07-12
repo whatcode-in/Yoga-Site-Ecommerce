@@ -1,9 +1,9 @@
 import React from 'react'
 import Temp from "./Temp"
-const index = ({props}) => {
+const Index = ({props}) => {
   return (
     <Temp props={props}/>
   )
 }
 
-export default index
+export default Index

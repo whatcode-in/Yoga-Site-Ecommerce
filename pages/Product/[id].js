@@ -8,7 +8,7 @@ import { actioncreators } from '../../State';
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-const item = () => {
+const Item = () => {
     let router = useRouter();
     let { id } = router.query;
     let {product}=useSelector((state)=>state.mavaproducts)
@@ -84,4 +84,4 @@ const item = () => {
     )
 }
 
-export default item
+export default Item

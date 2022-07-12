@@ -20,7 +20,7 @@ let fun = async (id, setproduct, setcolor, setimage, setsize) => {
   setcolor(Object.keys(res.product.stock)[0])
   // return res.product
 }
-const item = () => {
+const Item = () => {
   let router = useRouter();
   let { id } = router.query;
   //  console.log(id);
@@ -214,4 +214,4 @@ const item = () => {
   )
 }
 
-export default item
+export default Item
