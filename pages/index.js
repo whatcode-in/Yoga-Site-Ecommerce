@@ -23,6 +23,9 @@ export default function Home() {
   }, [])
   useEffect(()=>{
     console.log("in index",products);
+    // if (products.length===0){
+    //   dispatch(getAllProducts())
+    // }
   },products)
   let { addToCart, removeFromCart, clearCart } = bindActionCreators(actioncreators.default, dispatch);
 

@@ -22,7 +22,6 @@ const Myexport = ({ Component, pageProps }) => {
     // if(token){
     //     dispatch(setuser(token));
     // }
-    console.log(Component,pageProps);
   },[])
   return (
     <div>

@@ -6,7 +6,7 @@ import {
 
 export default async function handler(req, res) {
   try {
-    console.log("first");
+    console.log("start");
     let products = collection(db, "product")
     let responce = await getDocs(products);
     console.log("end");

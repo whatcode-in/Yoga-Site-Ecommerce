@@ -172,7 +172,7 @@ a {
 
 /* products-banner */
 .products-banner{
-  background: url(../assets//images/products-banner.png);
+  background: url("../products-banner.png");
   background-repeat: no-repeat;
   width: 100%;
   height: 50vh;

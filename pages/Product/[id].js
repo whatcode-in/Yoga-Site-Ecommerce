@@ -72,8 +72,8 @@ const Item = () => {
               <div className="flex">
                 <span className="title-font font-medium text-2xl text-gray-900">€{product.price}</span>
                
-                <Link href={"/Checkout"}><a><button disabled={user===null?true:false} className="flex ml-4 text-white bg-pink-500 border-0 text-sm sm:text-base py-2 px-2 md:px-6 focus:outline-none hover:bg-pink-600 rounded" onClick={() => buynow({ itemcode: product.id, price: parseInt(product.price), qty: 1, name: product.name })}>Buy Now</button></a></Link>
-              <button disabled={user===null?true:false} className="flex ml-4 text-white bg-pink-500 border-0 text-sm sm:text-base py-2 px-2 md:px-6 focus:outline-none hover:bg-pink-600 rounded" onClick={() =>{ addToCart({ itemcode: product.id, price: parseInt( product.price), qty: 1, name: product.name});
+                <Link href={"/Checkout"}><a><button disabled={user===null?true:false} className="flex ml-4 text-white bg-green-500 border-0 text-sm sm:text-base py-2 px-2 md:px-6 focus:outline-none hover:bg-green-600 rounded" onClick={() => buynow({ itemcode: product.id, price: parseInt(product.price), qty: 1, name: product.name })}>Buy Now</button></a></Link>
+              <button disabled={user===null?true:false} className="flex ml-4 text-white bg-green-500 border-0 text-sm sm:text-base py-2 px-2 md:px-6 focus:outline-none hover:bg-green-600 rounded" onClick={() =>{ addToCart({ itemcode: product.id, price: parseInt( product.price), qty: 1, name: product.name});
               calltoast({type:"success",msg:"Item added successfully to the cart"})
               }}>Add to Cart</button>
               </div>

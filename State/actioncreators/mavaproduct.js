@@ -2,11 +2,7 @@ import { ADDPRODUCT, DELETEPRODUCTBYID, GETALLTPRODUCTS, GETPRODUCTBYCATEGORY, G
 
 let  getAllProducts = () => async (dispatch) => {
   console.log(process.env.NEXT_PUBLIC_HOST);
-    // let response = await fetch(`http://localhost:3000/api/yoga/getProducts`);
-    let response = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/yoga/getProducts`,
-    {mode: 'no-cors'}
-    );
-    
+    let response = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/yoga/getProducts`);
     let {products} = await response.json();
     console.log("in actions",products);
     dispatch({ type: GETALLTPRODUCTS, payload: products })

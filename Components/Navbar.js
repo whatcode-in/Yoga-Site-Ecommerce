@@ -13,7 +13,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
-import logo from "../assets/images/home/logo.svg"
+import logo from "../logo.svg"
 const Navbar = () => {
   let ref = useRef();
   // let ref=React.forwardRef();
@@ -57,12 +57,14 @@ const Navbar = () => {
   }
   return (
     <nav className='navbar flex flex-col sticky top-0 justify-center items-center py-2 md:flex-row bg-green-900 shadow-lg'>
-      <div className='md:absolute md:left-5 md:top-3 '>
+      <div className='md:absolute md:left-2 top-2'>
         <Link className="logo hover:cursor-pointer" href="/">
           <a>
-          <img
+          <Image
                   alt="logo"
+                  width={100}
                   src={logo}
+                  height={50}
                 />
           </a>
         </Link>
@@ -88,14 +90,14 @@ const Navbar = () => {
       {/* } */}
       {dropdown==true && <div className='absolute top-10 md:top-12 font-semibold right-14  md:right-20 w-36 bg-white text-center py-3 flex flex-col rounded-lg'  onMouseOver={()=>setdropdown(true)} onMouseLeave={()=>setdropdown(false)}>
             <ul>
-              <Link href={"/Myaccount"}><a><li className='hover:text-pink-700 hover:cursor-pointer py-2'>My Account</li></a></Link>
-              <Link href={"/Orders"}><a><li className='hover:text-pink-700 hover:cursor-pointer py-2'>Orders</li></a></Link>
-              <a><li onClick={logout} className='hover:text-pink-700 hover:cursor-pointer py-2'>Logout</li></a>
+              <Link href={"/Myaccount"}><a><li className='hover:text-green-700 hover:cursor-pointer py-2'>My Account</li></a></Link>
+              <Link href={"/Orders"}><a><li className='hover:text-green-700 hover:cursor-pointer py-2'>Orders</li></a></Link>
+              <a><li onClick={logout} className='hover:text-pink-greenhover:cursor-pointer py-2'>Logout</li></a>
             </ul>
             </div>}
 
-      <div ref={ref} className="sidecart h-[100vh] w-72 top-28 md:top-16 right-0 absolute bg-pink-200  transform transition-transform translate-x-full z-10">
-        <div className='bg-pink-200 p-10 pt-14 z-10'>
+      <div ref={ref} className="sidecart h-[100vh] w-72 top-28 md:top-16 right-0 absolute bg-green-400  transform transition-transform translate-x-full z-10">
+        <div className='bg-green-400 p-10 pt-14 z-10'>
 
           <h2 className='text-2xl'>Shooping Cart</h2>
           <span onClick={toggle} className='cursor-pointer absolute top-5 right-3 text-xl'><AiOutlineClose/></span>
