@@ -21,6 +21,9 @@ export default function Home() {
   useEffect(() => {
     dispatch(getAllProducts())
   }, [])
+  useEffect(()=>{
+    console.log("in index",products);
+  },products)
   let { addToCart, removeFromCart, clearCart } = bindActionCreators(actioncreators.default, dispatch);
 
   const [search, setSearch] = useState([]);

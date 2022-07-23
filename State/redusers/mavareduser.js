@@ -9,6 +9,7 @@ export let mavaproductreduser=(state={item1:[],item2:[],item3:[],item4:[],produc
                 return {...state}
             case GETALLTPRODUCTS:
                 state.products=action.payload
+                console.log("reducer",state);
                 return {...state}
             case DELETEPRODUCTBYID:
                 if(action.payload.success===true){

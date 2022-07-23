@@ -5,9 +5,9 @@ import Router, { useRouter } from 'next/router'
 const Forget = () => {
   let router=useRouter()
   useState(()=>{
-    if (localStorage.getItem("token")) {
-      router.push("/")
-    }
+    // if (localStorage.getItem("token")) {
+    //   router.push("/")
+    // }
   })
   return (
     <div

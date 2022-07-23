@@ -4,7 +4,7 @@ import Temp from "./Temp"
 import * as actions from "../../State/actioncreators/mavaproduct";
 import { bindActionCreators } from "redux";
 import {motion} from "framer-motion"
-import Modal from "./Modal";
+import Modal from "../../Middleware/Modal";
 export default function ProductList() {
 let dispatch=useDispatch();
 let {products}=useSelector((state)=>state.mavaproducts)
@@ -13,7 +13,7 @@ let { deleteProductById, getAllProducts }=bindActionCreators(actions,dispatch);
       getAllProducts()
   },[products])
 
-  let [Editdata,setEditdata]=useState({data:null})
+  let [Editdata,setEditdata]=useState({name:"",desc:"",category:"",rating:"",price:0,img:null,stock:""})
   let [modal,setmodal]=useState(false)
 
   let close=()=>{

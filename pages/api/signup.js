@@ -1,3 +1,4 @@
+import { registerWithEmailAndPassword } from "../../firebaseconfig";
 import connectdb from "../../Middleware/connectdb"
 import User from "../../Model/User"
 const CryptoJS = require("crypto-js");
@@ -5,27 +6,20 @@ const CryptoJS = require("crypto-js");
 let  handler=async (req, res) =>{
 
     if(req.method==="POST"){
-
-        let addr=req.body.address.split(",");
         // console.log(req.body);
-        let info=await User({
+       let r= registerWithEmailAndPassword({
             fname:req.body.fname,
             lname:req.body.lname,
             name:req.body.fname+" "+ req.body.lname,
             email:req.body.email,
             password:CryptoJS.AES.encrypt(req.body.password, 'secret key 123').toString(),
-            address:{
-                housenumber:addr[0],
-                socity:addr[1],
-                area:addr[2],
-                city:addr[3],
-                pincode:addr[4],
-                state:addr[5]
-            }
+            address:req.body.address
         })
         // console.log(info);
-        await info.save()
-        return res.status(200).json({ success:true ,user:info})
+        if (r){
+            return res.status(200).json({ success:true })
+        }
+        return res.status(400).json({ success:false })
     }
     else{
         return  res.status(400).json({ error:"this method is not allowed" })
@@ -33,3 +27,5 @@ let  handler=async (req, res) =>{
   }
   
 export default connectdb(handler)
+
+

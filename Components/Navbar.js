@@ -74,16 +74,18 @@ const Navbar = () => {
         <Link href="/Category/Home-Kitchen"><a><li className='text-white'>Home & Kitchen</li></a></Link>
         <Link href="/Category/Books"><a><li className='text-white'>Books</li></a></Link>
       </ul>
-          {user===null && <Link href={"/Login"}><a><button className='bg-pink-400 rounded-lg absolute right-6 top-4 text-white text-lg py-1 px-2'>Login</button>  </a></Link>}
+          {/* {user===null && <Link href={"/Login"}><a><button className='bg-pink-400 rounded-lg absolute right-6 top-4 text-white text-lg py-1 px-2'>Login</button>  </a></Link>} */}
           
-          {user!==null && 
+          {/* {user!==null && */}
+
       <div  className="cart flex space-x-2 sm:space-x-5 cursor-pointer absolute text-2xl right-6 top-4 sm:top-6 sm:text-3xl ">
         <Link href=""><a  onMouseOver={()=>setdropdown(true)} onMouseLeave={()=>setdropdown(false)}>
           <CgProfile className='text-white'/>
           </a></Link>
         <AiOutlineShoppingCart onClick={toggle}  className="text-white"/>
        
-      </div>}
+      </div>
+      {/* } */}
       {dropdown==true && <div className='absolute top-10 md:top-12 font-semibold right-14  md:right-20 w-36 bg-white text-center py-3 flex flex-col rounded-lg'  onMouseOver={()=>setdropdown(true)} onMouseLeave={()=>setdropdown(false)}>
             <ul>
               <Link href={"/Myaccount"}><a><li className='hover:text-pink-700 hover:cursor-pointer py-2'>My Account</li></a></Link>

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion"
-import Backdrop from './Backdrop'
+import Backdrop from '../pages/admin/Backdrop'
 import {
     Button,
     FormControl,
@@ -11,7 +11,8 @@ import {
   
   import Filebase from "react-file-base64";
 import { useDispatch } from "react-redux";
-import { updateProduct } from "../../State/actioncreators/mavaproduct";
+import { updateProduct } from "../State/actioncreators/mavaproduct";
+import { useEffect } from "react";
 const dropin = {
     hidden: {
         y: "-100vh",
@@ -34,6 +35,9 @@ const dropin = {
 }
 
 const Modal = ({handleClose,data,setdata}) => {
+  useEffect(()=>{
+    console.log("data in modal",data);
+  })
     let handleChange=(event)=>{
         setdata({...data,[event.target.name]:event.target.value})
     }

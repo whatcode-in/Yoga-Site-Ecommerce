@@ -13,9 +13,9 @@ const Sginup = () => {
 
 
   useState(()=>{
-    if (localStorage.getItem("token")) {
-      router.push("/")
-    }
+    // if (localStorage.getItem("token")) {
+    //   router.push("/")
+    // }
   })
 
   let submit = async (event) => {
@@ -31,7 +31,7 @@ const Sginup = () => {
     })
 
     let response=await res.json();
-    console.log(response);
+    console.log("in sign up",response);
     toast.success("Signup Successful", {
       position: "bottom-right",
       autoClose: 1800,

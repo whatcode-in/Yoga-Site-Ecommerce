@@ -6,8 +6,10 @@ import {
 
 export default async function handler(req, res) {
   try {
+    console.log("first");
     let products = collection(db, "product")
     let responce = await getDocs(products);
+    console.log("end");
     return res.status(200).json({ products: responce.docs.map(doc => ({ ...doc.data(), id: doc.id })), success: true })
   }
   catch (error) {

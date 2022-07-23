@@ -3,8 +3,9 @@ import '../styles/globals.css'
 import { Provider } from 'react-redux';
 import store from '../State/store';
 import 'react-toastify/dist/ReactToastify.css';
-import Myexport from "./Myexport"
+import Myexport from "../Model/Myexport"
 function MyApp({ Component, pageProps }) {
+
 
   return (
     <>

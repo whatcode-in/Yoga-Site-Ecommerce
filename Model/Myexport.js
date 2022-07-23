@@ -18,10 +18,11 @@ const Myexport = ({ Component, pageProps }) => {
   // router.events?.on("routeChangeStart",()=>{setProgress(40)})
   router.events?.on("routeChangeComplete",()=>{setProgress(100)})
   useEffect(()=>{
-    let token=localStorage.getItem("token")
-    if(token){
-        dispatch(setuser(token));
-    }
+    // let token=localStorage.getItem("token")
+    // if(token){
+    //     dispatch(setuser(token));
+    // }
+    console.log(Component,pageProps);
   },[])
   return (
     <div>
