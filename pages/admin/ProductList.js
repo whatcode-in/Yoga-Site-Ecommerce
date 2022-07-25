@@ -4,7 +4,7 @@ import Temp from "./Temp"
 import * as actions from "../../State/actioncreators/mavaproduct";
 import { bindActionCreators } from "redux";
 import {motion} from "framer-motion"
-import Modal from "../../Middleware/Modal";
+import Modal from "../../Components/Modal.js";
 export default function ProductList() {
 let dispatch=useDispatch();
 let {products}=useSelector((state)=>state.mavaproducts)
