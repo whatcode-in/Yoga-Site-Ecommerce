@@ -1,6 +1,6 @@
 import { db } from "../../../firebaseconfig";
 import {
-    addDoc,
+  addDoc,
   collection,
   doc,
   updateDoc,

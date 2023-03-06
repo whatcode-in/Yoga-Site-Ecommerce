@@ -32,7 +32,7 @@ const Groceries = () => {
             <div key={item.id} className="lg:w-1/4 md:w-1/2 p-4 hover:cursor-pointer w-full m-12 border-2 rounded-xl shadow-lg">
             <Link key={item.id} passHref={true} href={`/Product/${item.id}`}>
             <a className="block h-48 rounded overflow-hidden pb-2">
-              <img alt="ecommerce" className="object-cover object-center m-auto h-full block" src={`${item.img}`} />
+              <img alt="ecommerce" className="object-cover object-center m-auto h-full block" src={`https://splendid-belt-elk.cyclic.app/api/admin/photo/${item._id}`} />
             </a>
             </Link> 
             <hr />

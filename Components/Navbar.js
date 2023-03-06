@@ -8,7 +8,6 @@ import { CgProfile } from "react-icons/cg"
 import { useDispatch, useSelector } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { actioncreators } from '../State/index'
-
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useRouter } from 'next/router'
@@ -96,7 +95,7 @@ const Navbar = () => {
             </ul>
             </div>}
 
-      <div ref={ref} className="sidecart h-[100vh] w-72 top-28 md:top-16 right-0 absolute bg-green-400  transform transition-transform translate-x-full z-10">
+      <div ref={ref} className="fixed sidecart h-[100vh] w-72 top-28 md:top-16 right-0 bg-green-400  transform transition-transform translate-x-full z-10">
         <div className='bg-green-400 p-10 pt-14 z-10'>
 
           <h2 className='text-2xl'>Shooping Cart</h2>
