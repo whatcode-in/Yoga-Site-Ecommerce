@@ -8,6 +8,7 @@ import Modal from "../../Components/Modal.js";
 export default function ProductList() {
 let dispatch=useDispatch();
 let {products}=useSelector((state)=>state.mavaproducts)
+
 let { deleteProductById, getAllProducts }=bindActionCreators(actions,dispatch);
   useEffect(()=>{
       getAllProducts()

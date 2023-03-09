@@ -17,23 +17,56 @@ const Checkout = () => {
 
   let handlechange=(event)=>{
         setdata({...data,[event.target.name]:event.target.value})
+        
   }
 
   let handlepay=async()=>{
-    if(Object.keys(cart).length!==0){
-      let response=await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/pretransection`, {
-        method: 'POST', // or 'PUT'
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({userId:user.id,products:cart,address:data.addr,amount:subtotal}),
-      })
-      let res=await response.json()
-      if (res.success) {
-        router.push(`/Order/${res.order._id}`)
-      }
-    }
-  }
+    
+    // if(Object.keys(cart).length!==0){
+    
+    //   let response=await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/pretransection`, {
+    //     method: 'POST', // or 'PUT'
+    //     headers: {
+    //       'Content-Type': 'application/json',
+    //     },
+    //     body: JSON.stringify({userId:user.id,products:cart,address:data.addr,amount:subtotal}),
+    //   })
+    //   let res=await response.json()
+    //   if (res.success) {
+    //     router.push(`/Order/${res.order._id}`)
+    //   }
+    // }
+    
+
+    let cartArray = []
+    Object.keys(cart).map((itemcode) => {
+        let newObj = {
+          name: cart[itemcode].name,
+          price: cart[itemcode].price,
+          quantity: cart[itemcode].qty
+        }
+        cartArray.push(newObj)
+    })
+ 
+    fetch('https://blushing-plum-belt.cyclic.app/api/admin/add-order', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      name: data.name,
+      email: data.email,
+      phone: data.phone,
+      addr: data.addr,
+      pincode: data.pincode,
+      city: data.city,
+      state:data.state,
+      orderedItems: cartArray
+    })
+  }) .then(response => response.json())
+  .then(newData => alert('order placed'))
+  .catch(error => console.error("new error: ",error));
+}
 
   return (
     <div className='container m-auto w-5/6 my-8'>

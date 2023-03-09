@@ -2,13 +2,13 @@ import { ADDPRODUCT, DELETEPRODUCTBYID, GETALLTPRODUCTS, GETPRODUCTBYCATEGORY, G
 
 let  getAllProducts = () => async (dispatch) => {
   console.log(process.env.NEXT_PUBLIC_HOST);
-    let response = await fetch(`https://splendid-belt-elk.cyclic.app/api/admin/products`);
+    let response = await fetch(`https://blushing-plum-belt.cyclic.app/api/admin/products`);
     let products = await response.json();
     console.log("in actions",products);
     dispatch({ type: GETALLTPRODUCTS, payload: products.data })
 }
 let  getProductById = (id) => async (dispatch) => {
-  let response=await fetch(`https://splendid-belt-elk.cyclic.app/api/admin/product/${id}`,{
+  let response=await fetch(`https://blushing-plum-belt.cyclic.app/api/admin/product/${id}`,{
       method: 'GET', // or 'PUT'
     });
     let res=await response.json()
@@ -41,7 +41,7 @@ let  updateProduct = (data) => async (dispatch) => {
 }
 
 let  getProductByCategory = (category) => async (dispatch) => {
-  let response=await fetch(`https://splendid-belt-elk.cyclic.app/api/admin/products/${category}`,{
+  let response=await fetch(`https://blushing-plum-belt.cyclic.app/api/admin/products/${category}`,{
       method: 'GET', // or 'PUT'
     });
     let res=await response.json()

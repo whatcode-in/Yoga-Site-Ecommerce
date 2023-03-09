@@ -6,8 +6,8 @@ let connectdb=(handler)=>async (req,res)=>{
         return handler(req,res)
     }
     // await mongoose.connect("mongodb://localhost/bhyu")
-    console.log("mongodb+srv://dipesh:dipesh@cluster0.uizroje.mongodb.net/test");
-    mongoose.connect("mongodb+srv://dipesh:dipesh@cluster0.uizroje.mongodb.net/test",()=>{
+    // console.log("mongodb+srv://dipesh:dipesh@cluster0.uizroje.mongodb.net/test");
+    mongoose.connect("mongodb+srv://ananya:idontremember@cluster0.2jzxk.mongodb.net/products",()=>{
         console.log("Connetcted to the Database");
     })
     return handler(req,res)

@@ -13,7 +13,7 @@ import { getAllProducts } from "../State/actioncreators/mavaproduct";
 export default function Home() {
   let dispatch = useDispatch();
   let { products } = useSelector((state) => state.mavaproducts);
-
+  // useSelector((state) => console.log("state: ",state))
   let { cart, subtotal } = useSelector((state) => state.cart);
   console.log(cart);
   useEffect(() => {
@@ -140,7 +140,7 @@ export default function Home() {
                         <img
                           alt="ecommerce"
                           className="object-cover object-center m-auto h-full block"
-                          src={`https://splendid-belt-elk.cyclic.app/api/admin/photo/${item._id}`}
+                          src={`https://blushing-plum-belt.cyclic.app/api/admin/photo/${item._id}`}
                         />
                       </a>
                     </Link>
