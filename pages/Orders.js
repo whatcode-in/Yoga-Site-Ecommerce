@@ -28,7 +28,7 @@ const Orders = () => {
        
        { userOrders.map((item) => {
             return (
-                <div className="mt-8">
+                <div className="mt-8" key={item._id}>
                 <div className="pb-8 border-solid border-black border-b-4">
                    <div className="mb-2"><span className="font-medium">Name:</span> {item.name}</div>
                    <div className="mb-2"><span className="font-medium">Email:</span> {item.email}</div>
@@ -39,7 +39,7 @@ const Orders = () => {
                    <div className="mb-2"><span className="font-medium">State:</span>  {item.state}</div>
                    <div className="mb-2"><span className="font-medium">Ordered Items:</span>  {item.orderedItems.map(product => {
                     return(
-                        <div className="ml-8">
+                        <div className="ml-8" key={item.product}>
                           <div className="text-base mb-2"><span className="font-medium">Name:</span> {product.name}</div>
                           <div className="text-base mb-2"><span className="font-medium">Price:</span> {product.price}</div>
                           <div className="text-base mb-2"><span className="font-medium">Quantity:</span> {product.quantity}</div>
