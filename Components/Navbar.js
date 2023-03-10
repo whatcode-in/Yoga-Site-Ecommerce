@@ -13,12 +13,15 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import logo from "../logo.svg"
+import { useAuthValue } from "../authContext"
+import { getAuth } from 'firebase/auth'
+
 const Navbar = () => {
   let ref = useRef();
   // let ref=React.forwardRef();
   let router=useRouter();
 
-  const [currentUser,setCurrentUser] = React.useState()
+  // const [currentUser,setCurrentUser] = React.useState()
 
   let { cart, subtotal } = useSelector((state) => state.cart);
   let {user}=useSelector((state)=>state.user)
@@ -39,40 +42,15 @@ const Navbar = () => {
     }
   }
 
+  const {currentUser} = useAuthValue()
+
   let logout=()=>{
-  //   toast.success("logout Successful", {
-  //     position: "bottom-right",
-  //     autoClose: 1800,
-  //     hideProgressBar: false,
-  //     closeOnClick: true,
-  //     pauseOnHover: true,
-  //     draggable: true,
-  //     progress: undefined,
-  //     theme: "dark"
-  //   });
-  //  localStorage.removeItem("token")
-  //   setTimeout(() => {
-  //     window.location.reload(false)
-  //     router.push("/")
-  //   }, 200);
+  
+  let auth = getAuth();
+  auth.signOut()
 
-  let token = sessionStorage.getItem('Token')
-  if(token){
-    setCurrentUser('')
-    sessionStorage.removeItem('Token')
-  }
 }
 
-function checkCurrentUser(){
-  let token = sessionStorage.getItem('Token')
-  if(token){
-    setCurrentUser(token)
-  }
-}
-
-  useEffect(() => {
-    checkCurrentUser()
-  },[currentUser])
 
   return (
     <nav className='navbar flex flex-col sticky top-0 justify-center items-center py-2 md:flex-row bg-green-900 shadow-lg'>
@@ -95,7 +73,7 @@ function checkCurrentUser(){
         <Link href="/Category/Home-Kitchen"><a><li className='text-white'>Home & Kitchen</li></a></Link>
         <Link href="/Category/Books"><a><li className='text-white'>Books</li></a></Link>
 
-        <div className='text-white' style={{fontSize: "14px"}}>{currentUser}</div>
+        {currentUser && <div className='text-white' style={{fontSize: "14px"}}>{currentUser.email}</div>}
       </ul>
           {/* {user===null && <Link href={"/Login"}><a><button className='bg-pink-400 rounded-lg absolute right-6 top-4 text-white text-lg py-1 px-2'>Login</button>  </a></Link>} */}
           
@@ -104,7 +82,7 @@ function checkCurrentUser(){
       <div  className="cart flex space-x-2 sm:space-x-5 cursor-pointer absolute text-2xl right-6 top-4 sm:top-6 sm:text-3xl ">
         <Link href=""><a  onMouseOver={()=>setdropdown(true)} onMouseLeave={()=>setdropdown(false)}>
           <CgProfile/>
-  
+          
           </a></Link>
         <AiOutlineShoppingCart onClick={toggle}  className="text-white"/>
         

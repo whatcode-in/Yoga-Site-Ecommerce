@@ -1,19 +1,21 @@
 import React from "react"
+import { useAuthValue } from "../authContext"
 
 const Orders = () => {
 
     const [userOrders,setUserOrders] = React.useState([])
-
-    const getOrders = async () => {
-        let token = sessionStorage.getItem('Token')
+    const {currentUser} = useAuthValue()
     
-        if(token){
-            let orders = await fetch(`https://blushing-plum-belt.cyclic.app/api/admin/get-order/${token}`, {
+    const getOrders = async () => {
+        console.log('current user: ',currentUser)
+        
+        if(currentUser){
+            let orders = await fetch(`https://blushing-plum-belt.cyclic.app/api/admin/get-order/${currentUser.email}`, {
                 method: 'GET'
             })
             let ordersResponse = await orders.json()
             console.log(ordersResponse['allOrders'])
-             setUserOrders(ordersResponse['allOrders'])
+            setUserOrders(ordersResponse['allOrders'])
         }
     }
 
@@ -28,7 +30,7 @@ const Orders = () => {
        
        { userOrders.map((item) => {
             return (
-                <div className="mt-8" key={item._id}>
+                <div className="flex flex-col items-center justify-center mt-8" key={item._id}>
                 <div className="pb-8 border-solid border-black border-b-4">
                    <div className="mb-2"><span className="font-medium">Name:</span> {item.name}</div>
                    <div className="mb-2"><span className="font-medium">Email:</span> {item.email}</div>

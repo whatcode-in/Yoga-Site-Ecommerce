@@ -3,10 +3,20 @@ import React from 'react'
 // import styles from './Myaccount.module.css'
 
 
+//sign up component
+import {app} from '../firebaseconfig';
+import { useAuthValue } from "../authContext"
+import { getAuth,
+        GoogleAuthProvider,
+        signInWithPopup,
+        createUserWithEmailAndPassword,
+        signInWithEmailAndPassword,
+        onAuthStateChanged  } from "firebase/auth";
 
-const USER_STRING = "https://blushing-plum-belt.cyclic.app/api/admin"
-
-function Login(){
+function SignUp(){
+  const {currentUser} = useAuthValue()
+  let auth = getAuth();
+  let googleAuthProvider = new GoogleAuthProvider()
 
   const [data,setData] = React.useState({
     email: "",
@@ -17,88 +27,82 @@ function Login(){
     setData({...data,[event.target.name]:event.target.value})
   }
 
-  const login = async () =>  {
-
-    let userPresent = await fetch(`${USER_STRING}/user/${data.email}`, {
-      method: 'GET'
+  function loginWithGoogle(){
+    signInWithPopup(auth,googleAuthProvider)
+    .then((response) => {
+      console.log(response.user)
+      alert("Login with google successfull")
     })
-    let userRes = await userPresent.json()
-    if(userRes.user.length > 0){
-      console.log('user: ',userRes.user[0].email,userRes.user[0].password)
-      sessionStorage.setItem('Token',userRes.user[0].email)
-      alert('login successfull')
-      data.email = ""
-      data.password = ""
-    }else{
-      alert('invalid email or password')
-    }
+    .catch((error) => {
+      alert(error.message)
+    })
+  }
+
+
+  function signUp(){
+    createUserWithEmailAndPassword(auth,data.email,data.password)
+      .then((response) => {
+        console.log(response.user)
+        alert("User successfully created")
+      })
+      .catch((error) => {
+        alert(error.message)
+      })
+  }
+
+  return(<div className='flex flex-col items-center justify-center'>
+    <input className='mt-8 w-72 border-2 border-solid border-black' placeholder='email' name="email" value={data.email} onChange={handleChange}/> 
+    <input className='mt-8 w-72 border-2 border-solid border-black' placeholder='password' name="password" value={data.password} onChange={handleChange} />
+  
+    <button onClick={signUp} className="mt-8 bg-[#7A923E] p-2 text-white mb-8 w-[60%]">SignUp</button>
+    <button onClick={loginWithGoogle} className="mt-2 bg-[#7A923E] p-2 text-white mb-8 w-[60%]">Login With Google</button>
+  </div>)
+}
+
+
+//login component
+function Login(){
+  const {currentUser} = useAuthValue()
+  let auth = getAuth();
+  let googleAuthProvider = new GoogleAuthProvider()
+
+  const [data,setData] = React.useState({
+    email: "",
+    password: ""
+  })
+
+  function handleChange(event){
+    setData({...data,[event.target.name]:event.target.value})
+  }
+
+  function loginWithGoogle(){
+    signInWithPopup(auth,googleAuthProvider)
+    .then((response) => {
+      alert("Login with google successfull")
+    })
+    .catch((error) => {
+      alert(error.message)
+    })
+  }
+
+
+  function login(){
+    signInWithEmailAndPassword(auth,data.email,data.password)
+    .then((response) => {
+      alert("Login successfull")
+    })
+    .catch((error) => {
+      alert(error.message)
+    })
   }
 
   return(<div className='flex flex-col items-center justify-center'>
    <input className='mt-8 w-72 border-2 border-solid border-black' placeholder='email' name="email" value={data.email} onChange={handleChange}/> 
     <input  className='mt-8 w-72 border-2 border-solid border-black' placeholder='password' name="password" value={data.password} onChange={handleChange} />
-    <button onClick={login} className="mt-8 bg-[#7A923E] p-2 text-white mb-8">Login</button>
+    <button onClick={login} className="mt-8 bg-[#7A923E] p-2 text-white mb-8 w-[60%]">Login</button>
+    <button onClick={loginWithGoogle} className="mt-2 bg-[#7A923E] p-2 text-white mb-8 w-[60%]" >Login With Google</button>
   </div>
   )
-}
-
-
-function SignUp(){
-
-  const [data,setData] = React.useState({
-    email: "",
-    password: ""
-  })
-
-  function handleChange(event){
-    setData({...data,[event.target.name]:event.target.value})
-  }
-
-  const signUp = async () =>  {
-
-    let userPresent = await fetch(`${USER_STRING}/user/${data.email}`, {
-      method: 'GET'
-    })
-    let userRes = await userPresent.json()
-    if(userRes.user.length > 0){
-      alert('user already exsists')
-      data.email = ""
-      data.password = ""
-    }
-
-    else{
-
-    let response = await fetch(`${USER_STRING}/create-user`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        email: data.email,
-        password: data.password
-      })
-    })
-    let res = await response.json()
-    if(res){
-      data.email = ""
-      data.password = ""
-      alert('user added')
-      console.log(res.user)
-    }if (!response.ok) {
-      alert('error in creating user')
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-  }
-
-
-  }
-  
-  return(<div className='flex flex-col items-center justify-center'>
-    <input className='mt-8 w-72 border-2 border-solid border-black' placeholder='email' name="email" value={data.email} onChange={handleChange}/> 
-    <input className='mt-8 w-72 border-2 border-solid border-black' placeholder='password' name="password" value={data.password} onChange={handleChange} />
-    <button onClick={signUp} className="mt-8 bg-[#7A923E] p-2 text-white mb-8">SignUp</button>
-    
-  </div>)
 }
 
 
@@ -111,7 +115,7 @@ const MyAccount = () => {
         
         <div className='flex mt-8'>
           <button className='bg-[#7A923E] p-2 text-white'  onClick={() => setShowLogin(true)}>Login</button> 
-          <button className='ml-8 bg-[#7A923E] p-2 text-white' onClick={() => setShowLogin(false)}>Sign Up</button> 
+          <button className='ml-8 bg-[#7A923E] p-2 text-white' onClick={() => setShowLogin(false)}>SignUp</button> 
         </div>
 
         {
