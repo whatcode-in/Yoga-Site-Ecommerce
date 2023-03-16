@@ -1,0 +1,209 @@
+
+
+.our_programs_main_container,
+.venue_main_container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5rem;
+}
+
+.our_programs_heading,
+.venue_heading{
+    font-family: 'Philosopher';
+    color: #0B0B0B;
+    font-weight: 400;
+    font-size: 3rem;
+    padding-top: 2rem;
+    padding-bottom: 3.5rem;
+}
+
+.our_programs_categories_container,
+.venues_container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding-bottom: 5rem;
+}
+
+.venues_container{
+    width: 100%;
+    justify-content: space-around;
+}
+
+.category_main_container,
+.category_main_container_expanded,
+.venues_main_container,
+.venues_main_container_expaned{
+    display: flex;
+    flex-direction: column;
+    width: 12%;
+    border-radius: 11px;
+    background-color: #5A5858;
+}
+
+.venues_main_container{
+    width: 28%;
+}
+
+.category_main_container_expanded{
+    width: 26%;
+}
+
+.venues_main_container_expanded{
+    width: 37%;
+}
+
+.category_img_container,
+.venues_img_container{
+    width: 100%;
+    display: flex;
+    height: 500px;
+    position: relative;
+    justify-content: center;
+}
+
+.category_img_container img,
+.venues_img_container img{
+    width: 100%;
+    height: 100%;
+    border-radius: 11px 11px 0px 0px;
+}
+
+.category_img_container button,
+.venues_img_container button{
+    position: absolute;
+    top: 85%;
+    color: white;
+    font-size: 1.2rem;
+    padding: 0.5rem 2rem;
+    font-family: 'Philosopher';
+    background: #748231;
+    border-radius: 36px;
+}
+
+.category_text_container,
+.category_text_container_expanded,
+.venues_text_container,
+.venues_text_container_expanded
+{
+    background-color: #5A5858;
+    color: #FBCA1A;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Philosopher';
+    font-size: 4rem;
+    border-radius: 0px 0px 11px  11px;
+}
+
+.category_text_container_expanded,.venues_text_container_expanded{
+    padding-top: 2rem;
+    font-size: 1rem;
+    white-space: pre;
+    text-align: center;
+    font-weight: 500;
+    padding-bottom: 2rem;
+}
+
+@media (max-width: 1280px) { 
+    .category_text_container_expanded{
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-width: 1080px) { 
+    .category_main_container{
+        width: 25%;
+        margin-right: 2rem;
+        margin-left: 2rem;
+        margin-bottom: 4rem;
+    }
+    .category_main_container_expanded{
+        width: 37%;
+        margin-bottom: 4rem;
+    }
+}
+  
+@media (max-width: 800px) { 
+    .category_main_container{
+        margin-right: 2rem;
+        margin-left: 2rem;
+        width: 30%;
+    }
+    .category_main_container_expanded{
+        width: 40%;
+        margin-right: 1rem;
+        margin-left: 1rem;
+        font-size: 0.6rem;
+    }
+    
+    .venues_main_container{
+        margin-right: 2rem;
+        margin-left: 2rem;
+        width: 50%;
+        margin-bottom: 3rem;
+    }
+
+    .venues_main_container_expanded{
+        margin-right: 1rem;
+        margin-left: 1rem;
+        width: 60%;
+        margin-bottom: 3rem;
+    }
+}
+
+
+ @media (max-width: 540px) {
+    .category_main_container{
+        margin-right: 0.8rem;
+        margin-left: 0.8rem;
+        width: 34%;
+    }
+    .category_main_container_expanded{
+        width: 44%;
+        margin-right: 1rem;
+        margin-left: 1rem;
+    }
+
+    .venues_main_container{
+        margin-right: 0.8rem;
+        margin-left: 0.8rem;
+        width: 60%;
+    }
+
+    .venues_main_container_expanded{
+        margin-right: 1rem;
+        margin-left: 1rem;
+        width: 70%;
+    }
+}
+
+@media (max-width: 460px) {
+    .our_programs_categories_container{
+        align-items: center;
+        justify-content: center;
+    }
+    .category_main_container{
+        width: 50%;
+        margin-left: 25%;
+        margin-right: 25%;
+    }
+    .category_main_container_expanded{
+        width: 64%;
+        margin-left: 18%;
+        margin-right: 18%;
+    }
+
+    .venues_main_container{
+        margin-right: 15%;
+        margin-left: 15%;
+        width: 70%;
+    }
+
+    .venues_main_container_expanded{
+        margin-right: 10%;
+        margin-left: 10%;
+        width: 80%;
+    }
+}

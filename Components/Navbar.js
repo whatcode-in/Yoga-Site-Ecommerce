@@ -21,6 +21,8 @@ const Navbar = () => {
   // let ref=React.forwardRef();
   let router=useRouter();
 
+  
+
   // const [currentUser,setCurrentUser] = React.useState()
 
   let { cart, subtotal } = useSelector((state) => state.cart);
@@ -48,12 +50,14 @@ const Navbar = () => {
   
   let auth = getAuth();
   auth.signOut()
-
+  window.location.reload(true)
 }
 
 
+
+
   return (
-    <nav className='navbar flex flex-col sticky top-0 justify-center items-center py-2 md:flex-row bg-green-900 shadow-lg'>
+    <nav className='sticky top-0 z-30 w-full navbar flex flex-col justify-center items-center py-2 md:flex-row bg-green-900 shadow-lg navbar-extra'>
       <div className='md:absolute md:left-2 top-2'>
         <Link className="logo hover:cursor-pointer" href="/">
           <a>
@@ -72,8 +76,10 @@ const Navbar = () => {
         <Link href="/Category/Groceries"><a><li className='text-white'>Groceries</li></a></Link>
         <Link href="/Category/Home-Kitchen"><a><li className='text-white'>Home & Kitchen</li></a></Link>
         <Link href="/Category/Books"><a><li className='text-white'>Books</li></a></Link>
+        <Link href="/Book"><a><li className='text-white'>Booking</li></a></Link>
+        <Link href="/OurPrograms"><a><li className='text-white'>Our Programs</li></a></Link>
+  
 
-        {currentUser && <div className='text-white' style={{fontSize: "14px"}}>{currentUser.email}</div>}
       </ul>
           {/* {user===null && <Link href={"/Login"}><a><button className='bg-pink-400 rounded-lg absolute right-6 top-4 text-white text-lg py-1 px-2'>Login</button>  </a></Link>} */}
           
@@ -81,9 +87,9 @@ const Navbar = () => {
           
       <div  className="cart flex space-x-2 sm:space-x-5 cursor-pointer absolute text-2xl right-6 top-4 sm:top-6 sm:text-3xl ">
         <Link href=""><a  onMouseOver={()=>setdropdown(true)} onMouseLeave={()=>setdropdown(false)}>
-          <CgProfile/>
-          
+          <CgProfile className="text-white"/>
           </a></Link>
+          {currentUser && <div className='text-white' style={{fontSize: "14px"}}>{currentUser.name}</div>}
         <AiOutlineShoppingCart onClick={toggle}  className="text-white"/>
         
       </div>
@@ -91,7 +97,7 @@ const Navbar = () => {
       {/* } */}
       {dropdown==true && <div className='absolute top-10 md:top-12 font-semibold right-14  md:right-20 w-36 bg-white text-center py-3 flex flex-col rounded-lg'  onMouseOver={()=>setdropdown(true)} onMouseLeave={()=>setdropdown(false)}>
             <ul>
-              <Link href={"/Myaccount"}><a><li className='hover:text-green-700 hover:cursor-pointer py-2'>My Account</li></a></Link>
+              <Link href={"/Login"}><a><li className='hover:text-green-700 hover:cursor-pointer py-2'>My Account</li></a></Link>
               <Link href={"/Orders"}><a><li className='hover:text-green-700 hover:cursor-pointer py-2'>Orders</li></a></Link>
               <a><li onClick={logout} className='hover:text-pink-greenhover:cursor-pointer py-2'>Logout</li></a>
             </ul>

@@ -130,6 +130,7 @@ const Checkout = () => {
                     <div className="flex my-3 space-x-5">
                       <div className='p-3'>
                         {cart[itemcode].name}
+                      
                       </div>
                       <div className='flex flex-row space-x-2 items-center justify-center'>
                         <AiFillMinusCircle onClick={() => removeFromCart({ itemcode, qty: 1 })} className='text-green-700 cursor-pointer' /> <span>{cart[itemcode].qty}</span><AiFillPlusCircle onClick={() => addToCart({ itemcode, qty: 1 })} className='text-green-700 cursor-pointer' />

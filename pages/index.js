@@ -34,12 +34,14 @@ export default function Home() {
   const handleSearch = (e) => {
     console.log(e.target.value);
     if (e.target.value.length > 0) {
-      const filterProduct = products?.filter(
-        (item) =>
-          item.name
-            .toLowerCase()
-            .search(e.target.value.toLowerCase().trim()) !== -1
-      );
+      // const filterProduct = products?.filter(
+      //   (item) =>
+      //     item.name
+      //       .toLowerCase()
+      //       .search(e.target.value.toLowerCase().trim()) !== -1
+      // );
+      const filterProduct = products?.filter((item) => item.name.includes(e.target.value.toLowerCase()) );
+      console.log('filter product: ',filterProduct)
       setSearch(filterProduct);
     } else {
       setSearch([]);
@@ -76,7 +78,7 @@ export default function Home() {
           <section className="text-gray-600 body-font">
             <div className="container px-5 py-24 mx-auto">
               <div className="flex flex-wrap -m-4 justify-around">
-                {search.length > 0 && <h3 className="mt-5">Search Results</h3>}
+                {/* {search.length > 0 && <h1 className="">Search Results</h1>} */}
                 {search.length > 0 &&
                   search.slice(0, 3).map((item) => {
                     return (
@@ -87,13 +89,13 @@ export default function Home() {
                         <Link
                           key={item._id}
                           passHref={true}
-                          to={`/Product/${item._id}`}
+                          href={`/Product/${item._id}`}
                         >
                           <a className="block h-48 rounded overflow-hidden pb-2">
                             <img
                               alt="ecommerce"
                               className="object-cover object-center m-auto h-full block"
-                              src={`${item.img}`}
+                              src={`https://blushing-plum-belt.cyclic.app/api/admin/photo/${item._id}`}
                             />
                           </a>
                         </Link>
@@ -105,7 +107,7 @@ export default function Home() {
                           <h2 className="text-gray-900 title-font text-xl font-medium">
                             {item.name}
                           </h2>
-                          <p className="mt-1">{item.desc.slice(0, 60)}...</p>
+                          {/* <p className="mt-1">{item.description.slice(0, 60)}...</p> */}
                           <p className="mt-1 text-lg">€{item.price}</p>
                         </div>
                       </div>

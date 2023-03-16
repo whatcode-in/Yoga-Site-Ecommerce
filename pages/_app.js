@@ -8,17 +8,40 @@ import {useState,useEffect} from 'react'
 import {AuthProvider} from '../authContext'
 import {onAuthStateChanged} from 'firebase/auth'
 import {auth} from '../firebaseconfig'
+import { database } from '../firebaseconfig';
+import { collection, query, where, getDocs } from "firebase/firestore";
 
 function MyApp({ Component, pageProps }) {
-  const [currentUser, setCurrentUser] = useState(null)
+  const [currentUser, setCurrentUser] = useState({})
 
+
+  const handleAuthChanged = async (user) => {
+      let index = 0
+
+      const q = query(collection(database, "users"), where("email", "==", user.email));
+      const querySnapshot = await getDocs(q);
+      querySnapshot.forEach((doc) => {
+        console.log(doc.id, " => ", doc.data());
+        if(index == 0){
+          console.log('name: ',doc.data().name)
+          setCurrentUser({name: doc.data().name,email: doc.data().email})
+        }
+        index += 1
+      });
+      
+  }
   
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
-      setCurrentUser(user)
-      if(currentUser){
-        console.log("user: ",user.email)
+      if(user){
+        console.log('user main: ',user)
+      
+      handleAuthChanged(user)
       }
+      // setCurrentUser(user)
+      // if(currentUser){
+      //   console.log("user auth: ",user)
+      // }
      })
   }, [])
 
