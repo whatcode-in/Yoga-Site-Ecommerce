@@ -139,7 +139,7 @@ export default function Login(){
                 Don`&apos;`t have an account? &nbsp;
                
                   <Link
-                    href={"/SignUp"}
+                    href={"/Signup"}
                   ><a className="font-medium text-indigo-500  hover:underline"> 
                     Create One
                     </a>
