@@ -113,7 +113,7 @@ export default function Login(){
               <p
                 className="transform text-center font-semibold text-gray-500 duration-300 hover:text-gray-300"
                 
-              ><Link href="/ResetPassword">
+              ><Link href={"/ResetPassword"}>
                 FORGOT PASSWORD?
                 </Link>
               </p>
@@ -139,7 +139,7 @@ export default function Login(){
                 Don`&apos;`t have an account? &nbsp;
                
                   <Link
-                    href="/SignUp"
+                    href={"/SignUp"}
                   ><a className="font-medium text-indigo-500  hover:underline"> 
                     Create One
                     </a>
