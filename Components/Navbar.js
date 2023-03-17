@@ -76,7 +76,7 @@ const Navbar = () => {
         <Link href="/Category/Groceries"><a><li className='text-white'>Groceries</li></a></Link>
         <Link href="/Category/Home-Kitchen"><a><li className='text-white'>Home & Kitchen</li></a></Link>
         <Link href="/Category/Books"><a><li className='text-white'>Books</li></a></Link>
-        <Link href="/Book"><a><li className='text-white'>Booking</li></a></Link>
+        {/* <Link href="/Book"><a><li className='text-white'>Booking</li></a></Link> */}
         <Link href="/OurPrograms"><a><li className='text-white'>Our Programs</li></a></Link>
   
 

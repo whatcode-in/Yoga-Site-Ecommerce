@@ -10,7 +10,7 @@ import { getAuth,
 import {addDoc,collection} from 'firebase/firestore'
 import emailjs from '@emailjs/browser';
 import Link from "next/link"
-
+import Swal from "sweetalert2";
 
 export default function SignUp(){
   const {currentUser} = useAuthValue()
@@ -33,13 +33,18 @@ export default function SignUp(){
     signInWithPopup(auth,googleAuthProvider)
     .then((response) => {
       console.log("user google: ",response.user['email'],response.user['displayName'])
-      alert("Login with google successfull")
+  
 
       addDoc(collectionReference,{
         name: response.user['displayName'],
         email: response.user['email'],
       }).then(() => console.log("user: ",data.name,data.email))
       .catch((error) => console.log(error.message))
+
+      Swal.fire({
+        icon: "success",
+        title: "Sign up with google successfull",
+      });
 
     })
     .catch((error) => {
@@ -53,13 +58,19 @@ export default function SignUp(){
     createUserWithEmailAndPassword(auth,data.email,data.password)
       .then((response) => {
         console.log(response.user)
-        alert("User successfully created")
+
 
         addDoc(collectionReference,{
           name: data.name,
           email: data.email,
         }).then(() => console.log("user: ",data.name,data.email))
         .catch((error) => console.log(error.message))
+
+        Swal.fire({
+          icon: "Success",
+          title: "Sign up successfull",
+        });
+     
           
       })
       .catch((error) => {

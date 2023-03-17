@@ -1,20 +1,23 @@
 export default [
     {   
         id: "1",
-        name: "PROGRAMA AYUNO\nMAVA FASTING\n(CLEANSE & DETOX)",
-        image: 'six.jpg',
-        clicked: false
+        name: "HEALING DETOX RETREAT",
+        image: 'pool.jpg',
+        clicked: false,
+        route: '/Book'
     },
     {   
         id: "2",
-        name: "PROGRAMA AYUNO\nMAVA FASTING\n(CLEANSE & DETOX)",
-        image: 'six.jpg',
-        clicked: false
+        name: "GARDEN VILLA SHANTI",
+        image: 'house_view.jpeg',
+        clicked: false,
+        route: '/GardenVilla'
     },
     {   
         id: "3",
-        name: "PROGRAMA AYUNO\nMAVA FASTING\n(CLEANSE & DETOX)",
-        image: 'six.jpg',
-        clicked: false
+        name: "DUPLEX BY THE BEACH",
+        image: 'beach.jpg',
+        clicked: false,
+        route: '/DuplexBeach'
     },
 ]

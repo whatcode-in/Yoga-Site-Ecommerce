@@ -5,6 +5,8 @@ import { AiOutlineClose, AiFillMinusCircle, AiFillPlusCircle } from "react-icons
 import { actioncreators } from '../State';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
+import Swal from "sweetalert2";
+
 const Checkout = () => {
 
   let { cart, subtotal } = useSelector((state) => state.cart);
@@ -43,10 +45,13 @@ const Checkout = () => {
         let newObj = {
           name: cart[itemcode].name,
           price: cart[itemcode].price,
-          quantity: cart[itemcode].qty
+          quantity: cart[itemcode].qty,
+          id: itemcode
         }
         cartArray.push(newObj)
     })
+
+    console.log('cart checkout: ',cart)
  
     fetch('https://blushing-plum-belt.cyclic.app/api/admin/add-order', {
     method: 'POST',
@@ -63,13 +68,18 @@ const Checkout = () => {
       state:data.state,
       orderedItems: cartArray
     })
-  }) .then(response => response.json())
-  .then(newData => alert('order placed'))
+  }) 
+  .then(newData => 
+    Swal.fire({
+      icon: "Success",
+      title: "Booking successfull",
+    })
+)
   .catch(error => console.error("new error: ",error));
 }
 
   return (
-    <div className='container m-auto w-5/6 my-8'>
+    <div className='container m-auto w-5/6 my-8' style={{marginTop: "5rem"}}>
       <h1 className='text-center font-bold text-3xl'>CheckOut</h1>
       <h2 className='text-xl font-semibold my-2'>1.&nbsp; Deliver Details</h2>
       <div className="flex flex-wrap -m-2">
@@ -130,7 +140,7 @@ const Checkout = () => {
                     <div className="flex my-3 space-x-5">
                       <div className='p-3'>
                         {cart[itemcode].name}
-                      
+                      <img className='w-[25%]' src={`https://blushing-plum-belt.cyclic.app/api/admin/photo/${itemcode}`}/>
                       </div>
                       <div className='flex flex-row space-x-2 items-center justify-center'>
                         <AiFillMinusCircle onClick={() => removeFromCart({ itemcode, qty: 1 })} className='text-green-700 cursor-pointer' /> <span>{cart[itemcode].qty}</span><AiFillPlusCircle onClick={() => addToCart({ itemcode, qty: 1 })} className='text-green-700 cursor-pointer' />

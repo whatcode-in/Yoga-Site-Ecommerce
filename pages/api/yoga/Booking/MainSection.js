@@ -15,7 +15,7 @@ export default function MainSection() {
   const [night, setNight] = useState(14);
   const [isClicked, setIsClicked] = useState(false);
   const [packageNumb, setSetPackageNumb] = useState(4);
-  const [ind, setInd] = useState("1");
+  const [ind, setInd] = useState(1);
   const [error, setError] = useState("");
   const [booking, setBooking] = useState([]);
 
@@ -479,6 +479,29 @@ export default function MainSection() {
   // }, []);
 
   function createNewBooking(){
+
+    if (data.name === "" || data.email === "" || data.mobile === "") {
+      setError("Please fill up the form");
+      return null;
+    }
+
+    // if (startDateData === "" || endDateData === "") {
+    //   Swal.fire({
+    //     icon: "error",
+    //     title: "Oops...",
+    //     text: "Please select Date",
+    //   });
+    //   return null;
+    // }
+    setError("");
+
+    let newTotalCost = 0
+
+    console.log(`mobile: ${data.mobile} \n name: ${data.name} \n email: ${data.email} participants: ${participants}`)
+    console.log(`info: ${data.info} \n day: ${day} \n night: ${night} package number: ${packageNumb}`)
+    console.log(`individual room cost: ${individualroomcost} \n shared room cost: ${sharedroomcost}`)
+    console.log(`total cost: ${totalCost}\n start date: ${startDateData}`)
+      
     
     fetch('https://blushing-plum-belt.cyclic.app/api/admin/add-booking', {
     method: 'POST',
@@ -494,13 +517,18 @@ export default function MainSection() {
       day: day,
       night: night,
       packageNumber: packageNumb,
-      individualRoomCost: individualroomcost,
-      sharedRoomCost: sharedroomcost,
+      typeOfRetreat: "Healing Detox Retreat",
+      typeOfRoom: ind === 1 ? "Individual Room" : "Double Room" ,
       totalCost: totalCost,
       startDate: startDateData,
     })
-  }) .then(response => response.json())
-  .then(newData => alert('booking made'))
+  }) 
+  .then(newData => 
+    Swal.fire({
+          icon: "success",
+          title: "Booking successfull",
+        })
+    )
   .catch(error => console.error("booking error: ",error));
 
   }
@@ -1644,9 +1672,9 @@ export default function MainSection() {
                   style={{border:'1px solid rgba(0, 0, 0, 0.23)'}}
                 />{" "}
                 <br />
-                <div>
+                {/* <div>
                   <button onClick={createNewBooking}>Book</button>
-                </div>
+                </div> */}
               </div>
               <div className="dat-select total">
                 <div className="resu-txt">

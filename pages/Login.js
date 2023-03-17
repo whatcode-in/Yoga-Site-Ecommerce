@@ -6,7 +6,7 @@ import { getAuth,
         signInWithEmailAndPassword,
         sendPasswordResetEmail
         } from "firebase/auth";
-
+import Swal from "sweetalert2";
 import Link from 'next/link'
 
 
@@ -28,7 +28,13 @@ export default function Login(){
       //put in db if it is not there remaining
       signInWithPopup(auth,googleAuthProvider)
       .then((response) => {
-        alert("Login with google successfull")
+    
+        Swal.fire({
+          icon: "success",
+          title: "Login successfull",
+          text: "Login with google successfull",
+        });
+     
       })
       .catch((error) => {
         alert(error.message)
@@ -39,7 +45,10 @@ export default function Login(){
     function login(){
       signInWithEmailAndPassword(auth,data.email,data.password)
       .then((response) => {
-        alert("Login successfull")
+        Swal.fire({
+          icon: "success",
+          title: "Login successfull",
+        });
       })
       .catch((error) => {
         alert(error.message)

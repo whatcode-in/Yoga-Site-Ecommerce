@@ -2,18 +2,21 @@ import React from "react";
 import './OurPrograms'
 import data from "./api/yoga/Programs/VenueData"
 import styles from "../styles/OurPrograms.module.css"
+import { useRouter } from 'next/router'
 
 function VenueCards(props){
+    const router = useRouter()
+
     return(
-        <div className={props.clicked? styles.venues_main_container_expanded : styles.venues_main_container} 
+        <div className={styles.venues_main_container} 
         onClick={() => props.toggleCardClicked(props.id)}>
 
             <div className={styles.venues_img_container}>
                 <img src={props.image}/>
-                {props.clicked && <button>Book Now</button>}
+                <button onClick={() => router.push(props.route)}>Book Now</button>
             </div>
-            <div className={props.clicked ? styles.venues_text_container_expanded : styles.venues_text_container}>
-               {props.clicked ? props.name : props.id}
+            <div className={styles.venues_text_container_expanded}>
+               {props.name}
             </div>
 
         </div>
@@ -31,6 +34,7 @@ export default function Venues(){
                 image={card.image} 
                 name={card.name} 
                 id={card.id}
+                route={card.route}
                 clicked={card.clicked}
                 toggleCardClicked={toggleCardClicked}
                 />

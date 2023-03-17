@@ -14,7 +14,7 @@ function CategoryCards(props){
 >
 
             <div className={styles.category_img_container}>
-                <img src='six.jpg'/>
+                <img src={props.image}/>
                 {props.clicked && <button onClick={() => router.push(props.route)}>Book Now</button>}
             </div>
             <div className={props.clicked ? styles.category_text_container_expanded : styles.category_text_container}>
