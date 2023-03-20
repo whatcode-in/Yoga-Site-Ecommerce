@@ -21,14 +21,16 @@ const Orders = () => {
 
     React.useEffect(() => {
         getOrders()
+        console.log("userrrr: ",currentUser)
     },[])
 
+    {}
 
+    
     return (
       <div style={{margin: "5rem"}} className="flex flex-col items-center justify-center p-20 text-lg">
-       <div className="font-bold text-2xl">Your Orders:</div>
-       
-       { userOrders.map((item) => {
+       {userOrders.length > 0 && <div className="font-bold text-2xl">Your Orders:</div>}
+       {userOrders.length > 0  && userOrders.map((item) => {
             return (
                 <div className="flex flex-col items-center justify-center mt-8" key={item._id}>
                 <div className="pb-8 border-solid border-black border-b-4">
@@ -45,6 +47,7 @@ const Orders = () => {
                           <div className="text-base mb-2"><span className="font-medium">Name:</span> {product.name}</div>
                           <div className="text-base mb-2"><span className="font-medium">Price:</span> {product.price}</div>
                           <div className="text-base mb-2"><span className="font-medium">Quantity:</span> {product.quantity}</div>
+                          <img src={product.productImage} className="w-[30%]"/>
                         </div>
                     )
                    })}</div>
@@ -52,12 +55,13 @@ const Orders = () => {
                 </div>
                 </div>
             )
-       })
+       })}
 
-       }
+       {userOrders.length == 0 && currentUser.email && <div className="font-bold text-2xl">No orders placed yet</div>}
 
-      </div>
-    )
+       {currentUser.email == undefined && <div className="font-bold text-2xl">Please login to see your orders</div>}
+       
+       </div>)
   }
   
   export default Orders

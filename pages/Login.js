@@ -4,16 +4,19 @@ import { getAuth,
         GoogleAuthProvider,
         signInWithPopup,
         signInWithEmailAndPassword,
-        sendPasswordResetEmail
         } from "firebase/auth";
 import Swal from "sweetalert2";
-import Link from 'next/link'
+import Link from 'next/link';
+import { database } from '../firebaseconfig'
+import {addDoc,collection,query,getDocs,where} from 'firebase/firestore'
 
 
 export default function Login(){
     const {currentUser} = useAuthValue()
     let auth = getAuth();
     let googleAuthProvider = new GoogleAuthProvider()
+
+    const collectionReference = collection(database,'users') 
   
     const [data,setData] = React.useState({
       email: "",
@@ -26,44 +29,76 @@ export default function Login(){
   
     function loginWithGoogle(){
       //put in db if it is not there remaining
+      let index = 0
       signInWithPopup(auth,googleAuthProvider)
       .then((response) => {
-    
         Swal.fire({
           icon: "success",
           title: "Login successfull",
           text: "Login with google successfull",
         });
+
+        const q = query(collection(database, "users"), where("email", "==", response.user['email']));
+        getDocs(q)
+        .then((querySnapshot) => {
+          console.log('snapshot: ',querySnapshot)
+
+          querySnapshot.forEach((doc) => {
+             if(doc.data()) index += 1
+          })
+
+          if(index == 0){
+            console.log('user does not exsists')
+            addDoc(collectionReference,{
+                  name: response.user['displayName'],
+                  email: response.user['email'],
+                }).then(() => console.log("user login: ",response.user['displayName'],response.user['email']))
+                .catch((error) => console.log(error.message))
+          }else{
+            console.log('user exsists')
+          }
+        })
      
       })
       .catch((error) => {
         alert(error.message)
       })
     }
-  
+
+   
+
+
   
     function login(){
+      if(data.email == "" || data.password == ""){
+        Swal.fire({
+          icon: "warning",
+          text: 'Either email or password not entered'
+        })
+        return 
+      }
+
       signInWithEmailAndPassword(auth,data.email,data.password)
       .then((response) => {
         Swal.fire({
           icon: "success",
           title: "Login successfull",
         });
+
+        data.name = ""
+        data.email = ""
+        data.confirmEmail = ""
+        data.password = ""
+        
       })
       .catch((error) => {
-        alert(error.message)
+        Swal.fire({
+          icon: "error",
+          text: `Error: ${error}`
+        });
       })
     }
 
-
-  
-    // return(<div className='flex flex-col items-center justify-center'>
-    //  <input className='mt-8 w-72 border-2 border-solid border-black' placeholder='email' name="email" value={data.email} onChange={handleChange}/> 
-    //   <input  className='mt-8 w-72 border-2 border-solid border-black' placeholder='password' name="password" value={data.password} onChange={handleChange} />
-    //   <button onClick={login} className="mt-8 bg-[#7A923E] p-2 text-white mb-8 w-[60%]">Login</button>
-    //   <button onClick={loginWithGoogle} className="mt-2 bg-[#7A923E] p-2 text-white mb-8 w-[60%]" >Login With Google</button>
-    // </div>
-    // )
 
     return(
         <div style={{marginTop: "10rem"}}>
@@ -145,7 +180,7 @@ export default function Login(){
 
             <section className="flex w-full flex-col space-y-5">
               <p className="text-center text-lg">
-                Don`&apos;`t have an account? &nbsp;
+                Don&apos;t have an account? &nbsp;
                
                   <Link
                     href={"/Signup"}

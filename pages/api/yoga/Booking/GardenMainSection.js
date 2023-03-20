@@ -15,7 +15,7 @@ export default function MainSection() {
   const [night, setNight] = useState(14);
   const [isClicked, setIsClicked] = useState(false);
   const [packageNumb, setSetPackageNumb] = useState(4);
-  const [ind, setInd] = useState(1);
+  const [ind, setInd] = useState(0);
   const [error, setError] = useState("");
   const [booking, setBooking] = useState([]);
 
@@ -39,7 +39,7 @@ export default function MainSection() {
     setInd(value);
   };
 
-  const [totalCost, setTotalCost] = useState(499);
+  const [totalCost, setTotalCost] = useState(0);
 
   // handle package
 
@@ -139,7 +139,7 @@ export default function MainSection() {
   ]);
 
   // select date
-  const [startDateData, setStartDatesData] = useState("");
+  const [startDateData, setStartDatesData] = useState("2023-03-15");
   const [endDateData, setEndDatesData] = useState("");
   const handleSetDate = (value) => {
     let startedDay = value[0].startDate.getDate();
@@ -257,30 +257,23 @@ export default function MainSection() {
   let pack21vals = [21, 22, 23, 24, 25, 26, 27];
 
   useEffect(() => {
-    
-    console.log('index: ',ind)
-
-      if(packageNumb === 7){
-          setIndividualRoomCost1(day * 195 * 2)
-          setIndividualRoomCost2(day * 225 * 2)
-          setSharedRoomCost1(day * 180 * 2)
-          setSharedRoomCost2(day * 205 * 2)
-
-          if (ind === 1) setTotalCost(day * 195 * 2)
-          if (ind === 2) setTotalCost(day * 225 * 2)
-          if (ind === 3) setTotalCost(day * 180 * 2)
-          if (ind === 4) setTotalCost(day * 205 * 2)
+      if(ind == 0){
+        setTotalCost(0)
       }
-      else if(packageNumb === 4){
+
+       if(packageNumb === 4){
         setIndividualRoomCost1(195 * 3)
         setIndividualRoomCost2(225 * 3)
         setSharedRoomCost1(180 * 3)
         setSharedRoomCost2(205 * 3)
 
+
+
         if (ind === 1) setTotalCost(195 * 3)
         if (ind === 2) setTotalCost(225 * 3)
         if (ind === 3) setTotalCost(180 * 3)
         if (ind === 4) setTotalCost(205 * 3)
+        
       
       }
       else{
@@ -289,12 +282,14 @@ export default function MainSection() {
         setSharedRoomCost1(180 * night)
         setSharedRoomCost2(205 * night)
 
+
         if (ind === 1) setTotalCost(195 * night)
-          if (ind === 2) setTotalCost(225 * night)
-          if (ind === 3) setTotalCost(180 * night)
-          if (ind === 4) setTotalCost(205 * night)
-      
+        if (ind === 2) setTotalCost(225 * night)
+        if (ind === 3) setTotalCost(180 * night)
+        if (ind === 4) setTotalCost(205 * night)
       }
+
+ 
 
       // if(ind === 1){
       //   setTotalCost(individualRoomCost1)
@@ -314,6 +309,11 @@ export default function MainSection() {
 
   let ref1 = useRef();
   let ref2 = useRef();
+
+  function handleSetParticipants(index){
+    setParticipants(index)
+    setInd(0)
+  }
 
   // form data
   const handleChange = (e) => {
@@ -457,7 +457,7 @@ export default function MainSection() {
     //   });
     //   return null;
     // }
-    // setError("");
+    setError("");
 
     let newTotalCost = 0
 
@@ -1033,7 +1033,7 @@ export default function MainSection() {
                 <span className="diasnoche">From 14 to 21 days </span>
 
                 <div className="precio-dias">
-                  <h4 style={{ display: " inline-block" }}>€{totalCost}</h4>
+                  <h4 style={{ display: " inline-block" }}>{totalCost == 0 ? "No room selected" :  `€ ${totalCost}`}</h4>
                   {/* {ind === 1 && <h4 style={{ display: " inline-block" }}>€{individualRoomCost1}</h4>}
                   {ind === 2 && <h4 style={{ display: " inline-block" }}>€{individualRoomCost2}</h4>}
                   {ind === 3 && <h4 style={{ display: " inline-block" }}>€{sharedRoomCost1}</h4>}
@@ -1169,7 +1169,7 @@ export default function MainSection() {
                     alt=""
                   />
                   <div
-                    onClick={() => setParticipants(1)}
+                    onClick={() => handleSetParticipants(1)}
                     data-num="1"
                     className={
                       participants === 1
@@ -1180,7 +1180,7 @@ export default function MainSection() {
                     1
                   </div>
                   <div
-                    onClick={() => setParticipants(2)}
+                    onClick={() => handleSetParticipants(2)}
                     data-num="2"
                     className={
                       participants === 2
@@ -1216,7 +1216,7 @@ export default function MainSection() {
                             name="offer"
                             onClick={(e) => setInd(1)}
                             value="1"
-                            checked={true}
+                            // checked={true}
                           />
                         </div>
                         <div className="edit-pers">
@@ -1362,7 +1362,7 @@ export default function MainSection() {
                           id="offer-0-p-2-dsk"
                           type="radio"
                           name="offer"
-                          value="0-p-2"
+                          value="3"
                           onClick={(e) => setInd(3)}
                         />
                         <input
@@ -1456,7 +1456,7 @@ export default function MainSection() {
                           id="offer-0-p-2-dsk"
                           type="radio"
                           name="offer"
-                          value="0-p-2"
+                          value="4"
                           onClick={(e) => setInd(4)}
                         />
                         <input

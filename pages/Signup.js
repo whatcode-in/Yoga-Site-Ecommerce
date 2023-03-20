@@ -22,7 +22,8 @@ export default function SignUp(){
   const [data,setData] = React.useState({
     email: "",
     password: "",
-    name: ""
+    name: "",
+    confirmEmail: ""
   })
 
   function handleChange(event){
@@ -41,10 +42,12 @@ export default function SignUp(){
       }).then(() => console.log("user: ",data.name,data.email))
       .catch((error) => console.log(error.message))
 
+
       Swal.fire({
         icon: "success",
         title: "Sign up with google successfull",
       });
+
 
     })
     .catch((error) => {
@@ -55,6 +58,54 @@ export default function SignUp(){
 
 
   function signUp(){
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    const alphaRegex = /[a-zA-Z]/;
+    const numRegex = /[0-9]/;
+
+    if(data.email == "" || data.password == "" || data.confirmEmail == ""){
+      Swal.fire({
+        icon: "warning",
+        text: 'Please enter email, confirm email and password'
+      })
+      return 
+    }
+
+    if(data.password.length < 6){
+      Swal.fire({
+        icon: "warning",
+        text: 'Password must be aleast 6 charachters'
+      })
+      return 
+    }
+
+    if(!numRegex.test(data.password) || !alphaRegex.test(data.password)){
+     
+      Swal.fire({
+        icon: "warning",
+        text: 'Password must be alphanumeric'
+      })
+      return 
+    }
+
+
+    if(!emailRegex.test(data.email)){
+
+      Swal.fire({
+        icon: "warning",
+        text: 'Please enter a valid email address'
+      })
+      return 
+
+    }
+
+    if(data.email != data.confirmEmail){
+      Swal.fire({
+        icon: "warning",
+        text: 'Email and confirm email should match'
+      })
+      return
+    }
+
     createUserWithEmailAndPassword(auth,data.email,data.password)
       .then((response) => {
         console.log(response.user)
@@ -67,48 +118,24 @@ export default function SignUp(){
         .catch((error) => console.log(error.message))
 
         Swal.fire({
-          icon: "Success",
+          icon: "success",
           title: "Sign up successfull",
         });
-     
+        
+        data.name = ""
+        data.email = ""
+        data.confirmEmail = ""
+        data.password = ""
           
       })
       .catch((error) => {
-        alert(error.message)
+        Swal.fire({
+          icon: "error",
+          text: `error ${error}`,
+        });
       })
-
-      // emailjs.send("service_5jp61oq","template_k1fb4mo",{
-      //   from_email: "info@Mavavida.com",
-      //   to_email: data.email,
-      //   from_name: "Mava Vida",
-      //   to_name: data.name
-      // })
-      //   .then(() => console.log('email sent'))
-      //   .catch(error => console.log('error in sending mail: ',error))
-
-      
   }
 
-  // function testMail(){
-  //     emailjs.init('tTXBXjG1V10p-IVST');
-
-  //     emailjs.send("service_5jp61oq","template_k1fb4mo",{
-  //       from_name: "ananya",
-  //       to_name:"sample",
-  //       from_email: "info@Mavavida.com ",
-  //       to_email: 'ananyadoshi108@gmail.com'
-  //     })
-  //       .then(() => console.log('email sent'))
-  //       .catch(error => console.log(error))
-  // }
-
-//   return(<div className='flex flex-col items-center justify-center'>
-//     <input className='mt-8 w-72 border-2 border-solid border-black' placeholder='email' name="email" value={data.email} onChange={handleChange}/> 
-//     <input className='mt-8 w-72 border-2 border-solid border-black' placeholder='password' name="password" value={data.password} onChange={handleChange} />
-  
-//     <button onClick={signUp} className="mt-8 bg-[#7A923E] p-2 text-white mb-8 w-[60%]">SignUp</button>
-//     <button onClick={loginWithGoogle} className="mt-2 bg-[#7A923E] p-2 text-white mb-8 w-[60%]">Login With Google</button>
-//   </div>)
 
     return(
     <div className="w-full max-w-lg px-5 m-auto my-20 sign-up-container" style={{marginTop: "10rem"}}>
@@ -147,6 +174,25 @@ export default function SignUp(){
           onChange={handleChange}
         />
       </div>
+
+
+      <div className="w-full px-3">
+        <label
+          className="block tracking-wide text-gray-700 text-xs font-bold mb-2"
+          htmlFor="email"
+        >
+          Confirm Email
+        </label>
+        <input
+          className="appearance-none block w-full  text-gray-700 border-2 border-gray-200 rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-500"
+          id="email"
+          name="confirmEmail"
+          type="email"
+          value={data.confirmEmail}
+          onChange={handleChange}
+        />
+      </div>
+
 
       <div className="w-full px-3">
         <label

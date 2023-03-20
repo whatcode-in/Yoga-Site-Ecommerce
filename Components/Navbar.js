@@ -57,7 +57,7 @@ const Navbar = () => {
 
 
   return (
-    <nav className='sticky top-0 z-30 w-full navbar flex flex-col justify-center items-center py-2 md:flex-row bg-green-900 shadow-lg navbar-extra'>
+    <nav className='sticky top-0 z-30 w-full navbar flex flex-col justify-center items-center py-2 md:flex-row shadow-lg navbar-extra'>
       <div className='md:absolute md:left-2 top-2'>
         <Link className="logo hover:cursor-pointer" href="/">
           <a>
@@ -99,14 +99,14 @@ const Navbar = () => {
             <ul>
               <Link href={"/Login"}><a><li className='hover:text-green-700 hover:cursor-pointer py-2'>My Account</li></a></Link>
               <Link href={"/Orders"}><a><li className='hover:text-green-700 hover:cursor-pointer py-2'>Orders</li></a></Link>
-              <a><li onClick={logout} className='hover:text-pink-greenhover:cursor-pointer py-2'>Logout</li></a>
+              <a><li onClick={logout} className='hover:text-green-700 hover:cursor-pointer py-2'>Logout</li></a>
             </ul>
             </div>}
 
-      <div ref={ref} className="fixed sidecart h-[100vh] w-72 top-28 md:top-16 right-0 bg-green-400  transform transition-transform translate-x-full z-10">
-        <div className='bg-green-400 p-10 pt-14 z-10'>
+      <div ref={ref} className="fixed sidecart h-[100vh] w-72 top-28 md:top-16 right-0 bg-green-400  transform transition-transform translate-x-full z-10 shopping-cart">
+        <div className='p-10 pt-14 z-10'>
 
-          <h2 className='text-2xl'>Shooping Cart</h2>
+          <h2 className='text-2xl'>Shoping Cart</h2>
           <span onClick={toggle} className='cursor-pointer absolute top-5 right-3 text-xl'><AiOutlineClose/></span>
           <ol className='list-decimal flex flex-col'>
             {Object.keys(cart).length === 0 ? <div className='my-3'>Your cart is empty </div> :
@@ -128,8 +128,8 @@ const Navbar = () => {
           </ol>
           <div className='my-3 font-bold text-center'>Amount:&nbsp; €{subtotal}</div>
           <div className='flex'>
-            <Link href={"/Checkout"}><a> <button className="flex mr-2 text-white bg-indigo-500 border-0 p-2 focus:outline-none hover:bg-indigo-600 rounded text-sm items-center my-4"><BsFillBagCheckFill className='mr-2' />Check out</button></a></Link>
-            <button onClick={clearCart} className="flex mr-2 text-white bg-indigo-500 border-0 p-2 focus:outline-none hover:bg-indigo-600 rounded text-sm items-center my-4">Clear Cart</button>
+            <Link href={"/Checkout"}><a> <button className="flex mr-2 text-white shopping-cart-button border-0 p-2 focus:outline-none rounded text-sm items-center my-4"><BsFillBagCheckFill className='mr-2' />Check out</button></a></Link>
+            <button onClick={clearCart} className="flex mr-2 text-white shopping-cart-button border-0 p-2 focus:outline-none rounded text-sm items-center my-4">Clear Cart</button>
           </div>
         </div>
       </div>

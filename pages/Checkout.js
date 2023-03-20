@@ -46,7 +46,8 @@ const Checkout = () => {
           name: cart[itemcode].name,
           price: cart[itemcode].price,
           quantity: cart[itemcode].qty,
-          id: itemcode
+          id: itemcode,
+          productImage: `https://blushing-plum-belt.cyclic.app/api/admin/photo/${itemcode}`
         }
         cartArray.push(newObj)
     })
@@ -71,8 +72,8 @@ const Checkout = () => {
   }) 
   .then(newData => 
     Swal.fire({
-      icon: "Success",
-      title: "Booking successfull",
+      icon: "success",
+      title: "Order placed",
     })
 )
   .catch(error => console.error("new error: ",error));

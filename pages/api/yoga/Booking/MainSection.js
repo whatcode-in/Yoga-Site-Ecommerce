@@ -15,7 +15,7 @@ export default function MainSection() {
   const [night, setNight] = useState(14);
   const [isClicked, setIsClicked] = useState(false);
   const [packageNumb, setSetPackageNumb] = useState(4);
-  const [ind, setInd] = useState(1);
+  const [ind, setInd] = useState(0);
   const [error, setError] = useState("");
   const [booking, setBooking] = useState([]);
 
@@ -33,7 +33,7 @@ export default function MainSection() {
     setInd(value);
   };
 
-  const [totalCost, setTotalCost] = useState(499);
+  const [totalCost, setTotalCost] = useState(0);
 
   // handle package
 
@@ -290,6 +290,10 @@ export default function MainSection() {
   let pack21vals = [21, 22, 23, 24, 25, 26, 27];
 
   useEffect(() => {
+     if(ind == 0){
+        setTotalCost(0)
+      }
+
     if (participants === 1) {
       if (packageNumb !== 4) {
         setindividualroomcost(165 * night);
@@ -350,6 +354,11 @@ export default function MainSection() {
 
   let ref1 = useRef();
   let ref2 = useRef();
+
+  function handleSetParticipants(index){
+    setParticipants(index)
+    setInd(0)
+  }
 
   // form data
   const handleChange = (e) => {
@@ -1061,7 +1070,7 @@ export default function MainSection() {
                 <span className="diasnoche">From 14 to 21 days </span>
 
                 <div className="precio-dias">
-                  <h4 style={{ display: " inline-block" }}>€{totalCost}</h4>
+                  <h4 style={{ display: " inline-block" }}>{totalCost == 0 ? "No room selected" :  `€ ${totalCost}`}</h4>
                 </div>
                 <input
                   type="hidden"
@@ -1193,7 +1202,7 @@ export default function MainSection() {
                     alt=""
                   />
                   <div
-                    onClick={() => setParticipants(1)}
+                    onClick={() => handleSetParticipants(1)}
                     data-num="1"
                     className={
                       participants === 1
@@ -1204,7 +1213,7 @@ export default function MainSection() {
                     1
                   </div>
                   <div
-                    onClick={() => setParticipants(2)}
+                    onClick={() => handleSetParticipants(2)}
                     data-num="2"
                     className={
                       participants === 2
@@ -1240,7 +1249,7 @@ export default function MainSection() {
                             name="offer"
                             onClick={(e) => setInd(1)}
                             value="1"
-                            checked={true}
+                           
                           />
                         </div>
                         <div className="edit-pers">
@@ -1386,7 +1395,7 @@ export default function MainSection() {
                           type="radio"
                           name="offer"
                           value="0-p-2"
-                          checked
+                          
                         />
                         <input
                           type="hidden"
@@ -1450,7 +1459,7 @@ export default function MainSection() {
                           />{" "}
                           2
                         </span>
-                        <span className="price">€{totalCost}</span>
+                        <span className="price"></span>
                         <small>Total Price</small>
                       </div>
                     </li>
@@ -1685,7 +1694,7 @@ export default function MainSection() {
                 </div>
                 <div className="resu-price">
                   <span id="precio_total-dsk" data-total="2480">
-                    {totalCost}
+                  {totalCost == 0 ? "No room selected" :  `€ ${totalCost}`}
                   </span>
                 </div>
               </div>

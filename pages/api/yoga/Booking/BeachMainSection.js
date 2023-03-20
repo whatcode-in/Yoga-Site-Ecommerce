@@ -15,7 +15,7 @@ export default function MainSection() {
   const [night, setNight] = useState(14);
   const [isClicked, setIsClicked] = useState(false);
   const [packageNumb, setSetPackageNumb] = useState(4);
-  const [ind, setInd] = useState(1);
+  const [ind, setInd] = useState(0);
   const [error, setError] = useState("");
   const [booking, setBooking] = useState([]);
 
@@ -36,7 +36,7 @@ export default function MainSection() {
     setInd(value);
   };
 
-  const [totalCost, setTotalCost] = useState(499);
+  const [totalCost, setTotalCost] = useState(0);
 
   // handle package
 
@@ -175,7 +175,7 @@ export default function MainSection() {
   ]);
 
   // select date
-  const [startDateData, setStartDatesData] = useState("");
+  const [startDateData, setStartDatesData] = useState("2023-03-15");
   const [endDateData, setEndDatesData] = useState("");
   const handleSetDate = (value) => {
     let startedDay = value[0].startDate.getDate();
@@ -293,22 +293,16 @@ export default function MainSection() {
   let pack21vals = [21, 22, 23, 24, 25, 26, 27];
 
   useEffect(() => {
-    
-    if(packageNumb === 7){
-      setRoomCost1(day * 165 * 2)
-      setRoomCost2(day * 185 * 2)
 
-      if (ind === 1) setTotalCost(day * 165 * 2)
-      if (ind === 2) setTotalCost(day * 185 * 2)
-  }
-  else if(packageNumb === 4){
+    if(ind == 0){
+      setTotalCost(0)
+    }
+
+ if(packageNumb === 4){
     setRoomCost1(165 * 3)
     setRoomCost2(185 * 3)
-
     if (ind === 1) setTotalCost(165 * 3)
     if (ind === 2) setTotalCost(185 * 3)
-   
-  
   }
   else{
     setRoomCost1(night * 165)
@@ -451,14 +445,19 @@ export default function MainSection() {
   //   fetchData();
   // }, []);
 
+  function handleSetParticipants(index){
+      setParticipants(index)
+      setInd(0)
+  }
+
   function createNewBooking(){
 
     console.log('index: ',ind)
 
-    if (data.name === "" || data.email === "" || data.mobile === "") {
-      setError("Please fill up the form");
-      return null;
-    }
+    // if (data.name === "" || data.email === "" || data.mobile === "") {
+    //   setError("Please fill up the form");
+    //   return null;
+    // }
 
     // if (startDateData === "" || endDateData === "") {
     //   Swal.fire({
@@ -469,13 +468,14 @@ export default function MainSection() {
     //   return null;
     // }
     setError("");
+    console.log("start date new: ",startDateData)
 
     let newTotalCost = 0
 
-    console.log(`mobile: ${data.mobile} \n name: ${data.name} \n email: ${data.email} participants: ${participants}`)
-    console.log(`info: ${data.info} \n day: ${day} \n night: ${night} package number: ${packageNumb}`)
-    console.log(`individual room cost: ${individualroomcost} \n shared room cost: ${sharedroomcost}`)
-    console.log(`total cost: ${totalCost}\n start date: ${startDateData}`)
+    // console.log(`mobile: ${data.mobile} \n name: ${data.name} \n email: ${data.email} participants: ${participants}`)
+    // console.log(`info: ${data.info} \n day: ${day} \n night: ${night} package number: ${packageNumb}`)
+    // console.log(`individual room cost: ${individualroomcost} \n shared room cost: ${sharedroomcost}`)
+    // console.log(`total cost: ${totalCost}\n start date: ${startDateData}`)
 
     let roomType = ""
     
@@ -1042,7 +1042,7 @@ export default function MainSection() {
                 <span className="diasnoche">From 14 to 21 days </span>
 
                 <div className="precio-dias">
-                  <h4 style={{ display: " inline-block" }}>€{totalCost}</h4>
+                  <h4 style={{ display: " inline-block" }}>{totalCost == 0 ? "No room selected" :  `€ ${totalCost}`}</h4>
                 </div>
                 <input
                   type="hidden"
@@ -1174,7 +1174,7 @@ export default function MainSection() {
                     alt=""
                   />
                   <div
-                    onClick={() => setParticipants(1)}
+                    onClick={() => handleSetParticipants(1)}
                     data-num="1"
                     className={
                       participants === 1
@@ -1185,7 +1185,7 @@ export default function MainSection() {
                     1
                   </div>
                   <div
-                    onClick={() => setParticipants(2)}
+                    onClick={() => handleSetParticipants(2)}
                     data-num="2"
                     className={
                       participants === 2
@@ -1221,7 +1221,7 @@ export default function MainSection() {
                             name="offer"
                             onClick={(e) => setInd(1)}
                             value="1"
-                            checked={true}
+                          
                           />
                         </div>
                         <div className="edit-pers">

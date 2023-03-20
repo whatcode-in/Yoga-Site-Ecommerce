@@ -10,6 +10,7 @@ import {onAuthStateChanged} from 'firebase/auth'
 import {auth} from '../firebaseconfig'
 import { database } from '../firebaseconfig';
 import { collection, query, where, getDocs } from "firebase/firestore";
+import Head from "next/head";
 
 function MyApp({ Component, pageProps }) {
   const [currentUser, setCurrentUser] = useState({})
@@ -47,6 +48,9 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
+     <Head>
+        <link rel="shortcut icon" href="/favicon.ico" />
+      </Head>
      <AuthProvider value={{currentUser}}>
       <Provider store={store}>
         <Myexport Component={Component} pageProps={pageProps}/>
