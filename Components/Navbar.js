@@ -89,7 +89,7 @@ const Navbar = () => {
         <Link href=""><a  onMouseOver={()=>setdropdown(true)} onMouseLeave={()=>setdropdown(false)}>
           <CgProfile className="text-white"/>
           </a></Link>
-          {currentUser && <div className='text-white' style={{fontSize: "14px"}}>{currentUser.name}</div>}
+          {currentUser && <div className='text-white' style={{fontSize: "14px",marginTop: "-0.3rem"}}>{currentUser.name}</div>}
         <AiOutlineShoppingCart onClick={toggle}  className="text-white"/>
         
       </div>
