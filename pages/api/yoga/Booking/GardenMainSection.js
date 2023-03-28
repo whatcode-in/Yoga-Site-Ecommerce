@@ -28,6 +28,8 @@ export default function MainSection() {
   let [sharedRoomCost1,setSharedRoomCost1] = useState(540)
   let [sharedRoomCost2,setSharedRoomCost2] = useState(615)
 
+  const [datesBooked,setDatesBooked] = useState(null)
+
   // form data
   const [data, setData] = useState({
     name: "",
@@ -137,6 +139,13 @@ export default function MainSection() {
       key: "selection",
     },
   ]);
+
+  const handleGetVenue = async () => {
+    const response = await fetch('https://blushing-plum-belt.cyclic.app/api/admin/get-venue-by-name?name=Venue 2 Garden Villa Shanti');
+    const data = await response.json();
+    setDatesBooked(data.datesBooked);
+  };
+
 
   // select date
   const [startDateData, setStartDatesData] = useState("2023-03-15");
@@ -257,6 +266,9 @@ export default function MainSection() {
   let pack21vals = [21, 22, 23, 24, 25, 26, 27];
 
   useEffect(() => {
+
+     handleGetVenue()
+    
       if(ind == 0){
         setTotalCost(0)
       }
@@ -1048,7 +1060,7 @@ export default function MainSection() {
               </div>
 
               <div>
-                <h5>Date Already Booked</h5>
+                <h5>Dates Already Booked: {datesBooked}</h5>
 
                 {booking.map((d,index) => {
                   var options = {

@@ -25,6 +25,8 @@ export default function MainSection() {
   let [roomCost1,setRoomCost1] = useState(495)
   let [roomCost2,setRoomCost2] = useState(555)
 
+  const [datesBooked,setDatesBooked] = useState(null)
+
   // form data
   const [data, setData] = useState({
     name: "",
@@ -165,6 +167,12 @@ export default function MainSection() {
     }
   };
 
+  const handleGetVenue = async () => {
+    const response = await fetch('https://blushing-plum-belt.cyclic.app/api/admin/get-venue-by-name?name=Venue 2 Garden Villa Shanti');
+    const data = await response.json();
+    setDatesBooked(data.datesBooked);
+  };
+
   // calender functionality
   const [dates, setDates] = useState([
     {
@@ -293,6 +301,8 @@ export default function MainSection() {
   let pack21vals = [21, 22, 23, 24, 25, 26, 27];
 
   useEffect(() => {
+
+    handleGetVenue()
 
     if(ind == 0){
       setTotalCost(0)
@@ -1053,7 +1063,7 @@ export default function MainSection() {
               </div>
 
               <div>
-                <h5>Date Already Booked</h5>
+                <h5>Dates Already Booked </h5>
 
                 {booking.map((d,index) => {
                   var options = {

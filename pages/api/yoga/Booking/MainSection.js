@@ -19,6 +19,8 @@ export default function MainSection() {
   const [error, setError] = useState("");
   const [booking, setBooking] = useState([]);
 
+  const [datesBooked,setDatesBooked] = useState(null)
+
   let [individualroomcost, setindividualroomcost] = useState(499);
   let [sharedroomcost, setsharedroomcost] = useState(499);
 
@@ -290,6 +292,10 @@ export default function MainSection() {
   let pack21vals = [21, 22, 23, 24, 25, 26, 27];
 
   useEffect(() => {
+    
+    handleGetVenue()
+    // getBookingDates()
+
      if(ind == 0){
         setTotalCost(0)
       }
@@ -360,6 +366,11 @@ export default function MainSection() {
     setInd(0)
   }
 
+  const handleGetVenue = async () => {
+    const response = await fetch('https://blushing-plum-belt.cyclic.app/api/admin/get-venue-by-name?name=Venue 1 Healing Detox');
+    const data = await response.json();
+    setDatesBooked(data.datesBooked);
+  };
   // form data
   const handleChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
@@ -596,7 +607,7 @@ export default function MainSection() {
 
                 <h2 className="eslogan">
                   A holistic, natural and integrative cure that heals inside and
-                  out in a magical environment.
+                  out in a magical environment. 
                 </h2>
                 <p>
                   🤗Healing Detox Retreat based on the nutrition and lifestyle
@@ -1081,7 +1092,7 @@ export default function MainSection() {
               </div>
 
               <div>
-                <h5>Date Already Booked</h5>
+                <h5>Date Already Booked: {datesBooked}</h5>
 
                 {booking.map((d,index) => {
                   var options = {
