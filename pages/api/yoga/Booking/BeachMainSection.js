@@ -168,7 +168,7 @@ export default function MainSection() {
   };
 
   const handleGetVenue = async () => {
-    const response = await fetch('https://blushing-plum-belt.cyclic.app/api/admin/get-venue-by-name?name=Venue 2 Garden Villa Shanti');
+    const response = await fetch('https://blushing-plum-belt.cyclic.app/api/admin/get-venue-by-name?name=Venue 3 Duplex By The Beach');
     const data = await response.json();
     setDatesBooked(data.datesBooked);
   };
@@ -1063,7 +1063,8 @@ export default function MainSection() {
               </div>
 
               <div>
-                <h5>Dates Already Booked </h5>
+                <h5>Dates Already Booked: {datesBooked}</h5>
+                
 
                 {booking.map((d,index) => {
                   var options = {
