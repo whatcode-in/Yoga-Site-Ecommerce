@@ -203,9 +203,9 @@ export default function Home() {
       </section>
 
       <div className="flex justify-center my-12 mb-44">
-        <button className="go-to-cart-btn w-[80%] text-white text-center">
+        {/* <button className="go-to-cart-btn w-[80%] text-white text-center">
           Go to Cart
-        </button>
+        </button> */}
       </div>
     </div>
   );
