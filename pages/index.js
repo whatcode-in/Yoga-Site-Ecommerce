@@ -10,20 +10,20 @@ import Link from "next/link";
 import { actioncreators } from "../State";
 import { AiFillMinusCircle, AiFillPlusCircle } from "react-icons/ai";
 import { getAllProducts } from "../State/actioncreators/mavaproduct";
+import { ProgressBar } from 'react-loader-spinner'
+
 export default function Home() {
   let dispatch = useDispatch();
   let { products } = useSelector((state) => state.mavaproducts);
-  // useSelector((state) => console.log("state: ",state))
   let { cart, subtotal } = useSelector((state) => state.cart);
+
+
   console.log(cart);
   useEffect(() => {
     dispatch(getAllProducts());
   }, []);
   useEffect(() => {
     console.log("in index", products);
-    // if (products.length===0){
-    //   dispatch(getAllProducts())
-    // }
   }, products);
   let { addToCart, removeFromCart, clearCart } = bindActionCreators(
     actioncreators.default,
@@ -34,12 +34,6 @@ export default function Home() {
   const handleSearch = (e) => {
     console.log(e.target.value);
     if (e.target.value.length > 0) {
-      // const filterProduct = products?.filter(
-      //   (item) =>
-      //     item.name
-      //       .toLowerCase()
-      //       .search(e.target.value.toLowerCase().trim()) !== -1
-      // );
       const filterProduct = products?.filter((item) => item.name.includes(e.target.value.toLowerCase()) );
       console.log('filter product: ',filterProduct)
       setSearch(filterProduct);
@@ -123,9 +117,15 @@ export default function Home() {
           <h1 className="text-3xl">Featured Products</h1>
           <div className="flex flex-wrap -m-4 justify-around">
             {products.length === 0 ? (
-              <h1 className="text-2xl font-bold flex justify-center items-center text-gray-500">
-                Loading
-              </h1>
+              <ProgressBar
+              height="80"
+              width="80"
+              ariaLabel="progress-bar-loading"
+              wrapperStyle={{}}
+              wrapperClass="progress-bar-wrapper"
+              borderColor = '#1B1F07'
+              barColor = '#cfae60'
+            />
             ) : (
               products.map((item) => {
                 return (

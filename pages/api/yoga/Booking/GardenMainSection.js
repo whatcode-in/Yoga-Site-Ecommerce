@@ -997,7 +997,7 @@ export default function MainSection() {
 
         {/* right side */}
         <div className="retro-rgt rigthside-desktop">
-          <form>
+          {/* <form> */}
             <div className="box-reserva-flexible white-box-rgt lateral-reserva">
               <div className="book-btn-container mobile-version-btn">
                 <button
@@ -1811,7 +1811,7 @@ export default function MainSection() {
                 </div>
               </div>
             </div>
-          </form>
+          {/* </form> */}
         </div>
       </div>
     </section>

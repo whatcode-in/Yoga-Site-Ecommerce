@@ -183,7 +183,7 @@ export default function MainSection() {
   ]);
 
   // select date
-  const [startDateData, setStartDatesData] = useState("2023-03-15");
+  const [startDateData, setStartDatesData] = useState("2023-03-7");
   const [endDateData, setEndDatesData] = useState("");
   const handleSetDate = (value) => {
     let startedDay = value[0].startDate.getDate();
@@ -464,28 +464,13 @@ export default function MainSection() {
 
     console.log('index: ',ind)
 
-    // if (data.name === "" || data.email === "" || data.mobile === "") {
-    //   setError("Please fill up the form");
-    //   return null;
-    // }
 
-    // if (startDateData === "" || endDateData === "") {
-    //   Swal.fire({
-    //     icon: "error",
-    //     title: "Oops...",
-    //     text: "Please select Date",
-    //   });
-    //   return null;
-    // }
     setError("");
     console.log("start date new: ",startDateData)
 
     let newTotalCost = 0
 
-    // console.log(`mobile: ${data.mobile} \n name: ${data.name} \n email: ${data.email} participants: ${participants}`)
-    // console.log(`info: ${data.info} \n day: ${day} \n night: ${night} package number: ${packageNumb}`)
-    // console.log(`individual room cost: ${individualroomcost} \n shared room cost: ${sharedroomcost}`)
-    // console.log(`total cost: ${totalCost}\n start date: ${startDateData}`)
+
 
     let roomType = ""
     
@@ -1004,7 +989,7 @@ export default function MainSection() {
 
         {/* right side */}
         <div className="retro-rgt rigthside-desktop">
-          <form>
+          {/* <form> */}
             <div className="box-reserva-flexible white-box-rgt lateral-reserva">
               <div className="book-btn-container mobile-version-btn">
                 <button
@@ -1812,7 +1797,7 @@ export default function MainSection() {
                 </div>
               </div>
             </div>
-          </form>
+          {/* </form> */}
         </div>
       </div>
     </section>

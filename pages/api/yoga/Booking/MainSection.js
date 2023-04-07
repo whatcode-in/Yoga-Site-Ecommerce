@@ -174,7 +174,7 @@ export default function MainSection() {
   ]);
 
   // select date
-  const [startDateData, setStartDatesData] = useState("");
+  const [startDateData, setStartDatesData] = useState("2023-03-7");
   const [endDateData, setEndDatesData] = useState("");
   const handleSetDate = (value) => {
     let startedDay = value[0].startDate.getDate();
@@ -505,14 +505,14 @@ export default function MainSection() {
       return null;
     }
 
-    // if (startDateData === "" || endDateData === "") {
-    //   Swal.fire({
-    //     icon: "error",
-    //     title: "Oops...",
-    //     text: "Please select Date",
-    //   });
-    //   return null;
-    // }
+    if (startDateData === "" || endDateData === "") {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Please select Date",
+      });
+      return null;
+    }
     setError("");
 
     let newTotalCost = 0
@@ -1033,7 +1033,7 @@ export default function MainSection() {
 
         {/* right side */}
         <div className="retro-rgt rigthside-desktop">
-          <form>
+          {/* <form> */}
             <div className="box-reserva-flexible white-box-rgt lateral-reserva">
               <div className="book-btn-container mobile-version-btn">
                 <button
@@ -1739,7 +1739,7 @@ export default function MainSection() {
                 </div>
               </div>
             </div>
-          </form>
+          {/* </form> */}
         </div>
       </div>
     </section>
