@@ -6,6 +6,7 @@ import FAQ from "./FAQ";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 import Swal from "sweetalert2";
+import emailjs from '@emailjs/browser';
 
 
 export default function MainSection() {
@@ -547,10 +548,37 @@ export default function MainSection() {
     Swal.fire({
           icon: "success",
           title: "Booking successfull",
-        })
+        }),
+        sendBookingEmailToUser()
     )
   .catch(error => console.error("booking error: ",error));
 
+  }
+
+
+  function sendBookingEmailToUser(){
+    var templateParams = {
+      to_name: data.name,
+      name: data.name,
+      typeOfRetreat: "Healing Detox Retreat",
+      mobile: data.mobile,
+      bookingEmail: data.email,
+      participants: participants,
+      information: data.info,
+      night: night,
+      totalCost: totalCost,
+      startDateData: startDateData,
+      to_email: data.email,
+      from_email: "mava@mavavida.com",
+      reply_to: "mava@mavavida.com",
+    }
+
+      emailjs.send('service_5jp61oq','template_j95s176', templateParams,'tTXBXjG1V10p-IVST')
+      .then(function(response) {
+        console.log('SUCCESS!', response.status, response.text);
+      }, function(err) {
+        console.log('FAILED...', err);
+      });
   }
 
   return (

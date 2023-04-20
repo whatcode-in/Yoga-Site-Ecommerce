@@ -78,6 +78,7 @@ const Navbar = () => {
         <Link href="/Category/Books"><a><li className='text-white'>Books</li></a></Link>
         {/* <Link href="/Book"><a><li className='text-white'>Booking</li></a></Link> */}
         <Link href="/OurPrograms"><a><li className='text-white'>Our Programs</li></a></Link>
+        <Link href="https://yoga-site-six.vercel.app/"><a><li className='text-white'>Mava Vida</li></a></Link>
   
 
       </ul>
