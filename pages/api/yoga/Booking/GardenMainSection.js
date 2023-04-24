@@ -7,6 +7,7 @@ import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 import Swal from "sweetalert2";
 import emailjs from '@emailjs/browser';
+import { useRouter } from 'next/router';
 
 export default function MainSection() {
   // const {user}=useAuth();
@@ -29,6 +30,7 @@ export default function MainSection() {
   let [sharedRoomCost2,setSharedRoomCost2] = useState(615)
 
   const [datesBooked,setDatesBooked] = useState(null)
+  const router = useRouter()
 
   // form data
   const [data, setData] = useState({
@@ -332,134 +334,12 @@ export default function MainSection() {
     setData({ ...data, [e.target.name]: e.target.value });
   };
 
-  // saving firestore
-  const saveToFireStore = async () => {
-    // const newCityRefNew = doc(db, "user-booking", "nurul.islam02310@gmail.com");
-
-    // const result = await updateDoc(newCityRefNew, {
-    //   bookingDates: arrayUnion(...dates),
-    // });
-    const citiesRef = doc(db, "user-booking", user.email);
-    const docSnap = await getDoc(citiesRef);
-    console.log("user docSnap", docSnap, docSnap.exists());
-    if (docSnap?.data()) {
-      const result = await updateDoc(citiesRef, {
-        bookingDates: arrayUnion({
-          package: `${day}-day/${night}-night`,
-          start: startDateData,
-          end: endDateData,
-          cost: totalCost,
-        }),
-      });
-    } else {
-      const resultTwo = await setDoc(
-        doc(db, "user-booking", user.email),
-        {
-          bookingDates: [
-            {
-              package: `${day}-day/${night}-night`,
-              start: startDateData,
-              end: endDateData,
-              cost: totalCost,
-            },
-          ],
-        },
-        { merge: true }
-      );
-      console.log("user new add", resultTwo);
-    }
-  };
-  // email sending
-
-  const handleSendEmail = () => {
-    if (data.name === "" || data.email === "" || data.mobile === "") {
-      setError("Please fill up the form");
-      return null;
-    }
-
-    if (startDateData === "" || endDateData === "") {
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "Please select Date",
-      });
-      return null;
-    }
-    setError("");
-
-    // sending to fire store
-    
-    Swal.fire({
-      position: "center",
-      icon: "success",
-      title: "Your info successfully sent",
-      showConfirmButton: false,
-      timer: 1500,
-    });
-    // all error handaling done
-    const messageTwo = `Name: ${data.name} Email: ${data.email}  Day:${day} night:${night} start:${startDateData} end:${endDateData} total:${totalCost}`;
-    // emailjs
-    //   .send(
-    //     "service_oyac08p",
-    //     "template_33heapt",
-    //     {
-    //       from_name: "tanvir",
-    //       to_name: "nurul",
-    //       reply_to: "ni163034@gmail.com",
-    //       message: messageTwo,
-    //     },
-    //     "WUMFgN-AKEjhdZoco"
-    //   )
-    //   .then(
-    //     (result) => {
-    //       console.log("emailjs", result, result.text);
-    //       if (result.status === 200) {
-    //         Swal.fire({
-    //           position: "center",
-    //           icon: "success",
-    //           title: "Your info successfully sent",
-    //           showConfirmButton: false,
-    //           timer: 1500,
-    //         });
-
-    //       } else {
-    //         Swal.fire({
-    //           icon: "error",
-    //           title: "Oops...",
-    //           text: "Something went wrong!",
-    //         });
-    //       }
-    //     },
-    //     (error) => {
-    //       console.log("emailjs", error.text);
-    //       Swal.fire({
-    //         icon: "error",
-    //         title: "Oops...",
-    //         text: error.text,
-    //       });
-    //     }
-    //   );
-  };
-
-  // fetching booked dataBoo
-  // const fetchData = async () => {
-  //   const citiesRef = doc(db, "booking", "LA");
-  //   const docSnap = await getDoc(citiesRef);
-
-  //   if (docSnap?.data()) {
-  //     setBooking(docSnap?.data().bookingDates);
-  //   }
-  // };
-  // useEffect(() => {
-  //   fetchData();
-  // }, []);
-
   function createNewBooking(){
 
-    if (data.name === "" || data.email === "" || data.mobile === "") {
-      setError("Please fill up the form");
-      return null;
-    }
+    // if (data.name === "" || data.email === "" || data.mobile === "") {
+    //   setError("Please fill up the form");
+    //   return null;
+    // }
 
     // if (startDateData === "" || endDateData === "") {
     //   Swal.fire({
@@ -473,10 +353,10 @@ export default function MainSection() {
 
     let newTotalCost = 0
 
-    console.log(`mobile: ${data.mobile} \n name: ${data.name} \n email: ${data.email} participants: ${participants}`)
-    console.log(`info: ${data.info} \n day: ${day} \n night: ${night} package number: ${packageNumb}`)
-    console.log(`individual room cost: ${individualroomcost} \n shared room cost: ${sharedroomcost}`)
-    console.log(`total cost: ${totalCost}\n start date: ${startDateData}`)
+    // console.log(`mobile: ${data.mobile} \n name: ${data.name} \n email: ${data.email} participants: ${participants}`)
+    // console.log(`info: ${data.info} \n day: ${day} \n night: ${night} package number: ${packageNumb}`)
+    // console.log(`individual room cost: ${individualroomcost} \n shared room cost: ${sharedroomcost}`)
+    // console.log(`total cost: ${totalCost}\n start date: ${startDateData}`)
 
     let roomType = ""
 
@@ -485,36 +365,58 @@ export default function MainSection() {
     else if (ind === 2) roomType = "Suite Individual Use with ensuite bathroom (bathtub and shower) 225 euros"
     else if(ind === 3 ) roomType = "Suite Individual Use with ensuite bathroom (bathtub and shower)"
     else roomType = "Suite Double or Triple Use with ensuite bathroom (bathtub and shower)"
+
+
+    const bookingData =  {
+        mobile:data.mobile,
+        name:data.name,
+        email:data.email,
+        participants: participants,
+        info : data.info,
+        day: day,
+        night: night,
+        packageNumber: packageNumb,
+        typeOfRetreat: "Garden Villa Shanti",
+        typeOfRoom: roomType,
+        totalCost: totalCost,
+        startDate: startDateData
+    }
+  
+
+    router.push({
+      pathname: '/dummy',
+      query: {data: JSON.stringify(bookingData)}
+    });
       
     
-    fetch('https://blushing-plum-belt.cyclic.app/api/admin/add-booking', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      mobile:data.mobile,
-      name:data.name,
-      email:data.email,
-      participants: participants,
-      info: data.info,
-      day: day,
-      night: night,
-      packageNumber: packageNumb,
-      typeOfRetreat: "Garden Villa Shanti",
-      typeOfRoom: roomType,
-      totalCost: totalCost,
-      startDate: startDateData,
-    })
-  }) 
-  .then(newData => 
-    Swal.fire({
-      icon: "success",
-      title: "Booking successfull", 
-    }),
-    sendBookingEmailToUser()
-  )
-  .catch(error => console.error("booking error: ",error));
+  //   fetch('https://blushing-plum-belt.cyclic.app/api/admin/add-booking', {
+  //   method: 'POST',
+  //   headers: {
+  //     'Content-Type': 'application/json'
+  //   },
+  //   body: JSON.stringify({
+  //     mobile:data.mobile,
+  //     name:data.name,
+  //     email:data.email,
+  //     participants: participants,
+  //     info: data.info,
+  //     day: day,
+  //     night: night,
+  //     packageNumber: packageNumb,
+  //     typeOfRetreat: "Garden Villa Shanti",
+  //     typeOfRoom: roomType,
+  //     totalCost: totalCost,
+  //     startDate: startDateData,
+  //   })
+  // }) 
+  // .then(newData => 
+  //   Swal.fire({
+  //     icon: "success",
+  //     title: "Booking successfull", 
+  //   }),
+  //   sendBookingEmailToUser()
+  // )
+  // .catch(error => console.error("booking error: ",error));
 
   }
 

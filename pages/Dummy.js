@@ -1,23 +1,129 @@
-import { useState } from 'react';
+import React from 'react';
+import { useRouter } from 'next/router';
 
-export default function MyPage() {
-  const [datesBooked, setDatesBooked] = useState(null);
+export default function Dummy() {
 
-  const handleGetVenue = async () => {
-    const response = await fetch('https://blushing-plum-belt.cyclic.app/api/admin/get-venue-by-name?name=Venue 1 Healing Detox');
-    const data = await response.json();
-    setDatesBooked(data.datesBooked);
-  };
+  const router = useRouter();
+  const { data } = router.query;
+
+  let parsedData = {}
+  
+  if(data){
+    parsedData = JSON.parse(data)
+  }
+
+
+ 
+  function handleCheckOut(){
+    fetch("http://localhost:8080/api/admin/test-checkout", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        item: 
+          {
+            name: parsedData.typeOfRetreat,
+            quantity: 1,
+            price: parsedData.totalCost * 100 * 80,
+            bookingData: {
+              bookingName: parsedData.name,
+              mobileNumber: parsedData.mobile,
+              email: parsedData.email,
+              participants: parsedData.participants,
+              info: parsedData.info,
+              day: parsedData.day,
+              night: parsedData.night,
+              packageNumber: parsedData.packageNum,
+              typeOfRetreat: parsedData.typeOfRetreat,
+              typeOfRoom: parsedData.typeOfRoom,
+              totalCost: parsedData.totalCost,
+              startDate: parsedData.startDate
+            }
+          },
+        
+      }),
+    })
+      .then(res => {
+        if (res.ok) return res.json()
+        return res.json().then(e => Promise.reject(e))
+      })
+      .then(({ url }) => {
+        window.location = url
+      })
+      .catch(e => {
+        console.error(e.error)
+      })}
+
+
+    function handleCancel(){
+        router.push('/Venues')
+    }
 
   return (
-    <div>
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Autem sapiente quis veniam, ratione ipsam iusto voluptatum rerum magnam illum ducimus accusantium! Dolorem quis magni accusantium culpa cum, assumenda dicta facilis!
-      Et recusandae a, libero, ut, alias officiis assumenda magnam delectus distinctio iusto nam minima? Sapiente cumque voluptatibus fugiat officia, cupiditate sit recusandae distinctio enim rem esse eos voluptate quae eveniet?
-      Iure minus sunt, repellendus unde iste neque. A, odio illum commodi atque voluptatum laborum fugit consequuntur sint dolorum perspiciatis, aperiam nobis cumque ea? Eaque culpa accusamus, ipsam omnis tempora at.
-      Asperiores praesentium consequatur magnam architecto accusamus atque, ea iure. Totam, accusantium facilis iste cumque veritatis voluptatum ratione, optio porro saepe quaerat aspernatur. Sint, voluptates. Magnam minus officiis ipsa fugiat voluptates?
-      Vitae, cum vel consectetur, aliquam quam inventore illo harum labore corporis exercitationem possimus, sed explicabo ipsum pariatur a sequi aut neque reprehenderit consequuntur dolores necessitatibus! Quo veniam sed unde illum!
-      <button onClick={handleGetVenue}>Get Venue</button>
-      {datesBooked && <p>Dates Booked: {datesBooked}</p>}
+     <div>
+      {parsedData.name &&  <div className='ml-8 flex flex-col items-center justify-center text-lg mt-48 w-[60%]'>
+      <div className='mb-8'>
+        <div><span className="font-bold">Name:</span> {parsedData.name}</div>
+        <div><span className="font-bold">Mobile Number:</span> {parsedData.mobile}</div>
+        <div><span className="font-bold">Email:</span> {parsedData.email}</div>
+        <div><span className="font-bold">Participants:</span> {parsedData.participants}</div>
+        <div><span className="font-bold">Info:</span> {parsedData.info}</div>
+        <div><span className="font-bold">Day:</span> {parsedData.day}</div>
+        <div><span className="font-bold">Night:</span> {parsedData.night}</div>
+        <div><span className="font-bold">Package Number:</span> {parsedData.packageNum}</div>
+        <div><span className="font-bold">Type Of Retreat:</span> {parsedData.typeOfRetreat}</div>
+        <div><span className="font-bold">Type Of Room:</span> {parsedData.typeOfRoom}</div>
+        <div><span className="font-bold">Total Cost:</span> {parsedData.totalCost}</div>
+        <div><span className="font-bold">Start Date:</span> {parsedData.startDate}</div>
+
+
+        <button 
+          style=
+          {{
+          backgroundColor: "#c0a664",
+          color: '#455010',
+          padding: "0.5rem",
+          fontWeight: '600',
+          borderRadius: '5px',
+          marginTop: "2rem"
+          }}
+          onClick={handleCheckOut}
+        >
+          Checkout 
+        </button>
+
+        <button 
+          style=
+          {{
+          backgroundColor: "#c0a664",
+          color: '#455010',
+          padding: "0.5rem",
+          fontWeight: '600',
+          borderRadius: '5px',
+          marginTop: "2rem",
+          marginLeft: "2rem"
+          }}
+          onClick={handleCancel}
+        >
+          Cancel
+        </button>
+
+        </div>
+        </div>
+      }
+
+    {!parsedData.name  && <div
+      style={{
+        width: "400px",
+        height: "400px",
+        fontSize: "18px",
+        fontWeight: 500,
+      
+      }}>
+      Booking not made yet
+    </div>}
+      
     </div>
   );
 }

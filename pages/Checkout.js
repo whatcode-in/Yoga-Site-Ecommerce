@@ -22,29 +22,13 @@ const Checkout = () => {
         
   }
 
-  let handlepay=async()=>{
+  let handlepay = async () => {
     
-    // if(Object.keys(cart).length!==0){
-    
-    //   let response=await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/pretransection`, {
-    //     method: 'POST', // or 'PUT'
-    //     headers: {
-    //       'Content-Type': 'application/json',
-    //     },
-    //     body: JSON.stringify({userId:user.id,products:cart,address:data.addr,amount:subtotal}),
-    //   })
-    //   let res=await response.json()
-    //   if (res.success) {
-    //     router.push(`/Order/${res.order._id}`)
-    //   }
-    // }
-    
-
     let cartArray = []
     Object.keys(cart).map((itemcode) => {
         let newObj = {
           name: cart[itemcode].name,
-          price: cart[itemcode].price,
+          price: cart[itemcode].price * 80 * 100,
           quantity: cart[itemcode].qty,
           id: itemcode,
           productImage: `https://blushing-plum-belt.cyclic.app/api/admin/photo/${itemcode}`
@@ -52,31 +36,65 @@ const Checkout = () => {
         cartArray.push(newObj)
     })
 
-    console.log('cart checkout: ',cart)
+    console.log(cartArray)
+
+
+    fetch("https://blushing-plum-belt.cyclic.app/api/admin/place-order", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+       orderedItems: cartArray,
+       paymentMade: false,
+       name: data.name,
+       email: data.email,
+       phone: data.phone,
+       addr: data.addr,
+       pincode: data.pincode,
+       city: data.city,
+       state:data.state,
+
+      }),
+    })
+      .then(res => {
+        if (res.ok) return res.json()
+        return res.json().then(e => Promise.reject(e))
+      })
+      .then(({ url }) => {
+        window.location = url
+      })
+      .catch(e => {
+        console.error(e.error)
+      })
+
+    
+
+//     console.log('cart checkout: ',cart)
  
-    fetch('https://blushing-plum-belt.cyclic.app/api/admin/add-order', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      name: data.name,
-      email: data.email,
-      phone: data.phone,
-      addr: data.addr,
-      pincode: data.pincode,
-      city: data.city,
-      state:data.state,
-      orderedItems: cartArray
-    })
-  }) 
-  .then(newData => 
-    Swal.fire({
-      icon: "success",
-      title: "Order placed",
-    })
-)
-  .catch(error => console.error("new error: ",error));
+//     fetch('https://blushing-plum-belt.cyclic.app/api/admin/add-order', {
+//     method: 'POST',
+//     headers: {
+//       'Content-Type': 'application/json'
+//     },
+//     body: JSON.stringify({
+//       name: data.name,
+//       email: data.email,
+//       phone: data.phone,
+//       addr: data.addr,
+//       pincode: data.pincode,
+//       city: data.city,
+//       state:data.state,
+//       orderedItems: cartArray
+//     })
+//   }) 
+//   .then(newData => 
+//     Swal.fire({
+//       icon: "success",
+//       title: "Order placed",
+//     })
+// )
+//   .catch(error => console.error("new error: ",error));
 }
 
   return (
@@ -154,7 +172,9 @@ const Checkout = () => {
           <div className='my-3 font-bold text-center'>Amount: €{subtotal}</div>
           <div className='flex justify-center'>
 
-            <button className={`flex text-white  border-0 text-sm sm:text-base py-2 px-2 md:px-6 focus:outline-none hover:bg-green-600 rounded bg-green-500`} onClick={handlepay}>Pay Now</button>
+            <button className={`flex text-white  border-0 text-sm sm:text-base py-2 px-2 md:px-6 focus:outline-none hover:bg-green-600 rounded bg-green-500`} onClick={handlepay}>
+              Pay Now
+            </button>
           </div>
         </div>
       </div>
