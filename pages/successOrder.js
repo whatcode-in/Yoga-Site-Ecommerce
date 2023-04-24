@@ -5,26 +5,27 @@ export default function SuccessOrder() {
   const router = useRouter();
   const { id } = router.query;
 
-  useEffect(() => {
-    const updatePayment = async () => {
-      try {
-        const res = await fetch(`https://blushing-plum-belt.cyclic.app/api/admin/update-order-payment/${id}`, {
-          method: "PATCH",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ paymentMade: true }),
-        });
+  const updatePayment = async () => {
+    try {
+      const res = await fetch(`http://localhost:8080/api/admin/update-order-payment/${id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ paymentMade: true }),
+      });
 
-        if (res.ok) {
-          console.log("Payment updated successfully!");
-        } else {
-          console.log("Failed to update payment.");
-        }
-      } catch (error) {
-        console.error(error);
+      if (res.ok) {
+        console.log("Payment updated successfully!");
+      } else {
+        console.log("Failed to update payment.");
       }
-    };
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
 
     if (id) {
       updatePayment();
@@ -41,7 +42,7 @@ export default function SuccessOrder() {
         backgroundColor: "green",
       }}
     >
-      Success Order {id}
+      Success Order
     </div>
   );
 }

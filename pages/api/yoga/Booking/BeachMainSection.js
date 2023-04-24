@@ -7,6 +7,7 @@ import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 import Swal from "sweetalert2";
 import emailjs from '@emailjs/browser';
+import { useRouter } from 'next/router';
 
 export default function MainSection() {
   // const {user}=useAuth();
@@ -26,6 +27,7 @@ export default function MainSection() {
   let [roomCost2,setRoomCost2] = useState(555)
 
   const [datesBooked,setDatesBooked] = useState(null)
+  const router = useRouter()
 
   // form data
   const [data, setData] = useState({
@@ -477,37 +479,58 @@ export default function MainSection() {
     if(ind === 1 ) roomType = "Double Room Double Use or Individual with shared bathroom"
     else if (ind === 2) roomType = "Suite Use Double or Individual"
 
-      
-    
-    fetch('https://blushing-plum-belt.cyclic.app/api/admin/add-booking', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
+    const bookingData =  {
       mobile:data.mobile,
       name:data.name,
       email:data.email,
       participants: participants,
-      info: data.info,
+      info : data.info,
       day: day,
       night: night,
       packageNumber: packageNumb,
       typeOfRetreat: "Duplex By The Beach",
       typeOfRoom: roomType,
       totalCost: totalCost,
-      startDate: startDateData,
-    })
-  }) 
-  .then(newData => 
-  
-    Swal.fire({
-      icon: "success",
-      title: "Booking successfull",
-    }),
-    sendBookingEmailToUser()
-).catch(error => console.error("booking error: ",error));
+      startDate: startDateData
   }
+
+
+  router.push({
+    pathname: '/dummy',
+    query: {data: JSON.stringify(bookingData)}
+  });
+
+      
+}
+//     fetch('https://blushing-plum-belt.cyclic.app/api/admin/add-booking', {
+//     method: 'POST',
+//     headers: {
+//       'Content-Type': 'application/json'
+//     },
+//     body: JSON.stringify({
+//       mobile:data.mobile,
+//       name:data.name,
+//       email:data.email,
+//       participants: participants,
+//       info: data.info,
+//       day: day,
+//       night: night,
+//       packageNumber: packageNumb,
+//       typeOfRetreat: "Duplex By The Beach",
+//       typeOfRoom: roomType,
+//       totalCost: totalCost,
+//       startDate: startDateData,
+//     })
+//   }) 
+//   .then(newData => 
+  
+//     Swal.fire({
+//       icon: "success",
+//       title: "Booking successfull",
+//     }),
+//     sendBookingEmailToUser()
+// ).catch(error => console.error("booking error: ",error));
+//   }
 
 
    function sendBookingEmailToUser(){

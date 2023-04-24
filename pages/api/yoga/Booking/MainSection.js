@@ -7,6 +7,7 @@ import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 import Swal from "sweetalert2";
 import emailjs from '@emailjs/browser';
+import { useRouter } from 'next/router';
 
 
 export default function MainSection() {
@@ -24,6 +25,7 @@ export default function MainSection() {
 
   let [individualroomcost, setindividualroomcost] = useState(499);
   let [sharedroomcost, setsharedroomcost] = useState(499);
+  const router = useRouter()
 
   // form data
   const [data, setData] = useState({
@@ -518,40 +520,62 @@ export default function MainSection() {
 
     let newTotalCost = 0
 
-    console.log(`mobile: ${data.mobile} \n name: ${data.name} \n email: ${data.email} participants: ${participants}`)
-    console.log(`info: ${data.info} \n day: ${day} \n night: ${night} package number: ${packageNumb}`)
-    console.log(`individual room cost: ${individualroomcost} \n shared room cost: ${sharedroomcost}`)
-    console.log(`total cost: ${totalCost}\n start date: ${startDateData}`)
-      
-    
-    fetch('https://blushing-plum-belt.cyclic.app/api/admin/add-booking', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
+    // console.log(`mobile: ${data.mobile} \n name: ${data.name} \n email: ${data.email} participants: ${participants}`)
+    // console.log(`info: ${data.info} \n day: ${day} \n night: ${night} package number: ${packageNumb}`)
+    // console.log(`individual room cost: ${individualroomcost} \n shared room cost: ${sharedroomcost}`)
+    // console.log(`total cost: ${totalCost}\n start date: ${startDateData}`)
+
+    console.log('package: ',packageNumb)
+    const bookingData =  {
       mobile:data.mobile,
       name:data.name,
       email:data.email,
       participants: participants,
-      info: data.info,
+      info : data.info,
       day: day,
       night: night,
       packageNumber: packageNumb,
       typeOfRetreat: "Healing Detox Retreat",
-      typeOfRoom: ind === 1 ? "Individual Room" : "Double Room" ,
+      typeOfRoom:  ind === 1 ? "Individual Room" : "Double Room" ,
       totalCost: totalCost,
-      startDate: startDateData,
-    })
-  }) 
-  .then(newData => 
-    Swal.fire({
-          icon: "success",
-          title: "Booking successfull",
-        }),
-        sendBookingEmailToUser()
-    )
-  .catch(error => console.error("booking error: ",error));
+      startDate: startDateData
+  }
+
+
+  router.push({
+    pathname: '/dummy',
+    query: {data: JSON.stringify(bookingData)}
+  });
+      
+    
+  //   fetch('https://blushing-plum-belt.cyclic.app/api/admin/add-booking', {
+  //   method: 'POST',
+  //   headers: {
+  //     'Content-Type': 'application/json'
+  //   },
+  //   body: JSON.stringify({
+  //     mobile:data.mobile,
+  //     name:data.name,
+  //     email:data.email,
+  //     participants: participants,
+  //     info: data.info,
+  //     day: day,
+  //     night: night,
+  //     packageNumber: packageNumb,
+  //     typeOfRetreat: "Healing Detox Retreat",
+  //     typeOfRoom: ind === 1 ? "Individual Room" : "Double Room" ,
+  //     totalCost: totalCost,
+  //     startDate: startDateData,
+  //   })
+  // }) 
+  // .then(newData => 
+  //   Swal.fire({
+  //         icon: "success",
+  //         title: "Booking successfull",
+  //       }),
+  //       sendBookingEmailToUser()
+  //   )
+  // .catch(error => console.error("booking error: ",error));
 
   }
 

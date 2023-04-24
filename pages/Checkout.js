@@ -28,7 +28,7 @@ const Checkout = () => {
     Object.keys(cart).map((itemcode) => {
         let newObj = {
           name: cart[itemcode].name,
-          price: cart[itemcode].price * 80 * 100,
+          price: cart[itemcode].price * 100,
           quantity: cart[itemcode].qty,
           id: itemcode,
           productImage: `https://blushing-plum-belt.cyclic.app/api/admin/photo/${itemcode}`
@@ -39,7 +39,7 @@ const Checkout = () => {
     console.log(cartArray)
 
 
-    fetch("https://blushing-plum-belt.cyclic.app/api/admin/place-order", {
+    fetch("http://localhost:8080/api/admin/place-order", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

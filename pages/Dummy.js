@@ -25,20 +25,21 @@ export default function Dummy() {
           {
             name: parsedData.typeOfRetreat,
             quantity: 1,
-            price: parsedData.totalCost * 100 * 80,
+            price: parsedData.totalCost * 100,
             bookingData: {
-              bookingName: parsedData.name,
-              mobileNumber: parsedData.mobile,
+              name: parsedData.name,
+              mobile: parsedData.mobile,
               email: parsedData.email,
               participants: parsedData.participants,
               info: parsedData.info,
               day: parsedData.day,
               night: parsedData.night,
-              packageNumber: parsedData.packageNum,
+              packageNumber: parsedData.packageNumber,
               typeOfRetreat: parsedData.typeOfRetreat,
               typeOfRoom: parsedData.typeOfRoom,
               totalCost: parsedData.totalCost,
-              startDate: parsedData.startDate
+              startDate: parsedData.startDate,
+              paymentMade: false
             }
           },
         
@@ -71,7 +72,7 @@ export default function Dummy() {
         <div><span className="font-bold">Info:</span> {parsedData.info}</div>
         <div><span className="font-bold">Day:</span> {parsedData.day}</div>
         <div><span className="font-bold">Night:</span> {parsedData.night}</div>
-        <div><span className="font-bold">Package Number:</span> {parsedData.packageNum}</div>
+        <div><span className="font-bold">Package Number:</span> {parsedData.packageNumber}</div>
         <div><span className="font-bold">Type Of Retreat:</span> {parsedData.typeOfRetreat}</div>
         <div><span className="font-bold">Type Of Room:</span> {parsedData.typeOfRoom}</div>
         <div><span className="font-bold">Total Cost:</span> {parsedData.totalCost}</div>
