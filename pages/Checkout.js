@@ -39,7 +39,7 @@ const Checkout = () => {
     console.log(cartArray)
 
 
-    fetch("http://localhost:8080/api/admin/place-order", {
+    fetch("https://blushing-plum-belt.cyclic.app/api/admin/place-order", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -7,7 +7,7 @@ export default function SuccessOrder() {
 
   const updatePayment = async () => {
     try {
-      const res = await fetch(`http://localhost:8080/api/admin/update-order-payment/${id}`, {
+      const res = await fetch(`https://blushing-plum-belt.cyclic.app/api/admin/update-order-payment/${id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",

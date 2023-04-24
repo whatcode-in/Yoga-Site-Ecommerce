@@ -15,7 +15,7 @@ export default function Dummy() {
 
  
   function handleCheckOut(){
-    fetch("http://localhost:8080/api/admin/test-checkout", {
+    fetch("https://blushing-plum-belt.cyclic.app/api/admin/test-checkout", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
