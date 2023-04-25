@@ -1,7 +1,7 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 
-export default function Dummy() {
+export default function ConfirmBooking() {
 
   const router = useRouter();
   const { data } = router.query;

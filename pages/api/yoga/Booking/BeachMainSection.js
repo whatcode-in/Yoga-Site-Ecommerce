@@ -496,7 +496,7 @@ export default function MainSection() {
 
 
   router.push({
-    pathname: '/dummy',
+    pathname: '/ConfirmBooking',
     query: {data: JSON.stringify(bookingData)}
   });
 
