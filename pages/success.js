@@ -8,7 +8,7 @@ export default function Sucess(){
   
     const updatePayment = async () => {
       try {
-        const res = await fetch(`http://localhost:8080/api/admin/update-booking-payment/${id}`, {
+        const res = await fetch(`https://blushing-plum-belt.cyclic.app/api/admin/update-booking-payment/${id}`, {
           method: "PATCH",
           headers: {
             "Content-Type": "application/json",
