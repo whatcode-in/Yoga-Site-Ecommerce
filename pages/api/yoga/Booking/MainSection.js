@@ -657,10 +657,12 @@ export default function MainSection() {
                   </button>
                 </div>
 
-                <h2 className="eslogan">
+                <h2 className="eslogan" >
                   A holistic, natural and integrative cure that heals inside and
                   out in a magical environment. 
                 </h2>
+
+                
                 <p>
                   🤗Healing Detox Retreat based on the nutrition and lifestyle
                   of Ayurvedic science. A holistic, natural and integrative cure

@@ -1,6 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+
+
 
 html,
 body {
@@ -586,6 +589,9 @@ font-weight: 400;
   width: unset;
   padding: 0;
 }
+
+
+
 .ret-tit-lft {
   float: left;
   width: 80%;
@@ -595,7 +601,7 @@ font-weight: 400;
 .ret-tit-lft p {
   color: #3a3a3a;
   font-size: 16px;
-  font-family: "Open Sans";
+  font-family: "Open Sans",sans-serif;
   font-weight: 400;
   line-height: 24px;
 }
@@ -614,6 +620,9 @@ h2.eslogan {
   color: #444;
   font-weight: 700;
 }
+
+
+
 .white-box-lft h2,
 .white-box-lft h5 {
   color: #373737;
@@ -635,7 +644,7 @@ h2.eslogan {
 lft p {
   color: #3a3a3a;
   font-size: 16px;
-  font-family: "Open Sans";
+  font-family: "Open Sans",sans-serif;
   font-weight: 400;
   line-height: 24px;
 }
@@ -698,7 +707,7 @@ lft p {
 /* #ficha-retiro */
 .box-summary-reviews .retiro-reviews .rating {
   font-size: 23px;
-  font-family: "Open Sans";
+  font-family: "Open Sans",sans-serif;
   font-weight: 700;
   color: #484848;
   margin-bottom: 5px;
@@ -753,12 +762,12 @@ ul {
   width: 62%;
   color: #444;
   font-size: 15px;
-  font-family: "Open Sans";
+  font-family: "Open Sans",sans-serif;
   font-weight: 300;
   padding-right: 10px;
 }
 .ls-rgt span {
-  font-family: "Open Sans";
+  font-family: "Open Sans",sans-serif;
   font-weight: 700;
   color: #444;
 }
@@ -783,7 +792,7 @@ i.icon {
 .ls-lft h5 {
   color: #666660;
   font-size: 15px;
-  font-family: "Open Sans";
+  font-family: "Open Sans",sans-serif;
   font-weight: 300;
   line-height: 20px;
   padding-left: 30px;
@@ -829,7 +838,7 @@ i.icon {
 .ls-lft h5 {
   color: #666660;
   font-size: 15px;
-  font-family: "Open Sans";
+  font-family: "Open Sans",sans-serif;
   font-weight: 300;
   line-height: 20px;
   padding-left: 30px;
@@ -840,7 +849,7 @@ i.icon {
   width: 62%;
   color: #444;
   font-size: 15px;
-  font-family: "Open Sans";
+  font-family: "Open Sans",sans-serif;
   font-weight: 300;
   padding-right: 10px;
 }
@@ -857,7 +866,7 @@ i.icon {
 }
 strong {
   font-weight: bold;
-  font-family: "Open Sans";
+  font-family: "Open Sans",sans-serif;
 }
 
 i.horas-trabajo {
@@ -894,7 +903,7 @@ i.icon {
 .cara-full-lft h5 {
   color: #666660;
   font-size: 15px;
-  font-family: "Open Sans";
+  font-family: "Open Sans",sans-serif;
   font-weight: 300;
   line-height: 24px;
   padding-left: 30px;
@@ -915,7 +924,7 @@ i.icon {
   background: url(https://inspyria.com/Themes/ETR/images/tick-y.svg) no-repeat
     left top 4px;
   padding-left: 20px;
-  font-family: "Open Sans";
+  font-family: "Open Sans",sans-serif;
   font-weight: 700;
   color: #444;
   display: block;
@@ -947,7 +956,7 @@ i.icon {
   width: 62%;
   color: #444;
   font-size: 15px;
-  font-family: "Open Sans";
+  font-family: "Open Sans",sans-serif;
   font-weight: 300;
   padding-right: 10px;
 }
@@ -958,7 +967,7 @@ i.icon {
 .white-box-lft h2,
 .white-box-lft h5 {
   color: #373737;
-  font-family: "Open Sans";
+  font-family: "Open Sans",sans-serif;
   font-weight: 700;
   font-size: 12px;
   margin-bottom: 5px;
@@ -1012,7 +1021,7 @@ ul.facil-lst li {
 .ret-tit-lft p {
   color: #3a3a3a;
   font-size: 16px;
-  font-family: "Open Sans";
+  font-family: "Open Sans",sans-serif;
   font-weight: 400;
   line-height: 24px;
 }
@@ -1053,7 +1062,7 @@ ul.facil-lst li {
 .ret-tit-lft p {
   color: #3a3a3a;
   font-size: 16px;
-  font-family: "Open Sans";
+  font-family: "Open Sans",sans-serif;
   font-weight: 400;
   line-height: 24px;
 }
@@ -1080,7 +1089,7 @@ ul.facil-lst li {
   text-align: center;
   margin: 20px 0 0 0;
   font-size: 24px;
-  font-family: "Open Sans";
+  font-family: "Open Sans",sans-serif;
   line-height: 28px;
   font-weight: 700;
 }
@@ -1109,7 +1118,7 @@ a.vermas {
   transform: translateX(-50%);
   bottom: -32px;
   font-size: 15px;
-  font-family: "Open Sans";
+  font-family: "Open Sans",sans-serif;
   font-weight: 700;
   cursor: pointer;
   line-height: 24px;
@@ -1191,9 +1200,22 @@ ul.aloj-list {
   float: left;
   margin: 0 0 15px;
   font-size: 19px;
-  font-family: "Open Sans";
+  font-family: "Open Sans",sans-serif;
   font-weight: 700;
 }
+/*font*/
+.ret-tit-lft.description .descripcion-vermas p,
+.carac-list ul li .cara-full-rgt ul li span.tick-lst,
+.cara-lft .ls-lft h5, .cara-rgt .ls-lft h5
+.ret-tit-lft p,
+.white-box-lft.white-box-tit h2,.room-title
+,.white-box-lft.white-box-tit h2,
+.escrib,.ret-tit-lft p,strong,a.vermas
+,ul.benef-lst li{
+  font-family: 'Open Sans',sans-serif;
+}
+
+
 ul.aloj-list li {
   display: flex;
   flex-direction: column;
@@ -1216,7 +1238,7 @@ ul.aloj-list li img {
   border-radius: 0;
   padding: 4px 10px;
   font-size: 14px;
-  font-family: "Open Sans";
+  font-family: "Open Sans",sans-serif;
   color: #383838;
   font-weight: 600;
   text-decoration: none;
@@ -1256,7 +1278,7 @@ ul.benef-lst li {
   width: 100%;
   color: #444;
   font-size: 16px;
-  font-family: "Open Sans";
+  font-family: "Open Sans",sans-serif;
   font-weight: 300;
   line-height: 24px;
   padding-left: 31px;
@@ -1277,7 +1299,7 @@ button.showAllFaqs {
   border: 1px solid #109648;
   padding: 1px 15px;
   font-size: 15px;
-  font-family: "Open Sans";
+  font-family: "Open Sans",sans-serif;
   font-weight: 700;
   cursor: pointer;
   line-height: 24px;
@@ -1338,7 +1360,7 @@ button.showAllFaqs {
 .retro-rgt .diasnoche {
   display: block;
   font-size: 14px;
-  font-family: "Open Sans";
+  font-family: "Open Sans",sans-serif;
   font-weight: 600;
   color: #3e3e3e;
 }
@@ -1440,7 +1462,7 @@ button.showAllFaqs {
   font-weight: 600;
   color: #373737;
   font-size: 16px;
-  font-family: "Open Sans";
+  font-family: "Open Sans",sans-serif;
   line-height: 21px;
   margin-bottom: 10px;
   margin-top: 20px;
@@ -1469,7 +1491,7 @@ button.showAllFaqs {
   margin: 0 5px;
 }
 .price-no h4 {
-  font-family: "Open Sans";
+  font-family: "Open Sans",sans-serif;
   font-weight: 700;
   color: #4e4e4e;
   font-size: 35px;
@@ -1492,7 +1514,7 @@ button.showAllFaqs {
 
 .dat-select h5 {
   /* font-family: Barlow; */
-  font-family: "Open Sans";
+  font-family: "Open Sans",sans-serif;
   font-weight: 600;
   color: #373737;
   font-size: 16px;
@@ -1561,7 +1583,7 @@ input[type="hidden" i] {
   width: 100%;
   font-weight: 400;
   font-size: 14px;
-  font-family: "Open Sans";
+  font-family: "Open Sans",sans-serif;
   line-height: 1.29;
   color: #000;
 }
@@ -1587,7 +1609,7 @@ input[type="hidden" i] {
   width: 100%;
   font-weight: 400;
   font-size: 14px;
-  font-family: "Open Sans";
+  font-family: "Open Sans",sans-serif;
   line-height: 1.29;
   color: #000;
 }
@@ -1609,7 +1631,7 @@ input[type="hidden" i] {
   width: 100%;
   font-weight: 400;
   font-size: 14px;
-  font-family: "Open Sans";
+  font-family: "Open Sans",sans-serif;
   line-height: 1.29;
   color: #000;
 }
@@ -1621,7 +1643,7 @@ input[type="hidden" i] {
 .retiros .edit-person .edit-pers span {
   font-weight: 500;
   font-size: 14px;
-  font-family: "Open Sans";
+  font-family: "Open Sans",sans-serif;
   line-height: 1.5;
   color: #373737;
   margin-bottom: 11px;
@@ -1641,7 +1663,7 @@ input[type="hidden" i] {
   width: 100%;
   font-weight: 400;
   font-size: 14px;
-  font-family: "Open Sans";
+  font-family: "Open Sans",sans-serif;
   line-height: 1.29;
   color: #000;
 }
@@ -1668,7 +1690,7 @@ input[type="hidden" i] {
 }
 .edit-price {
   float: right;
-  font-family: "Open Sans";
+  font-family: "Open Sans",sans-serif;
   font-weight: 900;
   font-size: 18px;
   color: #373737;
@@ -1690,7 +1712,7 @@ input[type="hidden" i] {
 
 .edit-price {
   float: right;
-  font-family: "Open Sans";
+  font-family: "Open Sans",sans-serif;
   font-weight: 900;
   font-size: 18px;
   color: #373737;
@@ -1811,7 +1833,7 @@ input[type="hidden" i] {
 .retiros .dat-select.total .resu-price,
 .retiros .dat-select.total h2 {
   font-size: 24px;
-  font-family: "Open Sans";
+  font-family: "Open Sans",sans-serif;
   font-weight: 700;
   line-height: 29px;
   color: #373737;
@@ -1820,7 +1842,7 @@ input[type="hidden" i] {
 .retiros .dat-select.total .resu-price,
 .retiros .dat-select.total h2 {
   font-size: 24px;
-  font-family: "Open Sans";
+  font-family: "Open Sans",sans-serif;
   font-weight: 700;
   line-height: 29px;
   color: #373737;
@@ -1875,7 +1897,7 @@ input[type="hidden" i] {
 
 .dat-select h5 {
   /* font-family: Barlow; */
-  font-family: "Open Sans";
+  font-family: "Open Sans",sans-serif;
   font-weight: 600;
   color: #373737;
   font-size: 16px;
@@ -1910,7 +1932,7 @@ h5.cancel-policy span.free {
   /* background-image: url(/Themes/ETR/images/heart-border-orange.svg); */
   font-weight: 600;
   font-size: 19px;
-  font-family: "Open Sans";
+  font-family: "Open Sans",sans-serif;
   color: #109648;
   padding: 0;
   margin: 0 5px 0 0;
@@ -1956,7 +1978,7 @@ h5.cancel-policy span.free {
   padding: 10px;
   margin-bottom: 4px;
   cursor: pointer;
-  font-family: "Open Sans";
+  font-family: "Open Sans",sans-serif;
   font-weight: 600;
   font-size: 19px;
   color: #333;
@@ -1975,7 +1997,7 @@ h5.cancel-policy span.free {
 .submit-green {
   background: #73bb3c;
   font-size: 19px;
-  font-family: "Open Sans";
+  font-family: "Open Sans",sans-serif;
   border: 2px solid #73bb3c;
   color: #fff;
   border-radius: 2px !important;

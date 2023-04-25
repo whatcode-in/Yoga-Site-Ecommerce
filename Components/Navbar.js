@@ -70,21 +70,27 @@ const Navbar = () => {
           </a>
         </Link>
       </div>
-      <ul className='py-2 space-x-3 md:space-x-6 font-bold flex space-y-2 flex-row text-sm md:text-base'>
+      <ul className='py-2 space-x-3 md:space-x-6 font-bold flex flex-wrap items-center text-sm md:text-base'>
+  <li></li>
+  <Link href="/Category/Electronics"><a><li className='text-white py-2 px-3 md:py-0 md:px-0'>Electronics</li></a></Link>
+  <Link href="/Category/Groceries"><a><li className='text-white py-2 px-3 md:py-0 md:px-0'>Groceries</li></a></Link>
+  <Link href="/Category/Home-Kitchen"><a><li className='text-white py-2 px-3 md:py-0 md:px-0'>Home & Kitchen</li></a></Link>
+  <Link href="/Category/Books"><a><li className='text-white py-2 px-3 md:py-0 md:px-0'>Books</li></a></Link>
+  {/* <Link href="/Book"><a><li className='text-white py-2 px-3 md:py-0 md:px-0'>Booking</li></a></Link> */}
+  <Link href="/OurPrograms"><a><li className='text-white py-2 px-3 md:py-0 md:px-0'>Our Programs</li></a></Link>
+  <Link href="https://yoga-site-six.vercel.app/"><a><li className='text-white py-2 px-3 md:py-0 md:px-0'>Mava Vida</li></a></Link>
+</ul>
+
+      {/* <ul className='py-2 space-x-3 md:space-x-6 font-bold flex space-y-2 flex-row text-sm md:text-base'>
         <li></li>
         <Link href="/Category/Electronics"><a><li className='text-white'>Electronics</li></a></Link>
         <Link href="/Category/Groceries"><a><li className='text-white'>Groceries</li></a></Link>
         <Link href="/Category/Home-Kitchen"><a><li className='text-white'>Home & Kitchen</li></a></Link>
         <Link href="/Category/Books"><a><li className='text-white'>Books</li></a></Link>
-        {/* <Link href="/Book"><a><li className='text-white'>Booking</li></a></Link> */}
+        <Link href="/Book"><a><li className='text-white'>Booking</li></a></Link>
         <Link href="/OurPrograms"><a><li className='text-white'>Our Programs</li></a></Link>
         <Link href="https://yoga-site-six.vercel.app/"><a><li className='text-white'>Mava Vida</li></a></Link>
-  
-
-      </ul>
-          {/* {user===null && <Link href={"/Login"}><a><button className='bg-pink-400 rounded-lg absolute right-6 top-4 text-white text-lg py-1 px-2'>Login</button>  </a></Link>} */}
-          
-          {/* {user!==null && */}
+      </ul> */}
           
       <div  className="cart flex space-x-2 sm:space-x-5 cursor-pointer absolute text-2xl right-6 top-4 sm:top-6 sm:text-3xl ">
         <Link href=""><a  onMouseOver={()=>setdropdown(true)} onMouseLeave={()=>setdropdown(false)}>

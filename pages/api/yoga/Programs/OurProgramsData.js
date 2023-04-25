@@ -2,28 +2,28 @@ export default [
     {   
         id: "1",
         name: "PROGRAMA AYUNO\nMAVA FASTING\n(CLEANSE & DETOX)",
-        image: 'green_drink.jpg',
+        image: 'garden.jpg',
         clicked: false,
         route:"/Venues"
     },
     {   
         id: "2",
         name: "PROGRAMA SEMIAYUNO\nMAVA SEMI FASTING\n(CLEANSE & DETOX)",
-        image: 'ingredients.jpg',
+        image: 'detox.jpg',
         clicked: false,
         route:"/Venues"
     },
     {   
         id: "3",
         name: "PROGRAMA MAVA BALANCE\nMAVA BALANCE\n(VITALITY & RELAX)",
-        image: 'food1.jpg',
+        image: 'pool_venue.jpg',
         clicked: false,
         route:"/Venues"
     },
     {   
         id: "4",
         name: "PROGRAMA RESET PROFUNDO\nMAVA DEEP RESET\n( BURN OUT, RESILIENCE)",
-        image: 'garden.jpg',
+        image: 'balance_detox2.jpg',
         clicked: false,
         route:"/Venues"
     },
