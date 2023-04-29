@@ -2,6 +2,7 @@ import React from "react";
 // import styles from "../styles/Footer.module.css";
 import Link from "next/link";
 // import FontAwesomeIcon  from '@fortawesome/react-fontawesome';
+import { FaInstagram } from 'react-icons/fa';
 
 import {
   faWhatsapp,
@@ -60,6 +61,18 @@ const Footer = () => {
                 </p>
               </Link>
             </div>
+
+            <div className="footerListHolder">
+              <Link
+                href="https://instagram.com/mava_sustainable_wellness?igshid=ZDdkNTZiNTM="
+                className="no-underline "
+              >
+                <p className="hover:text-white footerListHead">
+                  <FaInstagram size={40}/>
+                </p>
+              </Link>
+            </div>
+            
           </div>
 
           {/* <div className="footerListBox">
