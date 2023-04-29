@@ -19,6 +19,7 @@ const Checkout = () => {
   let { user } = useSelector((state) => state.user);
 
   let dispatch = useDispatch();
+  let [loading,setLoading] = useState(false)
   let router = useRouter();
   let { addToCart, removeFromCart } = bindActionCreators(
     actioncreators.default,
@@ -42,6 +43,7 @@ const Checkout = () => {
   };
 
   let handlepay = async () => {
+    setLoading(true)
     let cartArray1 = [];
     let cartArray2 = [];
 
@@ -133,7 +135,9 @@ const Checkout = () => {
         function (response) {
           console.log("testing order mail");
           console.log("SUCCESS!", response.status, response.text);
+         
           connectToStripe(cartArray1);
+          setLoading(false)
         },
         function (err) {
           console.log("FAILED...", err);
@@ -383,7 +387,7 @@ const Checkout = () => {
               className={`flex text-white  border-0 text-sm sm:text-base py-2 px-2 md:px-6 focus:outline-none hover:bg-green-600 rounded bg-green-500`}
               onClick={handlepay}
             >
-              Pay Now
+              {!loading ? "Pay Now" : "loading..."}
             </button>
           </div>
         </div>

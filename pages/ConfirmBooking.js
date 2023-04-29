@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 export default function ConfirmBooking() {
   const router = useRouter();
   const { data } = router.query;
+  const [loading, setLoading] = React.useState(false);
 
   let parsedData = {};
 
@@ -14,6 +15,7 @@ export default function ConfirmBooking() {
   }
 
   function handleCheckOut() {
+    setLoading(true);
     const templateParams = {
       to_name: parsedData.name,
       type_of_retreat: parsedData.typeOfRetreat,
@@ -40,7 +42,7 @@ export default function ConfirmBooking() {
       )
       .then(
         function (response) {
-          console.log('testing 11')
+          console.log("testing 11");
           console.log("SUCCESS!", response.status, response.text);
           sendSecondMail();
         },
@@ -127,6 +129,7 @@ export default function ConfirmBooking() {
       }),
     })
       .then((res) => {
+        setLoading(false);
         if (res.ok) return res.json();
         return res.json().then((e) => Promise.reject(e));
       })
@@ -134,6 +137,7 @@ export default function ConfirmBooking() {
         window.location = url;
       })
       .catch((e) => {
+        setLoading(false);
         console.error(e.error);
       });
   }
@@ -202,7 +206,7 @@ export default function ConfirmBooking() {
               }}
               onClick={handleCheckOut}
             >
-              Checkout
+              {!loading ? "Checkout" : "Loading..."}
             </button>
 
             <button
