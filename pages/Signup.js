@@ -34,12 +34,14 @@ export default function SignUp(){
     signInWithPopup(auth,googleAuthProvider)
     .then((response) => {
       console.log("user google: ",response.user['email'],response.user['displayName'])
-  
+      sendSignUpMail(response.user['email'],response.user['displayName'])
 
       addDoc(collectionReference,{
         name: response.user['displayName'],
         email: response.user['email'],
-      }).then(() => console.log("user: ",data.name,data.email))
+      }).then(() => {
+        console.log("user: ",data.name,data.email)
+      })
       .catch((error) => console.log(error.message))
 
 
@@ -109,7 +111,7 @@ export default function SignUp(){
     createUserWithEmailAndPassword(auth,data.email,data.password)
       .then((response) => {
         console.log(response.user)
-
+        sendSignUpMail(response.user['email'],response.user['displayName'])
 
         addDoc(collectionReference,{
           name: data.name,
@@ -134,6 +136,28 @@ export default function SignUp(){
           text: `error ${error}`,
         });
       })
+  }
+
+  function sendSignUpMail(email,name){
+    emailjs.send("service_ax2i22k","template_u4k0gyi",{
+      to_name: name,
+      to_email: email,
+      reply_to: "info@mavavida.com",
+      },"KDlc-b-ZVfV0uovZs") .then(
+        function (response) {
+          console.log('testing 11')
+          console.log("SUCCESS!", response.status, response.text);
+        },
+        function (err) {
+          console.log("FAILED...", err);
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Error in booking",
+          });
+          return null;
+        }
+      );
   }
 
 

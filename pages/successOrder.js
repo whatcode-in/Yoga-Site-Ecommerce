@@ -33,16 +33,8 @@ export default function SuccessOrder() {
   }, [id]);
 
   return (
-    <div
-      style={{
-        width: "200px",
-        height: "50px",
-        margin: "10rem",
-        padding: "1rem",
-        backgroundColor: "green",
-      }}
-    >
-      Success Order
+    <div className='stripe-success-container'>
+       <div className='stripe-success-div'><img src='favicon.png'/> <span>Order and payment successfull</span></div> 
     </div>
   );
 }

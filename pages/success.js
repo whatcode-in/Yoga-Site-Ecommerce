@@ -1,6 +1,7 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 
+
 export default function Sucess(){
  
     const router = useRouter();
@@ -33,16 +34,8 @@ export default function Sucess(){
     }, [id]);
 
     return(
-        <div
-        style={{
-            width: "200px",
-            height: "50px",
-            margin: "10rem",
-            padding: "1rem",
-            backgroundColor: "green"
-        }}
-    >
-        Success
+      <div className='stripe-success-container'>
+       <div className='stripe-success-div'><img src='favicon.png'/> <span>Booking and payment successfull</span></div> 
     </div>
     )
 }

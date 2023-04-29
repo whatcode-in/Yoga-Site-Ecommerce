@@ -58,7 +58,7 @@ const Navbar = () => {
 
   return (
     <nav className='sticky top-0 z-30 w-full navbar flex flex-col justify-center items-center py-2 md:flex-row shadow-lg navbar-extra'>
-      <div className='md:absolute md:left-2 top-2'>
+      <div className='md:absolute md:left-2 top-4'>
         <Link className="logo hover:cursor-pointer" href="/">
           <a>
           <Image
@@ -94,10 +94,22 @@ const Navbar = () => {
           
       <div  className="cart flex space-x-2 sm:space-x-5 cursor-pointer absolute text-2xl right-6 top-4 sm:top-6 sm:text-3xl ">
         <Link href=""><a  onMouseOver={()=>setdropdown(true)} onMouseLeave={()=>setdropdown(false)}>
-          <CgProfile className="text-white"/>
+          <CgProfile className="text-white" size={36}/>
           </a></Link>
           {currentUser && <div className='text-white' style={{fontSize: "14px",marginTop: "-0.3rem"}}>{currentUser.name}</div>}
-        <AiOutlineShoppingCart onClick={toggle}  className="text-white"/>
+        {/* <AiOutlineShoppingCart onClick={toggle}  className="text-white"/> */}
+        <div style={{ position: 'relative', display: 'inline-block'}}>
+      <AiOutlineShoppingCart  onClick={toggle}  className="text-white" size={50} />
+      <span style={{
+        position: 'absolute',
+        top: '2px',
+        left: '25px',
+        textAlign: 'center',
+        fontSize: '12px',
+        fontWeight: 'bold',
+        color: 'white',
+      }}>{Object.keys(cart).length}</span>
+    </div>
         
       </div>
       

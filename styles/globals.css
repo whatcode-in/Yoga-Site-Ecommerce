@@ -145,9 +145,19 @@ a {
     margin: 20px 0px;
     justify-content: center;
   }
+
+  
   .footerListHolder {
-    padding: 15px;
+    
   }
+
+.footer-links-responsive{
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center;
+  justify-content: center;
+}
+
   .footerListBox {
     display: flex;
     justify-content: space-between;
@@ -318,6 +328,7 @@ font-weight: 400;
   position: fixed !important;
   top: 0 !important;
   width: 100% !important; 
+  min-height: 80px;
 }
 
 
@@ -426,6 +437,28 @@ font-weight: 400;
 
 }
 
+.stripe-success-container{
+  width: 100vw;
+}
+
+.stripe-success-div{
+  width: 400px;
+  margin-top: 12rem;
+  margin-bottom: 5rem;
+  margin-left: 4rem;
+  padding: 1rem;
+  border: 3px solid silver;
+  border-radius: 30px;
+  box-sizing: border-box;
+  display: flex;
+  background-color: #6a7825;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.stripe-success-div img{
+  width: 100px;
+}
 
 .close-btn{
   border: 3px solid black;
@@ -2403,6 +2436,22 @@ flex-direction: column;
   }
   .cara-full-rgt {
     width: 100%;
+  }
+}
+
+@media (max-width: 500px){
+  .stripe-success-div{
+    margin-top: 14rem;
+    margin-left: 1.5rem;
+    width: 300px;
+  }
+
+  .stripe-success-div img{
+    width: 60px;
+  }
+
+  .stripe-success-div span{
+    font-size: 13px;
   }
 }
 

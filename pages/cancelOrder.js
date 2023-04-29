@@ -2,16 +2,8 @@ import React from "react"
 
 export default function cancelOrder(){
     return(
-        <div
-            style={{
-                width: "200px",
-                height: "50px",
-                margin: "10rem",
-                padding: "1rem",
-                backgroundColor: "red"
-            }}
-        >
-            Cancel Order
-        </div>
+        <div className='stripe-success-container'>
+        <div className='stripe-success-div' ><img src='favicon.png'/> <span>Order payment canceled</span></div> 
+     </div>
     )
 }
