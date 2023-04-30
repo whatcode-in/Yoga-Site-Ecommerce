@@ -87,6 +87,7 @@ const Footer = () => {
         <div className="flexEB copyWriteBlock">
           <p className="copyWriteText">© Copyright 2020. All rights reserved</p>
           <div>
+            {/*tp */}
             <p className="addressText">MAVAVIDA</p>
             <p className="addressText">Manilva 28960 and Sotogrande 11310</p>
             <p className="addressText">Cadiz and Malaga</p>
