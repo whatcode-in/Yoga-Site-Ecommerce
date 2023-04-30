@@ -53,7 +53,17 @@ const Navbar = () => {
   window.location.reload(true)
 }
 //
+const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
+useEffect(() => {
+  const handleResize = () => {
+    setWindowWidth(window.innerWidth);
+  };
+
+  window.addEventListener('resize', handleResize);
+
+  return () => window.removeEventListener('resize', handleResize);
+}, []);
 
 
   return (
@@ -93,13 +103,15 @@ const Navbar = () => {
       </ul> */}
           
       <div  className="cart flex space-x-2 sm:space-x-5 cursor-pointer absolute text-2xl right-6 top-4 sm:top-6 sm:text-3xl ">
+      <div style={{ position: 'relative', display: 'inline-block',marginTop: "0.2rem",}}>
         <Link href=""><a  onMouseOver={()=>setdropdown(true)} onMouseLeave={()=>setdropdown(false)}>
-          <CgProfile className="text-white" size={36}/>
+          <CgProfile className="text-white" size={windowWidth > 380 ? 38 : 33}/>
           </a></Link>
+        </div>
           {currentUser && <div className='text-white' style={{fontSize: "14px",marginTop: "-0.3rem"}}>{currentUser.name}</div>}
         {/* <AiOutlineShoppingCart onClick={toggle}  className="text-white"/> */}
         <div style={{ position: 'relative', display: 'inline-block'}}>
-      <AiOutlineShoppingCart  onClick={toggle}  className="text-white" size={50} />
+      <AiOutlineShoppingCart  onClick={toggle}  className="text-white" size={windowWidth > 380 ? 48 : 43} />
       <span style={{
         position: 'absolute',
         top: '2px',
