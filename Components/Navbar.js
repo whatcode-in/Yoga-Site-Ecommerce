@@ -47,10 +47,17 @@ const Navbar = () => {
   const {currentUser} = useAuthValue()
 
   let logout=()=>{
-  
-  let auth = getAuth();
-  auth.signOut()
-  window.location.reload(true)
+    
+  if(currentUser.name){
+    let auth = getAuth();
+    auth.signOut()
+    window.location.reload(true)
+  }
+  else{
+    router.push('/Login')
+  }
+    
+ 
 }
 //
 const [windowWidth, setWindowWidth] = useState(0);
@@ -68,7 +75,7 @@ useEffect(() => {
 
   return (
     <nav className='sticky top-0 z-30 w-full navbar flex flex-col justify-center items-center py-2 md:flex-row shadow-lg navbar-extra'>
-      <div className='md:absolute md:left-2 top-4'>
+      <div className='md:absolute md:left-4 top-4 navbar-logo-responsive'>
         <Link className="logo hover:cursor-pointer" href="/">
           <a>
           <Image
@@ -88,27 +95,32 @@ useEffect(() => {
   <Link href="/Category/Books"><a><li className='text-white py-2 px-3 md:py-0 md:px-0'>Books</li></a></Link>
   {/* <Link href="/Book"><a><li className='text-white py-2 px-3 md:py-0 md:px-0'>Booking</li></a></Link> */}
   <Link href="/OurPrograms"><a><li className='text-white py-2 px-3 md:py-0 md:px-0'>Our Programs</li></a></Link>
-  <Link href="https://yoga-site-six.vercel.app/"><a><li className='text-white py-2 px-3 md:py-0 md:px-0'>Mava Vida</li></a></Link>
+  {windowWidth < 400 &&  <a
+        href="https://yoga-site-six.vercel.app/"
+        class="back-to-site-button"
+      >
+        Back to Site
+      </a>}
 </ul>
 
-      {/* <ul className='py-2 space-x-3 md:space-x-6 font-bold flex space-y-2 flex-row text-sm md:text-base'>
-        <li></li>
-        <Link href="/Category/Electronics"><a><li className='text-white'>Electronics</li></a></Link>
-        <Link href="/Category/Groceries"><a><li className='text-white'>Groceries</li></a></Link>
-        <Link href="/Category/Home-Kitchen"><a><li className='text-white'>Home & Kitchen</li></a></Link>
-        <Link href="/Category/Books"><a><li className='text-white'>Books</li></a></Link>
-        <Link href="/Book"><a><li className='text-white'>Booking</li></a></Link>
-        <Link href="/OurPrograms"><a><li className='text-white'>Our Programs</li></a></Link>
-        <Link href="https://yoga-site-six.vercel.app/"><a><li className='text-white'>Mava Vida</li></a></Link>
-      </ul> */}
-          
-      <div  className="cart flex space-x-2 sm:space-x-5 cursor-pointer absolute text-2xl right-6 top-4 sm:top-6 sm:text-3xl ">
-      <div style={{ position: 'relative', display: 'inline-block',marginTop: "0.2rem",}}>
+
+     
+    
+      <div  className="cart flex space-x-2 sm:space-x-5  cursor-pointer absolute text-2xl right-6 top-4 sm:top-6 sm:text-3xl navbar-buttons-responsive">
+      {windowWidth > 400 &&
+      <a
+        href="https://yoga-site-six.vercel.app/"
+        class="back-to-site-button"
+      >
+        Back to Site
+      </a>}
+    
+      <div style={{ position: 'relative', display: 'inline-block',marginTop: "0.2rem"}}>
         <Link href=""><a  onMouseOver={()=>setdropdown(true)} onMouseLeave={()=>setdropdown(false)}>
           <CgProfile className="text-white" size={windowWidth > 380 ? 38 : 33}/>
           </a></Link>
         </div>
-          {currentUser && <div className='text-white' style={{fontSize: "14px",marginTop: "-0.3rem"}}>{currentUser.name}</div>}
+          {currentUser && <div className='text-white' style={{fontSize: "14px",textAlign: 'center'}}>{currentUser.name}</div>}
         {/* <AiOutlineShoppingCart onClick={toggle}  className="text-white"/> */}
         <div style={{ position: 'relative', display: 'inline-block'}}>
       <AiOutlineShoppingCart  onClick={toggle}  className="text-white" size={windowWidth > 380 ? 48 : 43} />
@@ -130,7 +142,7 @@ useEffect(() => {
             <ul>
               <Link href={"/Login"}><a><li className='hover:text-green-700 hover:cursor-pointer py-2'>My Account</li></a></Link>
               <Link href={"/Orders"}><a><li className='hover:text-green-700 hover:cursor-pointer py-2'>Orders</li></a></Link>
-              <a><li onClick={logout} className='hover:text-green-700 hover:cursor-pointer py-2'>Logout</li></a>
+              <a><li onClick={logout} className='hover:text-green-700 hover:cursor-pointer py-2'>{currentUser.name ? "Logout" : "Sign Up/Login"}</li></a>
             </ul>
             </div>}
 
@@ -165,7 +177,6 @@ useEffect(() => {
         </div>
       </div>
     </nav>
-
   )
 }
 

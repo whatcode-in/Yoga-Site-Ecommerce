@@ -331,6 +331,23 @@ font-weight: 400;
   min-height: 80px;
 }
 
+.back-to-site-button{
+  background-color: #c0a664;
+  font-size: 1rem;
+  padding: 4px 8px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: 600;
+  position: relative;
+
+}
+
+.back-to-site-button:hover{
+  background-color: #455010;
+  color: white;
+  border: 3px solid #c0a664;
+  box-sizing: border-box;
+}
 
 .go-to-cart-btn{
   background: #7A923E !important;
@@ -2416,6 +2433,10 @@ flex-direction: column;
   .retro-rgt {
     width: 100%;
   }
+  .navbar-logo-responsive{
+    align-self: flex-start !important;
+    margin-left: 5rem !important;
+  }
 }
 
 @media screen and (max-width: 639px) {
@@ -2452,6 +2473,18 @@ flex-direction: column;
 
   .stripe-success-div span{
     font-size: 13px;
+  }
+
+  .navbar-logo-responsive{
+    margin-left: 1rem !important;
+  }
+  .back-to-site-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    padding: auto;
+
   }
 }
 
@@ -2535,4 +2568,10 @@ flex-direction: column;
 
 .sign-up-text{
   margin-bottom: 1rem !important;
+}
+
+@media (max-width: 400px){
+  .back-to-site-button{
+    padding: 5px 8px;
+  }
 }
