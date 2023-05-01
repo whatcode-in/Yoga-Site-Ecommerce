@@ -53,7 +53,7 @@ const Navbar = () => {
   window.location.reload(true)
 }
 //
-const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+const [windowWidth, setWindowWidth] = useState(0);
 
 useEffect(() => {
   const handleResize = () => {
