@@ -60,7 +60,7 @@ const Navbar = () => {
  
 }
 //
-const [windowWidth, setWindowWidth] = useState(0);
+const [windowWidth, setWindowWidth] = useState(1500);
 
 useEffect(() => {
   const handleResize = () => {
@@ -68,9 +68,10 @@ useEffect(() => {
   };
 
   window.addEventListener('resize', handleResize);
+  console.log('window width: ',windowWidth)
 
   return () => window.removeEventListener('resize', handleResize);
-}, []);
+}, [windowWidth]);
 
 
   return (
