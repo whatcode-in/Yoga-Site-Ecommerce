@@ -108,7 +108,7 @@ export default function SignUp() {
     createUserWithEmailAndPassword(auth, data.email, data.password)
       .then((response) => {
         console.log(response.user);
-        sendSignUpMail(response.user["email"], response.user["displayName"]);
+        sendSignUpMail(response.user["email"], data.name);
 
         addDoc(collectionReference, {
           name: data.name,
