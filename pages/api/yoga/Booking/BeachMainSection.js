@@ -1406,7 +1406,7 @@ export default function MainSection() {
                       </li>
 
 
-                      <li class="offer bck persons-1" 
+                      <li className="offer bck persons-1" 
                       data-price_disscount_day="155" 
                       data-price_day="155" data-price_disscount_day_low_seasson="" 
                       data-price_day_low_seasson="" 
@@ -1416,31 +1416,31 @@ export default function MainSection() {
                         <div className="select-name">
                           <input id="offer-0-p-2-dsk" type="radio" name="offer" onClick={(e) => setInd(3)}
                             value="3"/>
-                          </div><div class="edit-pers">
-                            <label for="offer-0-p-1-dsk" style={{width: "65%"}}>
+                          </div><div className="edit-pers">
+                            <label htmlFor="offer-0-p-1-dsk" style={{width: "65%"}}>
                               <h2>Suite Room Individual <br></br> Occupancy with Ensuite <br></br> shower and bathtub</h2>
                               </label><small></small><small className="hab-compartida-two">
-                                <img class="mr-9" data-src="https://inspyria.com/Themes/ETR/images/icons/icon-habitacion-cama-min.png" src="https://inspyria.com/Themes/ETR/images/icons/icon-habitacion-cama-min.png" alt=""/> 
-                                </small><div class="shortcuts-btn">
-                                  <a class="shortcut-item fancybox9826 show" href="#poup-txt9826">View photos</a>
+                                <img className="mr-9" data-src="https://inspyria.com/Themes/ETR/images/icons/icon-habitacion-cama-min.png" src="https://inspyria.com/Themes/ETR/images/icons/icon-habitacion-cama-min.png" alt=""/> 
+                                </small><div className="shortcuts-btn">
+                                  <a className="shortcut-item fancybox9826 show" href="#poup-txt9826">View photos</a>
                                   <input type="submit" className="shortcut-item" value="Reserve" fdprocessedid="sv652"/>
                                   </div></div>
                                   <div 
-                                  class="edit-price" 
+                                  className="edit-price" 
                                   data-uso="Private" 
                                   data-person="1" 
                                   data-price="2480" 
                                   data-deposit_percent="0.5" d
                                   ata-deposit="1240" 
                                   data-moneda="€">
-                                    <span class="numpers">
-                                      <img class="logo-numpers" data-src="https://inspyria.com/Themes/ETR/images/icons/AVATAR-min.png" src="https://inspyria.com/Themes/ETR/images/icons/AVATAR-min.png" alt=""/> 
-                                      1</span><span class="price">€{roomCost3}</span><small>Total Price</small></div>
+                                    <span className="numpers">
+                                      <img className="logo-numpers" data-src="https://inspyria.com/Themes/ETR/images/icons/AVATAR-min.png" src="https://inspyria.com/Themes/ETR/images/icons/AVATAR-min.png" alt=""/> 
+                                      1</span><span className="price">€{roomCost3}</span><small>Total Price</small></div>
                             </li>
 
 
                     
-                            <li class="offer bck persons-1" 
+                            <li className="offer bck persons-1" 
                       data-price_disscount_day="155" 
                       data-price_day="155" data-price_disscount_day_low_seasson="" 
                       data-price_day_low_seasson="" 
@@ -1450,26 +1450,26 @@ export default function MainSection() {
                         <div className="select-name">
                           <input id="offer-0-p-2-dsk" type="radio" name="offer" onClick={(e) => setInd(4)}
                             value="4"/>
-                          </div><div class="edit-pers">
-                            <label for="offer-0-p-1-dsk" style={{width: "65%"}}>
+                          </div><div className="edit-pers">
+                            <label htmlFor="offer-0-p-1-dsk" style={{width: "65%"}}>
                               <h2>Suite Room Double <br></br>Use with Ensuite <br></br>shower and bathtub</h2>
                               </label><small></small><small className="hab-compartida-two">
-                                <img class="mr-9" data-src="https://inspyria.com/Themes/ETR/images/icons/icon-habitacion-cama-min.png" src="https://inspyria.com/Themes/ETR/images/icons/icon-habitacion-cama-min.png" alt=""/> 
-                                </small><div class="shortcuts-btn">
-                                  <a class="shortcut-item fancybox9826 show" href="#poup-txt9826">View photos</a>
+                                <img className="mr-9" data-src="https://inspyria.com/Themes/ETR/images/icons/icon-habitacion-cama-min.png" src="https://inspyria.com/Themes/ETR/images/icons/icon-habitacion-cama-min.png" alt=""/> 
+                                </small><div className="shortcuts-btn">
+                                  <a className="shortcut-item fancybox9826 show" href="#poup-txt9826">View photos</a>
                                   <input type="submit" className="shortcut-item" value="Reserve" fdprocessedid="sv652"/>
                                   </div></div>
                                   <div 
-                                  class="edit-price" 
+                                  className="edit-price" 
                                   data-uso="Private" 
                                   data-person="1" 
                                   data-price="2480" 
                                   data-deposit_percent="0.5" d
                                   ata-deposit="1240" 
                                   data-moneda="€">
-                                    <span class="numpers">
-                                      <img class="logo-numpers" data-src="https://inspyria.com/Themes/ETR/images/icons/AVATAR-min.png" src="https://inspyria.com/Themes/ETR/images/icons/AVATAR-min.png" alt=""/> 
-                                      1</span><span class="price">€{roomCost4}</span><small>Total Price</small></div>
+                                    <span className="numpers">
+                                      <img className="logo-numpers" data-src="https://inspyria.com/Themes/ETR/images/icons/AVATAR-min.png" src="https://inspyria.com/Themes/ETR/images/icons/AVATAR-min.png" alt=""/> 
+                                      1</span><span className="price">€{roomCost4}</span><small>Total Price</small></div>
                             </li>
                           
                     </>
@@ -1663,7 +1663,7 @@ export default function MainSection() {
 
 
 
-                    <li class="offer bck persons-1" 
+                    <li className="offer bck persons-1" 
                       data-price_disscount_day="155" 
                       data-price_day="155" data-price_disscount_day_low_seasson="" 
                       data-price_day_low_seasson="" 
@@ -1673,31 +1673,31 @@ export default function MainSection() {
                         <div className="select-name">
                           <input id="offer-0-p-2-dsk" type="radio" name="offer" onClick={(e) => setInd(3)}
                             value="3"/>
-                          </div><div class="edit-pers">
-                            <label for="offer-0-p-1-dsk" style={{width: "65%"}}>
+                          </div><div className="edit-pers">
+                            <label htmlFor="offer-0-p-1-dsk" style={{width: "65%"}}>
                               <h2>Suite Room Individual <br></br> Occupancy with Ensuite <br></br> shower and bathtub</h2>
                               </label><small></small><small className="hab-compartida-two">
-                                <img class="mr-9" data-src="https://inspyria.com/Themes/ETR/images/icons/icon-habitacion-cama-min.png" src="https://inspyria.com/Themes/ETR/images/icons/icon-habitacion-cama-min.png" alt=""/> 
-                                </small><div class="shortcuts-btn">
-                                  <a class="shortcut-item fancybox9826 show" href="#poup-txt9826">View photos</a>
+                                <img className="mr-9" data-src="https://inspyria.com/Themes/ETR/images/icons/icon-habitacion-cama-min.png" src="https://inspyria.com/Themes/ETR/images/icons/icon-habitacion-cama-min.png" alt=""/> 
+                                </small><div className="shortcuts-btn">
+                                  <a className="shortcut-item fancybox9826 show" href="#poup-txt9826">View photos</a>
                                   <input type="submit" className="shortcut-item" value="Reserve" fdprocessedid="sv652"/>
                                   </div></div>
                                   <div 
-                                  class="edit-price" 
+                                  className="edit-price" 
                                   data-uso="Private" 
                                   data-person="1" 
                                   data-price="2480" 
                                   data-deposit_percent="0.5" d
                                   ata-deposit="1240" 
                                   data-moneda="€">
-                                    <span class="numpers">
-                                      <img class="logo-numpers" data-src="https://inspyria.com/Themes/ETR/images/icons/AVATAR-min.png" src="https://inspyria.com/Themes/ETR/images/icons/AVATAR-min.png" alt=""/> 
-                                      1</span><span class="price">€{roomCost3}</span><small>Total Price</small></div>
+                                    <span className="numpers">
+                                      <img className="logo-numpers" data-src="https://inspyria.com/Themes/ETR/images/icons/AVATAR-min.png" src="https://inspyria.com/Themes/ETR/images/icons/AVATAR-min.png" alt=""/> 
+                                      1</span><span className="price">€{roomCost3}</span><small>Total Price</small></div>
                             </li>
 
 
                     
-                            <li class="offer bck persons-1" 
+                            <li className="offer bck persons-1" 
                       data-price_disscount_day="155" 
                       data-price_day="155" data-price_disscount_day_low_seasson="" 
                       data-price_day_low_seasson="" 
@@ -1707,26 +1707,26 @@ export default function MainSection() {
                         <div className="select-name">
                           <input id="offer-0-p-2-dsk" type="radio" name="offer" onClick={(e) => setInd(4)}
                             value="4"/>
-                          </div><div class="edit-pers">
-                            <label for="offer-0-p-1-dsk" style={{width: "65%"}}>
+                          </div><div className="edit-pers">
+                            <label htmlFor="offer-0-p-1-dsk" style={{width: "65%"}}>
                               <h2>Suite Room Double <br></br>Use with Ensuite <br></br>shower and bathtub</h2>
                               </label><small></small><small className="hab-compartida-two">
-                                <img class="mr-9" data-src="https://inspyria.com/Themes/ETR/images/icons/icon-habitacion-cama-min.png" src="https://inspyria.com/Themes/ETR/images/icons/icon-habitacion-cama-min.png" alt=""/> 
-                                </small><div class="shortcuts-btn">
-                                  <a class="shortcut-item fancybox9826 show" href="#poup-txt9826">View photos</a>
+                                <img className="mr-9" data-src="https://inspyria.com/Themes/ETR/images/icons/icon-habitacion-cama-min.png" src="https://inspyria.com/Themes/ETR/images/icons/icon-habitacion-cama-min.png" alt=""/> 
+                                </small><div className="shortcuts-btn">
+                                  <a className="shortcut-item fancybox9826 show" href="#poup-txt9826">View photos</a>
                                   <input type="submit" className="shortcut-item" value="Reserve" fdprocessedid="sv652"/>
                                   </div></div>
                                   <div 
-                                  class="edit-price" 
+                                  className="edit-price" 
                                   data-uso="Private" 
                                   data-person="1" 
                                   data-price="2480" 
                                   data-deposit_percent="0.5" d
                                   ata-deposit="1240" 
                                   data-moneda="€">
-                                    <span class="numpers">
-                                      <img class="logo-numpers" data-src="https://inspyria.com/Themes/ETR/images/icons/AVATAR-min.png" src="https://inspyria.com/Themes/ETR/images/icons/AVATAR-min.png" alt=""/> 
-                                      1</span><span class="price">€{roomCost4}</span><small>Total Price</small></div>
+                                    <span className="numpers">
+                                      <img className="logo-numpers" data-src="https://inspyria.com/Themes/ETR/images/icons/AVATAR-min.png" src="https://inspyria.com/Themes/ETR/images/icons/AVATAR-min.png" alt=""/> 
+                                      1</span><span className="price">€{roomCost4}</span><small>Total Price</small></div>
                             </li>
                           
 

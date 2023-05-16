@@ -98,7 +98,7 @@ useEffect(() => {
   <Link href="/OurPrograms"><a><li className='text-white py-2 px-3 md:py-0 md:px-0'>Our Programs</li></a></Link>
   {windowWidth < 400 &&  <a
         href="https://yoga-site-six.vercel.app/"
-        class="back-to-site-button"
+        className="back-to-site-button"
       >
         Back to Site
       </a>}
@@ -111,7 +111,7 @@ useEffect(() => {
       {windowWidth > 400 &&
       <a
         href="https://yoga-site-six.vercel.app/"
-        class="back-to-site-button"
+        className="back-to-site-button"
       >
         Back to Site
       </a>}

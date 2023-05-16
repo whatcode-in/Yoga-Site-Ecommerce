@@ -105,7 +105,7 @@ export default function GardenAccommodation() {
                 <span>Shared</span>
             </div>
             <div className="icon-purchase person">
-                <img style={{width: "22px",marginRight:'0.5rem'}} class="" data-src="https://inspyria.com/Themes/ETR/images/icons/AVATAR-min.png" src="https://inspyria.com/Themes/ETR/images/icons/AVATAR-min.png"/>
+                <img style={{width: "22px",marginRight:'0.5rem'}} className="" data-src="https://inspyria.com/Themes/ETR/images/icons/AVATAR-min.png" src="https://inspyria.com/Themes/ETR/images/icons/AVATAR-min.png"/>
                 <span data-textsingle="Spot" data-textplural="Spots">4 Spots</span>
             </div>
             <div className="icon-purchase date">
@@ -123,7 +123,7 @@ export default function GardenAccommodation() {
 
           <div className="proteccion-datos">
                         <img style={{width: "50px"}} data-src="https://inspyria.com/Themes/ETR//images/org-confianza-min.png" src="https://inspyria.com/Themes/ETR//images/org-confianza-min.png"/>
-                        <p style={{marginLeft: "1rem"}}>You can trust <span class="orange">Mava Vida</span>! Your information is safe and secure with us. </p>
+                        <p style={{marginLeft: "1rem"}}>You can trust <span className="orange">Mava Vida</span>! Your information is safe and secure with us. </p>
                     </div>
             <div className="cta-box">
                   <a
@@ -234,7 +234,7 @@ export default function GardenAccommodation() {
                 <span>Private</span>
             </div>
             <div className="icon-purchase person">
-                <img style={{width: "22px",marginRight:'0.5rem'}} class="" data-src="https://inspyria.com/Themes/ETR/images/icons/AVATAR-min.png" src="https://inspyria.com/Themes/ETR/images/icons/AVATAR-min.png"/>
+                <img style={{width: "22px",marginRight:'0.5rem'}} className="" data-src="https://inspyria.com/Themes/ETR/images/icons/AVATAR-min.png" src="https://inspyria.com/Themes/ETR/images/icons/AVATAR-min.png"/>
                 <span data-textsingle="Spot" data-textplural="Spots">1 Spot</span>
             </div>
             <div className="icon-purchase date">
@@ -252,7 +252,7 @@ export default function GardenAccommodation() {
 
           <div className="proteccion-datos">
                         <img style={{width: "50px"}} data-src="https://inspyria.com/Themes/ETR//images/org-confianza-min.png" src="https://inspyria.com/Themes/ETR//images/org-confianza-min.png"/>
-                        <p style={{marginLeft: "1rem"}}>You can trust <span class="orange">Mava Vida</span>! Your information is safe and secure with us. </p>
+                        <p style={{marginLeft: "1rem"}}>You can trust <span className="orange">Mava Vida</span>! Your information is safe and secure with us. </p>
                     </div>
             <div className="cta-box">
                   <a
@@ -361,7 +361,7 @@ export default function GardenAccommodation() {
                 <span>Private</span>
             </div>
             <div className="icon-purchase person">
-                <img style={{width: "22px",marginRight:'0.5rem'}} class="" data-src="https://inspyria.com/Themes/ETR/images/icons/AVATAR-min.png" src="https://inspyria.com/Themes/ETR/images/icons/AVATAR-min.png"/>
+                <img style={{width: "22px",marginRight:'0.5rem'}} className="" data-src="https://inspyria.com/Themes/ETR/images/icons/AVATAR-min.png" src="https://inspyria.com/Themes/ETR/images/icons/AVATAR-min.png"/>
                 <span data-textsingle="Spot" data-textplural="Spots">1 Spot</span>
             </div>
             <div className="icon-purchase date">
@@ -379,7 +379,7 @@ export default function GardenAccommodation() {
 
           <div className="proteccion-datos">
                         <img style={{width: "50px"}} data-src="https://inspyria.com/Themes/ETR//images/org-confianza-min.png" src="https://inspyria.com/Themes/ETR//images/org-confianza-min.png"/>
-                        <p style={{marginLeft: "1rem"}}>You can trust <span class="orange">Mava Vida</span>! Your information is safe and secure with us. </p>
+                        <p style={{marginLeft: "1rem"}}>You can trust <span className="orange">Mava Vida</span>! Your information is safe and secure with us. </p>
                     </div>
             <div className="cta-box">
                   <a
@@ -593,25 +593,25 @@ export default function GardenAccommodation() {
             <div className="room-title">Rooms</div>
 
    
-            <ul class="aloj-list">
+            <ul className="aloj-list">
                   <li>
-                      <img class="" data-src="https://inspyria.com/storage/media/2023/03/2f608125-dc04-4ae1-8ea8-ec38fd3d3b40-medium.jpg" alt="Suite room" onclick="$('.fancybox9808').click();" src="https://inspyria.com/storage/media/2023/03/2f608125-dc04-4ae1-8ea8-ec38fd3d3b40-medium.jpg"/>
+                      <img className="" data-src="https://inspyria.com/storage/media/2023/03/2f608125-dc04-4ae1-8ea8-ec38fd3d3b40-medium.jpg" alt="Suite room"  src="https://inspyria.com/storage/media/2023/03/2f608125-dc04-4ae1-8ea8-ec38fd3d3b40-medium.jpg"/>
                           <h3>Suite room</h3>
-                      <div class="btn-open-room" onClick={toggleModal1}><a class="fancybox9808 show" href="#poup-txt9808">View room</a></div>
+                      <div className="btn-open-room" onClick={toggleModal1}><a className="fancybox9808 show" href="#poup-txt9808">View room</a></div>
                     </li>
 
                     {openModal1 && <Modal1/>}
                                                                                                 <li>
-                     <img class="" data-src="https://inspyria.com/storage/media/2021/06/ROOM DOUBLE 2-medium.jpg" alt="Double room" onclick="$('.fancybox9826').click();" src="https://inspyria.com/storage/media/2021/06/ROOM DOUBLE 2-medium.jpg"/>
+                     <img className="" data-src="https://inspyria.com/storage/media/2021/06/ROOM DOUBLE 2-medium.jpg" alt="Double room"  src="https://inspyria.com/storage/media/2021/06/ROOM DOUBLE 2-medium.jpg"/>
                         <h3>Double room</h3>
-                        <div class="btn-open-room" onClick={toggleModal2}><a class="fancybox9826 show" href="#poup-txt9826">View room</a></div>
+                        <div className="btn-open-room" onClick={toggleModal2}><a className="fancybox9826 show" href="#poup-txt9826">View room</a></div>
                     </li>
 
                     {openModal2 && <Modal2/>}
                                                                                                 <li>
-                      <img class="" data-src="https://inspyria.com/storage/media/2021/02/Screen Shot 2021-02-17 at 4.15.35 PM-medium.png" alt="Double Room" onclick="$('.fancybox9827').click();" src="https://inspyria.com/storage/media/2021/02/Screen Shot 2021-02-17 at 4.15.35 PM-medium.png"/>
+                      <img className="" data-src="https://inspyria.com/storage/media/2021/02/Screen Shot 2021-02-17 at 4.15.35 PM-medium.png" alt="Double Room"  src="https://inspyria.com/storage/media/2021/02/Screen Shot 2021-02-17 at 4.15.35 PM-medium.png"/>
                             <h3>Double Room</h3>
-                        <div class="btn-open-room" onClick={toggleModal3}><a class="fancybox9827 show" href="#poup-txt9827">View room</a></div>
+                        <div className="btn-open-room" onClick={toggleModal3}><a className="fancybox9827 show" href="#poup-txt9827">View room</a></div>
                     </li>
 
                     {openModal3 && <Modal3/>}
