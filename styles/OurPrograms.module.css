@@ -130,6 +130,10 @@
     padding-bottom: 2rem;
 }
 
+.category_text_container_expanded{
+    flex-direction: column;
+}
+
 @media (max-width: 1280px) { 
     .category_text_container_expanded{
         font-size: 0.7rem;

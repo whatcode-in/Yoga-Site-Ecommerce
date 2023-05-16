@@ -29,8 +29,13 @@ function CategoryCards(props) {
         </div>
   
         <div onClick={handleKnowMoreClick} className={styles.category_text_container_expanded}>
+        
+          <div style={{marginBottom: "1rem"}}>{props.name}</div>
           <button className={styles.programs_know_more}>Know More</button>
+         
         </div>
+
+        
   
         {props.knowMore && (
           <div
