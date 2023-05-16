@@ -1020,7 +1020,7 @@ export default function MainSection() {
                   <li>
                     If you cancel <strong>more than 10</strong> days before the
                     retreat’s arrival date: The entire deposit amount will be
-                    exchanged for an INSPYRIA VOUCHER.
+                    exchanged for an MAVA VIDA VOUCHER.
                   </li>
                   <li>
                     If you cancel <strong>less than 10</strong> days before the
@@ -1029,11 +1029,11 @@ export default function MainSection() {
                   <li>
                     If there is a cancellation due to COVID-19 or serious and
                     verifiable accident up to one day before the retreat begins,
-                    an INSPYRIA VOUCHER will be provided.
+                    an MAVA VIDA VOUCHER will be provided.
                   </li>
                   <li>
-                    The INSPYRIA VOUCHER is valid for reserving any other
-                    Inspyria experience whenever you want.
+                    The MAVA VIDA VOUCHER is valid for reserving any other
+                    Mava Vida experience whenever you want.
                   </li>
                 </ul>
               </div>
@@ -1045,7 +1045,7 @@ export default function MainSection() {
           </div>
 
           {/* FAQ */}
-          <FAQ />
+       
         </div>
 
         {/* right side */}
