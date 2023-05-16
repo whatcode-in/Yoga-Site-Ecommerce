@@ -3,10 +3,10 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { actioncreators } from '../../State';
-import  { getProductByCategory } from ".././../State/actioncreators/mavaproduct"
+import  { getProductByCategory } from "../../State/actioncreators/mavaproduct"
 import { AiFillMinusCircle, AiFillPlusCircle } from 'react-icons/ai';
 import { useRouter } from 'next/router';
-const Groceries = () => {
+const CoursesConsultations = () => {
     let dispatch=useDispatch();
     let [msg,setmsg]=useState("LOADING.........");
     let {products}=useSelector((state)=>state.mavaproducts)
@@ -15,7 +15,7 @@ const Groceries = () => {
     let router=useRouter()
     useEffect(()=>{
 
-        dispatch(getProductByCategory("Groceries"));
+        dispatch(getProductByCategory("Courses and Consultations"));
       
       setTimeout(() => {
           setmsg("No Items available")
@@ -59,4 +59,4 @@ const Groceries = () => {
   )
 }
 
-export default Groceries
+export default CoursesConsultations

@@ -12,6 +12,8 @@ import { database } from '../firebaseconfig';
 import { collection, query, where, getDocs } from "firebase/firestore";
 import Head from "next/head";
 
+
+
 function MyApp({ Component, pageProps }) {
   const [currentUser, setCurrentUser] = useState({})
 

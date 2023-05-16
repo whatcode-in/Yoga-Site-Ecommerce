@@ -4,6 +4,7 @@ export default [
         name: "PROGRAMA AYUNO\nMAVA FASTING\n(CLEANSE & DETOX)",
         image: 'program1_1.jpg',
         clicked: false,
+        knowMore: false,
         route:"/Venues"
     },
     {   
@@ -11,6 +12,7 @@ export default [
         name: "PROGRAMA SEMIAYUNO\nMAVA SEMI FASTING\n(CLEANSE & DETOX)",
         image: 'detox.jpg',
         clicked: false,
+        knowMore: false,
         route:"/Venues"
     },
     {   
@@ -18,6 +20,7 @@ export default [
         name: "PROGRAMA MAVA BALANCE\nMAVA BALANCE\n(VITALITY & RELAX)",
         image: 'program3.jpg',
         clicked: false,
+        knowMore: false,
         route:"/Venues"
     },
     {   
@@ -26,6 +29,7 @@ export default [
         // image: 'balance_detox2.jpg',
         image: 'beach_person.jpeg',
         clicked: false,
+        knowMore: false,
         route:"/Venues"
     },
     {   
@@ -34,6 +38,7 @@ export default [
         // image: 'dummy_our_programs_1.jpg',
         image: 'balance_detox2.jpg',
         clicked: false,
+        knowMore: false,
         route:"/Venues"
     },
     {   
@@ -41,6 +46,7 @@ export default [
         name: "PROGRAMA 360º ESTANCIAS LARGAS\nMAVA 360º LONG STAYS\n(HEALTHY LIVING & DEEP TRANSFORMATION)",
         image: 'program6.png',
         clicked: false,
+        knowMore: false,
         route:"/Venues"
     },
 

@@ -331,6 +331,10 @@ font-weight: 400;
   min-height: 80px;
 }
 
+.overwrite-nav-items{
+
+}
+
 .back-to-site-button{
   background-color: #c0a664;
   font-size: 1rem;
@@ -779,10 +783,27 @@ lft p {
   float: left;
   width: 100%;
 }
-.carac-list {
-  float: left;
-  width: 100%;
+
+.carac-list li{
+ 
 }
+
+.carac-list-popup{
+  font-size: 14px;
+
+}
+
+.carac-list-popup li{
+  width: 200px !important;
+  display: flex;
+  flex-direction: row !important;
+  margin-bottom: 1rem;
+}
+
+.carac-list-popup li img{
+  margin-right: 1rem;
+}
+
 .carac-list ul li {
   padding: 15px 0;
   float: left;
@@ -2259,15 +2280,137 @@ justify-content: center;
   padding: 4px 20px;
 }
 
+/*Beach page*/
+ul.aloj-list {
+  float: left;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: normal;
+  align-items: normal;
+  align-content: normal;
+  gap: 20px;
+}
+
+ul.aloj-list li {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  align-self: auto;
+  width: calc(50% - 10px);
+}
+
+/*beach popup*/
+.popup-title {
+  padding-left: 0;
+  margin-bottom: 10px;
+  width: 100%;
+  float: left;
+}
+
+.carac-list {
+  float: left;
+  width: 100%;
+}
+
+.beach-popup-carousel{
+  height: 80vh !important;
+}
+
+.beach-popup-image-list{
+  height: 80vh !important;
+  
+}
+.beach-popup-image-list img{
+  height: 80vh !important;
+}
+
+
+
+.carac-list li {
+  position: relative;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #333;
+  padding-left: 0;
+}
+
+.popup-amenities-list{
+  list-style: none;
+}
+
+.popup-amenities li {
+  position: relative;
+  color: #191919;
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 5px;
+  padding-left: 21px;
+  line-height: 20px;
+}
+
+.popup-amenities li::before {
+  content: "";
+  height: 5px;
+  width: 5px;
+  position: absolute;
+  left: 5px;
+  top: 7px;
+  background: #f9af02;
+  border-radius: 100%;
+}
+
+.info-purchase {
+  background: #f7ebcd;
+  margin-left: -20px;
+  padding: 10px 10px 10px 22px;
+  border-radius: 17px;
+}
+
+.info-purchase .icon-purchase {
+  display: flex;
+  margin-bottom: 7px;
+  font-weight: 500;
+}
+
+.proteccion-datos {
+  display: flex;
+  align-items: center;
+  margin: 18px 0;
+}
+
+
+
+
 @media screen and (min-width: 768px) and (max-width: 1023px) {
   /* gallery */
   .gallery-container {
     width: 90%;
   }
+ 
+
 }
 
 
 @media only screen and (max-width: 767px) {
+
+ .beach-popup-image-list{
+  height: 800px !important;
+  border: 1px solid red;
+ }
+
+ .beach-popup-image-list img{
+  height: 100% !important;
+  border: 1px solid blue;
+ }
+
+ .popup-title{
+  margin-top: 13rem;
+ }
 
   /* facilator */
   #facilitador .ret-tit-lft .lft-img {
@@ -2334,6 +2477,10 @@ flex-direction: column;
 
 /* responsive */
 @media screen and (max-width: 767px) {
+
+ 
+
+
   .book-now-conatiner{
     display: flex !important;
     flex-direction: column-reverse;
@@ -2488,11 +2635,14 @@ flex-direction: column;
   }
 }
 
+
+
 @media screen and (max-width: 479px) {
 
   /* facilator */
-
-  
+ul.aloj-list li {
+    width: 100%;
+}
   .cara-full-rgt {
     padding-left: 35px;
 }

@@ -90,10 +90,10 @@ useEffect(() => {
       </div>
       <ul className='py-2 space-x-3 md:space-x-6 font-bold flex flex-wrap items-center text-sm md:text-base'>
   <li></li>
-  <Link href="/Category/Electronics"><a><li className='text-white py-2 px-3 md:py-0 md:px-0'>Electronics</li></a></Link>
-  <Link href="/Category/Groceries"><a><li className='text-white py-2 px-3 md:py-0 md:px-0'>Groceries</li></a></Link>
-  <Link href="/Category/Home-Kitchen"><a><li className='text-white py-2 px-3 md:py-0 md:px-0'>Home & Kitchen</li></a></Link>
-  <Link href="/Category/Books"><a><li className='text-white py-2 px-3 md:py-0 md:px-0'>Books</li></a></Link>
+   <Link href="/Category/Books"><a><li className='text-white py-2 px-3 md:py-0 md:px-0'>Books</li></a></Link>
+  <Link href="/Category/Herbal"><a><li className='text-white py-2 px-3 md:py-0 md:px-0'>Herbal</li></a></Link>
+  <Link href="/Category/Clothing"><a><li className='text-white py-2 px-3 md:py-0 md:px-0'>Clothing</li></a></Link>
+  <Link href="/Category/Courses-Consultations"><a><li className='text-white py-2 px-3 md:py-0 md:px-0'>Courses & Consultations</li></a></Link>
   {/* <Link href="/Book"><a><li className='text-white py-2 px-3 md:py-0 md:px-0'>Booking</li></a></Link> */}
   <Link href="/OurPrograms"><a><li className='text-white py-2 px-3 md:py-0 md:px-0'>Our Programs</li></a></Link>
   {windowWidth < 400 &&  <a

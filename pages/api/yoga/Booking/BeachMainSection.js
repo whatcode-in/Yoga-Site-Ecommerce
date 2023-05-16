@@ -25,6 +25,8 @@ export default function MainSection() {
 
   let [roomCost1,setRoomCost1] = useState(495)
   let [roomCost2,setRoomCost2] = useState(555)
+  let [roomCost3,setRoomCost3] = useState(225)
+  let [roomCost4,setRoomCost4] = useState(205)
 
   const [datesBooked,setDatesBooked] = useState(null)
   const router = useRouter()
@@ -313,15 +315,23 @@ export default function MainSection() {
  if(packageNumb === 4){
     setRoomCost1(165 * 3)
     setRoomCost2(185 * 3)
+    setRoomCost3(225 * 3)
+    setRoomCost4(205 * 3)
     if (ind === 1) setTotalCost(165 * 3)
     if (ind === 2) setTotalCost(185 * 3)
+    if (ind === 3) setTotalCost(225 * 3)
+    if (ind === 4) setTotalCost(205 * 3)
   }
   else{
     setRoomCost1(night * 165)
     setRoomCost2(night * 185)
+    setRoomCost3(night * 225)
+    setRoomCost4(night * 205)
 
     if (ind === 1) setTotalCost(165 * night)
       if (ind === 2) setTotalCost(185 * night)
+      if (ind === 3) setTotalCost(225 * night)
+    if (ind === 4) setTotalCost(205 * night)
 
   
   }}, [day, night, participants, ind]);
@@ -478,6 +488,8 @@ export default function MainSection() {
     
     if(ind === 1 ) roomType = "Double Room Double Use or Individual with shared bathroom"
     else if (ind === 2) roomType = "Suite Use Double or Individual"
+    else if(ind === 3) roomType = "Suite Room Individual Occupancy with Ensuite shower and bathtub"
+    else if(ind ===  4) roomType = "Suite Room Double Use with Ensuite shower and bathtub"
 
     const bookingData =  {
       mobile:data.mobile,
@@ -534,28 +546,28 @@ export default function MainSection() {
 
 
    function sendBookingEmailToUser(){
-    var templateParams = {
-      to_name: data.name,
-      name: data.name,
-      typeOfRetreat: "Duplex By The Beach",
-      mobile: data.mobile,
-      bookingEmail: data.email,
-      participants: participants,
-      information: data.info,
-      night: night,
-      totalCost: totalCost,
-      startDateData: startDateData,
-      to_email: data.email,
-      from_email: "vihaandoshi2@gmail.com",
-      reply_to: "mava@mavavida.com",
-    }
+    // var templateParams = {
+    //   to_name: data.name,
+    //   name: data.name,
+    //   typeOfRetreat: "Duplex By The Beach",
+    //   mobile: data.mobile,
+    //   bookingEmail: data.email,
+    //   participants: participants,
+    //   information: data.info,
+    //   night: night,
+    //   totalCost: totalCost,
+    //   startDateData: startDateData,
+    //   to_email: data.email,
+    //   from_email: "vihaandoshi2@gmail.com",
+    //   reply_to: "mava@mavavida.com",
+    // }
 
-      emailjs.send('service_5jp61oq','template_j95s176', templateParams,'tTXBXjG1V10p-IVST')
-      .then(function(response) {
-        console.log('SUCCESS!', response.status, response.text);
-      }, function(err) {
-        console.log('FAILED...', err);
-      });
+    //   emailjs.send('service_5jp61oq','template_j95s176', templateParams,'tTXBXjG1V10p-IVST')
+    //   .then(function(response) {
+    //     console.log('SUCCESS!', response.status, response.text);
+    //   }, function(err) {
+    //     console.log('FAILED...', err);
+    //   });
   }
 
   return (
@@ -649,7 +661,7 @@ export default function MainSection() {
                 <p>This program is available in different durations:</p>
               </div>
 
-              <button className="btn-org more">
+              {/* <button className="btn-org more">
                 <span>View more</span>
                 <img
                   className="arrow-see-more"
@@ -657,7 +669,7 @@ export default function MainSection() {
                   alt="View more"
                   title="View more"
                 />
-              </button>
+              </button> */}
             </div>
 
             {/* <div className="ret-tit-rgt">
@@ -970,7 +982,7 @@ export default function MainSection() {
                       retreats. I am always happy to help other people discover
                       a new level of health and lifestyle.&nbsp;{" "}
                     </p>
-                    <a className="vermas">
+                    {/* <a className="vermas">
                       View more
                       <img
                         className="arrow-see-more"
@@ -978,7 +990,7 @@ export default function MainSection() {
                         alt="View more"
                         title="View more"
                       />
-                    </a>
+                    </a> */}
                   </div>
                 </div>
               </li>
@@ -1392,7 +1404,77 @@ export default function MainSection() {
                           <small>Total Price</small>
                         </div>
                       </li>
+
+
+                      <li class="offer bck persons-1" 
+                      data-price_disscount_day="155" 
+                      data-price_day="155" data-price_disscount_day_low_seasson="" 
+                      data-price_day_low_seasson="" 
+                      data-price_disscount_day_high_seasson=""
+                      data-price_day_high_seasson="" 
+                      data-expired="">
+                        <div className="select-name">
+                          <input id="offer-0-p-2-dsk" type="radio" name="offer" onClick={(e) => setInd(3)}
+                            value="3"/>
+                          </div><div class="edit-pers">
+                            <label for="offer-0-p-1-dsk" style={{width: "65%"}}>
+                              <h2>Suite Room Individual <br></br> Occupancy with Ensuite <br></br> shower and bathtub</h2>
+                              </label><small></small><small className="hab-compartida-two">
+                                <img class="mr-9" data-src="https://inspyria.com/Themes/ETR/images/icons/icon-habitacion-cama-min.png" src="https://inspyria.com/Themes/ETR/images/icons/icon-habitacion-cama-min.png" alt=""/> 
+                                </small><div class="shortcuts-btn">
+                                  <a class="shortcut-item fancybox9826 show" href="#poup-txt9826">View photos</a>
+                                  <input type="submit" className="shortcut-item" value="Reserve" fdprocessedid="sv652"/>
+                                  </div></div>
+                                  <div 
+                                  class="edit-price" 
+                                  data-uso="Private" 
+                                  data-person="1" 
+                                  data-price="2480" 
+                                  data-deposit_percent="0.5" d
+                                  ata-deposit="1240" 
+                                  data-moneda="€">
+                                    <span class="numpers">
+                                      <img class="logo-numpers" data-src="https://inspyria.com/Themes/ETR/images/icons/AVATAR-min.png" src="https://inspyria.com/Themes/ETR/images/icons/AVATAR-min.png" alt=""/> 
+                                      1</span><span class="price">€{roomCost3}</span><small>Total Price</small></div>
+                            </li>
+
+
+                    
+                            <li class="offer bck persons-1" 
+                      data-price_disscount_day="155" 
+                      data-price_day="155" data-price_disscount_day_low_seasson="" 
+                      data-price_day_low_seasson="" 
+                      data-price_disscount_day_high_seasson=""
+                      data-price_day_high_seasson="" 
+                      data-expired="">
+                        <div className="select-name">
+                          <input id="offer-0-p-2-dsk" type="radio" name="offer" onClick={(e) => setInd(4)}
+                            value="4"/>
+                          </div><div class="edit-pers">
+                            <label for="offer-0-p-1-dsk" style={{width: "65%"}}>
+                              <h2>Suite Room Double <br></br>Use with Ensuite <br></br>shower and bathtub</h2>
+                              </label><small></small><small className="hab-compartida-two">
+                                <img class="mr-9" data-src="https://inspyria.com/Themes/ETR/images/icons/icon-habitacion-cama-min.png" src="https://inspyria.com/Themes/ETR/images/icons/icon-habitacion-cama-min.png" alt=""/> 
+                                </small><div class="shortcuts-btn">
+                                  <a class="shortcut-item fancybox9826 show" href="#poup-txt9826">View photos</a>
+                                  <input type="submit" className="shortcut-item" value="Reserve" fdprocessedid="sv652"/>
+                                  </div></div>
+                                  <div 
+                                  class="edit-price" 
+                                  data-uso="Private" 
+                                  data-person="1" 
+                                  data-price="2480" 
+                                  data-deposit_percent="0.5" d
+                                  ata-deposit="1240" 
+                                  data-moneda="€">
+                                    <span class="numpers">
+                                      <img class="logo-numpers" data-src="https://inspyria.com/Themes/ETR/images/icons/AVATAR-min.png" src="https://inspyria.com/Themes/ETR/images/icons/AVATAR-min.png" alt=""/> 
+                                      1</span><span class="price">€{roomCost4}</span><small>Total Price</small></div>
+                            </li>
+                          
                     </>
+
+                    
                   )}
 
 {participants === 2 && (
@@ -1431,7 +1513,7 @@ export default function MainSection() {
 
                       <div className="edit-pers">
                         <label htmlFor="offer-0-p-2-dsk" style={{width: "65%"}}>
-                          <h2>Double Room Doble Use or Individual with shared bathroom</h2>
+                          <h2>Double Room Double Use or Individual with shared bathroom</h2>
                         </label>
 
                         <input type="hidden" name="personas[0-p-2]" value="2" />
@@ -1525,7 +1607,7 @@ export default function MainSection() {
 
                       <div className="edit-pers">
                         <label htmlFor="offer-0-p-2-dsk" style={{width: "65%"}}>
-                          <h2>Suite Use Doble or Individual</h2>
+                          <h2>Suite Use Double or Individual</h2>
                         </label>
 
                         <input type="hidden" name="personas[0-p-2]" value="2" />
@@ -1578,6 +1660,76 @@ export default function MainSection() {
                         <small>Total Price</small>
                       </div>
                     </li>
+
+
+
+                    <li class="offer bck persons-1" 
+                      data-price_disscount_day="155" 
+                      data-price_day="155" data-price_disscount_day_low_seasson="" 
+                      data-price_day_low_seasson="" 
+                      data-price_disscount_day_high_seasson=""
+                      data-price_day_high_seasson="" 
+                      data-expired="">
+                        <div className="select-name">
+                          <input id="offer-0-p-2-dsk" type="radio" name="offer" onClick={(e) => setInd(3)}
+                            value="3"/>
+                          </div><div class="edit-pers">
+                            <label for="offer-0-p-1-dsk" style={{width: "65%"}}>
+                              <h2>Suite Room Individual <br></br> Occupancy with Ensuite <br></br> shower and bathtub</h2>
+                              </label><small></small><small className="hab-compartida-two">
+                                <img class="mr-9" data-src="https://inspyria.com/Themes/ETR/images/icons/icon-habitacion-cama-min.png" src="https://inspyria.com/Themes/ETR/images/icons/icon-habitacion-cama-min.png" alt=""/> 
+                                </small><div class="shortcuts-btn">
+                                  <a class="shortcut-item fancybox9826 show" href="#poup-txt9826">View photos</a>
+                                  <input type="submit" className="shortcut-item" value="Reserve" fdprocessedid="sv652"/>
+                                  </div></div>
+                                  <div 
+                                  class="edit-price" 
+                                  data-uso="Private" 
+                                  data-person="1" 
+                                  data-price="2480" 
+                                  data-deposit_percent="0.5" d
+                                  ata-deposit="1240" 
+                                  data-moneda="€">
+                                    <span class="numpers">
+                                      <img class="logo-numpers" data-src="https://inspyria.com/Themes/ETR/images/icons/AVATAR-min.png" src="https://inspyria.com/Themes/ETR/images/icons/AVATAR-min.png" alt=""/> 
+                                      1</span><span class="price">€{roomCost3}</span><small>Total Price</small></div>
+                            </li>
+
+
+                    
+                            <li class="offer bck persons-1" 
+                      data-price_disscount_day="155" 
+                      data-price_day="155" data-price_disscount_day_low_seasson="" 
+                      data-price_day_low_seasson="" 
+                      data-price_disscount_day_high_seasson=""
+                      data-price_day_high_seasson="" 
+                      data-expired="">
+                        <div className="select-name">
+                          <input id="offer-0-p-2-dsk" type="radio" name="offer" onClick={(e) => setInd(4)}
+                            value="4"/>
+                          </div><div class="edit-pers">
+                            <label for="offer-0-p-1-dsk" style={{width: "65%"}}>
+                              <h2>Suite Room Double <br></br>Use with Ensuite <br></br>shower and bathtub</h2>
+                              </label><small></small><small className="hab-compartida-two">
+                                <img class="mr-9" data-src="https://inspyria.com/Themes/ETR/images/icons/icon-habitacion-cama-min.png" src="https://inspyria.com/Themes/ETR/images/icons/icon-habitacion-cama-min.png" alt=""/> 
+                                </small><div class="shortcuts-btn">
+                                  <a class="shortcut-item fancybox9826 show" href="#poup-txt9826">View photos</a>
+                                  <input type="submit" className="shortcut-item" value="Reserve" fdprocessedid="sv652"/>
+                                  </div></div>
+                                  <div 
+                                  class="edit-price" 
+                                  data-uso="Private" 
+                                  data-person="1" 
+                                  data-price="2480" 
+                                  data-deposit_percent="0.5" d
+                                  ata-deposit="1240" 
+                                  data-moneda="€">
+                                    <span class="numpers">
+                                      <img class="logo-numpers" data-src="https://inspyria.com/Themes/ETR/images/icons/AVATAR-min.png" src="https://inspyria.com/Themes/ETR/images/icons/AVATAR-min.png" alt=""/> 
+                                      1</span><span class="price">€{roomCost4}</span><small>Total Price</small></div>
+                            </li>
+                          
+
                     </>
                     
                   )}
@@ -1834,15 +1986,15 @@ export default function MainSection() {
                 </ul>
 
                 <div className="cta-box">
-                  <span
+                  <a
                     className="fancyboxContacto show dskbtn"
-                    href="#contactoorganizador"
+                    href="https://yoga-site-six.vercel.app/contact-us"
                   >
                     Send question
-                  </span>
-                  <button type="submit" className="submit submit-green">
+                  </a>
+                  {/* <button type="submit" className="submit submit-green">
                     Reserve
-                  </button>
+                  </button> */}
                 </div>
               </div>
             </div>
@@ -1852,3 +2004,4 @@ export default function MainSection() {
     </section>
   );
 }
+
