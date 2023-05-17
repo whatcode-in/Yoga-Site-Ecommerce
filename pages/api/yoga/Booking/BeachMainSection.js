@@ -1095,7 +1095,10 @@ export default function MainSection() {
                 </button>
               </div>
               <div className="price-no">
-                <span className="diasnoche">From 14 to 21 days </span>
+              {packageNumb === 4 && <span className="diasnoche"> {packageNumb} days </span>}
+               {packageNumb === 7 &&  <span className="diasnoche">From {packageNumb} to 14 days</span>} 
+               {packageNumb === 14 &&  <span className="diasnoche">From {packageNumb} to 21 days</span>} 
+               {packageNumb === 21 &&  <span className="diasnoche">From {packageNumb} to 28 days</span>} 
 
                 <div className="precio-dias">
                   <h4 style={{ display: " inline-block" }}>{totalCost == 0 ? "No room selected" :  `€ ${totalCost}`}</h4>
