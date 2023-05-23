@@ -46,7 +46,18 @@ function CategoryCards(props) {
             <div className="bg-white rounded-lg p-4">
               <h2 className="text-lg font-bold mb-4">{props.name}</h2>
               {/* <p className="mb-4">Modal content goes here...</p> */}
-              <p className="mb-4">Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum</p>
+              <p className="mb-4">Option 1 : Ayurvedic Fasting with Soups and Herbal Water<br/>Option 2 : Fresh Organic Juices<br/>
+Option 3 : Natural Spring Water <br/>
+Menu Type: <br/>
+Lunch & dinner: (Option 1) Selection of delicious and light broths/ (Option 2) Juices/(Option 3) 
+Spring Water. Breakfast and between meals: All options include Herbal Waters Detox 5 
+Elements. In our programs we use fresh organically grown fruits and vegetables from local 
+farmers. All preparations include healing herbs and spices. A marvel for the senses and health. 
+ 
+FOR WHO. For those looking for a deeper release of toxins, weight loss and lightness. You will 
+benefit from a greater rest of the digestive system, where our internal intelligence will derive 
+its efforts to cleanse, heal and balance wherever it is needed. This rest helps to optimize our 
+functional systems and regulate them. </p>
               <button
                 className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 cursor-pointer"
                 onClick={handleCloseClick}
@@ -123,8 +134,18 @@ export default function OurPrograms(){
 
             <div className={styles.venues_container}>
                 {categoryCards}
+                <h1 style={{paddingLeft : '40px' }}>A holistic, natural and integrative cure that heals from Inside and outside in a magical 
+environment. Detox Healing Retreat based on Nutrition and Lifestyle of Ayurvedic and Yoga 
+science.<br/> All our programs help you improve well-being and balance of the 5 bodies, Physical, Mental, 
+Emotional, Psychic and Spiritual. <br/>
+Any of our programs can be combined with each other. Upon your arrival we will design your 
+specific program, according to your needs, objectives and general health conditions. The 
+fasting period includes the entry or preparation, permanence and exit of it on the days of the 
+program that each person performs, to help make the best adjustment in the desired time. <br/>
+In our programs we use fresh organically grown fruits and vegetables from local farmers. All our preparations include healing herbs and spices. A marvel for the senses and health.
+</h1>
             </div>
-            
+
         </div>
     )
 }
