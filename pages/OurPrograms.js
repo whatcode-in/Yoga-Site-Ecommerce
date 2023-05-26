@@ -54,7 +54,7 @@ function CategoryCards(props) {
               <p className="mb-4 px-4">{props.version}</p>
        
               {props.forWhoList && <div>
-                  {props.forWhoList.map(d => <div>{d}</div>)}
+                  {props.forWhoList.map((d,i) => <div key={i}>{d}</div>)}
                 </div>}
                 <p className="mb-4 px-4">{props.forWhoExtra}</p>
               <button

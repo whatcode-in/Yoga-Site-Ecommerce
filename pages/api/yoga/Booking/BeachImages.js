@@ -16,7 +16,7 @@ export default function BeachImages() {
           <iframe src="https://iframe.mediadelivery.net/embed/29925/112e36fc-b13e-45e0-aa6b-af3767e84cb5?autoplay=false&amp;preload=false"
             style={{width: "59%",height: "100%",position: "absolute",borderTopLeftRadius: "10px",borderBottomLeftRadius: "10px"}}
             allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
-            allowfullscreen="true"
+            allowFullScreen="true"
             />
             </div>
 {/* 
@@ -58,7 +58,7 @@ export default function BeachImages() {
         <iframe src="https://iframe.mediadelivery.net/embed/29925/112e36fc-b13e-45e0-aa6b-af3767e84cb5?autoplay=false&amp;preload=false"
             style={{width: "100%",height: "100%",marginTop: "5rem",marginLeft: "0",height: "200px"}}
             allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
-            allowfullscreen="true"
+            allowFullScreen="true"
             />
             </div>
 
