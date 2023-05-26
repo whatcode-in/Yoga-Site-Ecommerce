@@ -11,6 +11,7 @@ import Autocomplete from "@mui/material/Autocomplete";
 import Swal from "sweetalert2";
 import emailjs from '@emailjs/browser';
 import { useRouter } from 'next/router';
+import { Padding } from "@mui/icons-material";
 
 export default function MainSection() {
 
@@ -1052,6 +1053,8 @@ const [openModal1,setOpenModal1] = React.useState(false)
           <div className="white-box-lft main-box">
             <div className="ret-tit-lft description">
               <div id="main-desc" className="descripcion-vermas">
+              <h5 style={{ padding: '10px' }}>Please select duration:</h5>
+
                 <div className="book-btn-container desktop-version-btn">
                   <button
                     onClick={() => setSetPackageNumb(4)}
@@ -1412,7 +1415,7 @@ const [openModal1,setOpenModal1] = React.useState(false)
 
                             <h5>Pet Friendly</h5>
                           </div>
-                          <div className="ls-rgt">No</div>
+                          <div className="ls-rgt">Yes</div>
                         </div>
                       </li>
                     </ul>
@@ -1442,7 +1445,7 @@ const [openModal1,setOpenModal1] = React.useState(false)
                     </div>
                     <div className="escrib my-4">
                       Specialist in Nutrition and Ayurvedic Lifestyle, and also
-                      as a Yoga Teacher (500 hours YAI)
+                      as a Yoga Teacher <br/>(500 hours YAI)
                     </div>
                     <p className="vermas">
                       I have been a passionate Yoga &amp; Ayurveda practitioner
@@ -1524,8 +1527,10 @@ const [openModal1,setOpenModal1] = React.useState(false)
         {/* right side */}
         <div className="retro-rgt rigthside-desktop">
           {/* <form> */}
+          
             <div className="box-reserva-flexible white-box-rgt lateral-reserva">
               <div className="book-btn-container mobile-version-btn">
+                
                 <button
                   onClick={() => setSetPackageNumb(4)}
                   className={
@@ -1536,6 +1541,7 @@ const [openModal1,setOpenModal1] = React.useState(false)
                 >
                   4 days
                 </button>
+                
                 <button
                   onClick={() => setSetPackageNumb(7)}
                   className={
@@ -1574,7 +1580,7 @@ const [openModal1,setOpenModal1] = React.useState(false)
                {packageNumb === 21 &&  <span className="diasnoche">From {packageNumb} to 28 days</span>} 
 
                 <div className="precio-dias">
-                  <h4 style={{ display: " inline-block" }}>{totalCost == 0 ? "No room selected" :  `€ ${totalCost}`}</h4>
+                  <h4 style={{ display: " inline-block" }}>{totalCost == 0 ? "Please select dates and rooms below" :  `€ ${totalCost}`}</h4>
                 </div>
                 <input
                   type="hidden"
@@ -1612,9 +1618,10 @@ const [openModal1,setOpenModal1] = React.useState(false)
                   id="frase-fecha-select-dsk"
                 ></div>
 
-                <h5>Select duration:</h5>
+                <h5>Wish to customize your duration? </h5>
                 <div className="duration-select">
                   {/* first package */}
+                  
                   {packageNumb === 4 && (
                     <Autocomplete
                       value={pack4[0]}

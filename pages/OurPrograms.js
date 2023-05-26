@@ -35,6 +35,7 @@ function CategoryCards(props) {
          
         </div>
 
+
         {props.knowMore && (
         <div
           className="fixed inset-0 flex items-center justify-center z-50"
@@ -141,8 +142,18 @@ export default function OurPrograms(){
 
             <div className={styles.venues_container}>
                 {categoryCards}
+                <h1 style={{paddingLeft : '40px' }}>A holistic, natural and integrative cure that heals from Inside and outside in a magical 
+environment. Detox Healing Retreat based on Nutrition and Lifestyle of Ayurvedic and Yoga 
+science.<br/> All our programs help you improve well-being and balance of the 5 bodies, Physical, Mental, 
+Emotional, Psychic and Spiritual. <br/>
+Any of our programs can be combined with each other. Upon your arrival we will design your 
+specific program, according to your needs, objectives and general health conditions. The 
+fasting period includes the entry or preparation, permanence and exit of it on the days of the 
+program that each person performs, to help make the best adjustment in the desired time. <br/>
+In our programs we use fresh organically grown fruits and vegetables from local farmers. All our preparations include healing herbs and spices. A marvel for the senses and health.
+</h1>
             </div>
-            
+
         </div>
     )
 }
