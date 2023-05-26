@@ -1,5 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Accordion, Carousel } from "react-bootstrap";
+import { X } from 'react-feather';
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from 'react-responsive-carousel';
+// import { Accordion, Carousel } from "react-bootstrap";
 import BeachAccomodation from "./BeachAccomodation";
 import DateRangePickers from "./DateRangePickers";
 import FAQ from "./FAQ";
@@ -10,6 +13,438 @@ import emailjs from '@emailjs/browser';
 import { useRouter } from 'next/router';
 
 export default function MainSection() {
+
+{/*MODAL PART STARTS*/}
+const [windowWidth, setWindowWidth] = useState(1500);
+
+useEffect(() => {
+  const handleResize = () => {
+    setWindowWidth(window.innerWidth);
+  };
+
+  window.addEventListener('resize', handleResize);
+  console.log('window width: ',windowWidth)
+
+  return () => window.removeEventListener('resize', handleResize);
+}, [windowWidth]);
+
+
+const [openModal1,setOpenModal1] = React.useState(false)
+  const [openModal2,setOpenModal2] = React.useState(false)
+  const [openModal3,setOpenModal3] = React.useState(false)
+
+  const toggleModal1 = () => {
+    setOpenModal1(!openModal1);
+  };
+
+  const toggleModal2 = () => {
+    setOpenModal2(!openModal2)
+  }
+
+  const toggleModal3 = () => {
+    setOpenModal3(!openModal3)
+  }
+
+  {/*Modal1 */}
+  function Modal1(){
+    return (
+      <div className="z-50 mt-2 fixed inset-0 flex items-center justify-center bg-gray-500 bg-opacity-20 md:mt-5  h-screen overflow-y-auto sm:mt-12">
+    <div className="lg:h-4/5 md:h-auto bg-white rounded-lg shadow-lg max-w-4xl w-full md:flex">
+      <div className="md:w-3/4 beach-popup-images">
+
+      <Carousel className='beach-popup-carousel' showThumbs={false} showArrows={true} centreMode={true} >
+        {/* Left side content */}
+          <li className="beach-popup-image-list" aria-hidden="true" style={{width: "100%"}}>
+            <img  data-src="https://inspyria.com/storage/media/2021/06/DUPLEX BATHROOM SHARED-medium_large.jpg" alt="Suite room" src="https://inspyria.com/storage/media/2021/06/DUPLEX BATHROOM SHARED-medium_large.jpg" draggable="false" />
+        </li>
+        <li style={{ width: "100%" }} className="beach-popup-image-list">
+          <img  data-src="https://inspyria.com/storage/media/2023/03/2f608125-dc04-4ae1-8ea8-ec38fd3d3b40-medium_large.jpg" alt="Suite room" src="https://inspyria.com/storage/media/2023/03/2f608125-dc04-4ae1-8ea8-ec38fd3d3b40-medium_large.jpg" draggable="false" />
+        </li>
+        <li style={{ width: "100%"}} className="beach-popup-image-list">
+          <img  data-src="https://inspyria.com/storage/media/2023/03/6a34a754-1d82-4ff8-8db6-9c75e25bf169-medium-medium_large.jpg" alt="Suite room" src="https://inspyria.com/storage/media/2023/03/6a34a754-1d82-4ff8-8db6-9c75e25bf169-medium-medium_large.jpg" draggable="false" />
+        </li>
+        <li style={{ width: "100%" }} className="beach-popup-image-list">
+            <img  data-src="https://inspyria.com/storage/media/2023/03/4d2a10ab-8183-4146-b68a-9ca982a37328-medium_large.jpg" alt="Suite room" src="https://inspyria.com/storage/media/2023/03/4d2a10ab-8183-4146-b68a-9ca982a37328-medium_large.jpg" draggable="false" />
+        </li>
+        <li style={{ width: "100%" }} className="beach-popup-image-list">
+            <img  data-src="https://inspyria.com/storage/media/2021/06/DUPLEX SUITE 1-medium_large.jpg" alt="Suite room" src="https://inspyria.com/storage/media/2021/06/DUPLEX SUITE 1-medium_large.jpg" draggable="false" />
+        </li>
+        <li style={{  width: "100%" }} className="beach-popup-image-list">
+          <img  data-src="https://inspyria.com/storage/media/2021/06/DUPLEX SUITE LR-medium_large.jpg" alt="Suite room" src="https://inspyria.com/storage/media/2021/06/DUPLEX SUITE LR-medium_large.jpg" draggable="false" />
+        </li>
+   
+      </Carousel>
+
+      </div>
+      <div className="beach-popup-scroll md:w-2/6 md:flex-shrink-0 md:border-l md:border-gray-200 overflow-y-auto z-50">
+        {/* Right side content */}
+        <div className="p-4 md:p-6 lg:h-full lg:overflow-y-scroll">
+          <div className="flex justify-end">
+            <button
+              className="text-gray-500 hover:text-gray-700 focus:outline-none"
+              onClick={toggleModal1}
+            >
+              <X size={24} />
+            </button>
+          </div>
+
+
+
+        <div className="popup-title">
+                                    <h2>Suite room</h2>
+                    <ul className="carac-list-popup">
+              <li><img style={{width: "30px",height: "30px"}} alt="personas" className="icon-room-modal" data-src="https://inspyria.com/Themes/ETR//images/icons/plazas-min.png" src="https://inspyria.com/Themes/ETR//images/icons/plazas-min.png"/> 2 people per room</li>
+                                                    
+        <li><img style={{width: "30px",height: "30px"}} alt="cama" className="icon-room-modal" data-src="https://inspyria.com/Themes/ETR//images/icons/camaindividual-min.png" src="https://inspyria.com/Themes/ETR//images/icons/camaindividual-min.png"/>
+                                                                    Double Bed                                                            </li>
+                        
+                        
+
+                    </ul>
+                                </div>
+
+          <div className='popup-amenities'>
+            <h2>Amenities</h2>
+            <ul className='popup-amenities-list'>
+              <li>WiFi</li>
+              <li>Private Bathroom</li>
+              <li>Toiletries</li>
+              <li>Views of Nature</li>
+              <li>Sheets</li>
+              <li>Towels</li>
+              <li>Blankets</li>
+              <li>Soap</li>
+              
+            </ul>
+
+            <div className='popup-amenities-description mt-2'>
+            Beautiful room with great space and luminosity. Penthouse. It includes a private living room, Beautiful Sea Views, a spacious bathroom with a shower and a hydromassage bathtub. Dressing room.
+            </div>
+
+            <div className="info-purchase mt-2">
+
+            <div className="icon-purchase bed">
+                <img style={{width: "22px",marginRight:'0.5rem'}} data-src="https://inspyria.com/Themes/ETR/images/icons/icon-habitacion-cama-min.png" src="https://inspyria.com/Themes/ETR/images/icons/icon-habitacion-cama-min.png"/>
+                <span>Shared</span>
+            </div>
+            <div className="icon-purchase person">
+                <img style={{width: "22px",marginRight:'0.5rem'}} className="" data-src="https://inspyria.com/Themes/ETR/images/icons/AVATAR-min.png" src="https://inspyria.com/Themes/ETR/images/icons/AVATAR-min.png"/>
+                <span data-textsingle="Spot" data-textplural="Spots">4 Spots</span>
+            </div>
+            <div className="icon-purchase date">
+                <img style={{width: "22px",marginRight:'0.5rem'}} className="" data-src="https://inspyria.com/Themes/ETR/images/icons/fechas-min.png" src="https://inspyria.com/Themes/ETR/images/icons/fechas-min.png"/>
+                <span>Invalid date - Invalid date</span>
+            </div>
+            <div className="icon-purchase price ">
+                <img style={{width: "22px",marginRight:'0.5rem'}} className="" data-src="https://inspyria.com/Themes/ETR/images/icons/dinero-min.png" src="https://inspyria.com/Themes/ETR/images/icons/dinero-min.png"/>
+                <span data-text="Total Price">€2700 Total Price</span>
+            </div>
+                    
+            </div>
+
+          </div>
+
+          <div className="proteccion-datos">
+                        <img style={{width: "50px"}} data-src="https://inspyria.com/Themes/ETR//images/org-confianza-min.png" src="https://inspyria.com/Themes/ETR//images/org-confianza-min.png"/>
+                        <p style={{marginLeft: "1rem"}}>You can trust <span className="orange">Mava Vida</span>! Your information is safe and secure with us. </p>
+                    </div>
+            <div className="cta-box">
+   
+                  <a
+                    className="fancyboxContacto show dskbtn"
+                    href="https://yoga-site-six.vercel.app/contact-us"
+                  >
+                    Send question
+                  </a>
+                
+                  {/* <button type="submit" className="submit submit-green">
+                    Reserve
+                  </button> */}
+                </div>
+               
+
+          
+        </div>
+      </div>
+    </div>
+  </div>
+    )
+  }
+
+
+
+  {/*Modal 2 */}
+  function Modal2(){
+    return (
+      <div className="z-50 mt-12 fixed inset-0 flex items-center justify-center bg-gray-500 bg-opacity-20 md:mt-5  h-screen overflow-y-auto ">
+    <div className="lg:h-4/5 md:h-auto bg-white rounded-lg shadow-lg max-w-4xl w-full md:flex">
+      <div className="md:w-3/4 beach-popup-images">
+
+      <Carousel className='beach-popup-carousel' showThumbs={false} showArrows={true} centreMode={true} >
+        {/* Left side content */}
+          <li className="beach-popup-image-list" aria-hidden="true" style={{width: "100%"}}>
+            <img  data-src="https://inspyria.com/storage/media/2021/06/ROOM DOUBLE 2-medium_large.jpg" alt="Suite room" src="https://inspyria.com/storage/media/2021/06/ROOM DOUBLE 2-medium_large.jpg" draggable="false" />
+        </li>
+        <li style={{ width: "100%" }} className="beach-popup-image-list">
+          <img  data-src="https://inspyria.com/storage/media/2021/06/DUPLEX BATHROOM SHARED-medium_large.jpg" alt="Suite room" src="https://inspyria.com/storage/media/2021/06/DUPLEX BATHROOM SHARED-medium_large.jpg"
+ draggable="false" />
+        </li>
+        <li style={{ width: "100%"}} className="beach-popup-image-list">
+          <img  data-src="https://inspyria.com/storage/media/2021/06/DUPLEX ROOM DOUBLE 1-medium_large.jpg" alt="Suite room" src="https://inspyria.com/storage/media/2021/06/DUPLEX ROOM DOUBLE 1-medium_large.jpg" draggable="false" />
+        </li>
+        <li style={{ width: "100%" }} className="beach-popup-image-list">
+            <img  data-src="https://inspyria.com/storage/media/2021/02/Screen Shot 2021-02-17 at 4.15.46 PM-medium_large.png" alt="Suite room" src="https://inspyria.com/storage/media/2021/02/Screen Shot 2021-02-17 at 4.15.46 PM-medium_large.png" draggable="false" />
+        </li>
+        <li style={{ width: "100%" }} className="beach-popup-image-list">
+            <img  data-src="https://inspyria.com/storage/media/2021/06/DUPLEX BATHROOM SHARED-medium_large.jpg" alt="Suite room" src="https://inspyria.com/storage/media/2021/06/DUPLEX BATHROOM SHARED-medium_large.jpg"draggable="false" />
+        </li>
+        <li style={{  width: "100%" }} className="beach-popup-image-list">
+          <img  data-src="https://inspyria.com/storage/media/2021/06/ROOM DOUBLE 2-medium_large.jpg" alt="Suite room" src="https://inspyria.com/storage/media/2021/06/ROOM DOUBLE 2-medium_large.jpg" draggable="false" />
+        </li>
+   
+      </Carousel>
+
+      </div>
+      <div className="z-50 beach-popup-scroll md:w-2/6 md:flex-shrink-0 md:border-l md:border-gray-200 overflow-y-auto">
+        {/* Right side content */}
+        <div className="p-4 md:p-6 lg:h-full lg:overflow-y-scroll">
+          <div className="flex justify-end">
+            <button
+              className="text-gray-500 hover:text-gray-700 focus:outline-none"
+              onClick={toggleModal2}
+            >
+              <X size={24} />
+            </button>
+          </div>
+
+
+
+        <div className="popup-title">
+                                    <h2>Suite room</h2>
+                    <ul className="carac-list-popup">
+              <li><img style={{width: "30px",height: "30px"}} alt="personas" className="icon-room-modal" data-src="https://inspyria.com/Themes/ETR//images/icons/plazas-min.png" src="https://inspyria.com/Themes/ETR//images/icons/plazas-min.png"/> 2 people per room</li>
+                                                    
+        <li><img style={{width: "30px",height: "30px"}} alt="cama" className="icon-room-modal" data-src="https://inspyria.com/Themes/ETR//images/icons/camaindividual-min.png" src="https://inspyria.com/Themes/ETR//images/icons/camaindividual-min.png"/>
+                                                                    Double Bed                                                            </li>
+                        
+                        
+
+                    </ul>
+                                </div>
+
+          <div className='popup-amenities'>
+            <h2>Amenities</h2>
+            <ul className='popup-amenities-list'>
+              <li>WiFi</li>
+              <li>Shared Bathroom</li>
+              <li>Toiletries</li>
+              <li>Views of Nature</li>
+              <li>Sheets</li>
+              <li>Towels</li>
+              <li>Heating</li>
+              <li>Blankets</li>
+              <li>Soap</li>
+              <li>Pool Towel</li>
+              
+            </ul>
+
+            <div className='popup-amenities-description mt-2'>
+            Beautiful double room or single use. Wifi, bright. Private bathroom.
+            </div>
+
+            <div className="info-purchase mt-2">
+
+            <div className="icon-purchase bed">
+                <img style={{width: "22px",marginRight:'0.5rem'}} data-src="https://inspyria.com/Themes/ETR/images/icons/icon-habitacion-cama-min.png" src="https://inspyria.com/Themes/ETR/images/icons/icon-habitacion-cama-min.png"/>
+                <span>Private</span>
+            </div>
+            <div className="icon-purchase person">
+                <img style={{width: "22px",marginRight:'0.5rem'}} className="" data-src="https://inspyria.com/Themes/ETR/images/icons/AVATAR-min.png" src="https://inspyria.com/Themes/ETR/images/icons/AVATAR-min.png"/>
+                <span data-textsingle="Spot" data-textplural="Spots">1 Spot</span>
+            </div>
+            <div className="icon-purchase date">
+                <img style={{width: "22px",marginRight:'0.5rem'}} className="" data-src="https://inspyria.com/Themes/ETR/images/icons/fechas-min.png" src="https://inspyria.com/Themes/ETR/images/icons/fechas-min.png"/>
+                <span>Invalid date - Invalid date</span>
+            </div>
+            <div className="icon-purchase price ">
+                <img style={{width: "22px",marginRight:'0.5rem'}} className="" data-src="https://inspyria.com/Themes/ETR/images/icons/dinero-min.png" src="https://inspyria.com/Themes/ETR/images/icons/dinero-min.png"/>
+                <span data-text="Total Price">€660 Total Price</span>
+            </div>
+                    
+            </div>
+
+          </div>
+
+          <div className="proteccion-datos">
+                        <img style={{width: "50px"}} data-src="https://inspyria.com/Themes/ETR//images/org-confianza-min.png" src="https://inspyria.com/Themes/ETR//images/org-confianza-min.png"/>
+                        <p style={{marginLeft: "1rem"}}>You can trust <span className="orange">Mava Vida</span>! Your information is safe and secure with us. </p>
+                    </div>
+            <div className="cta-box">
+                  <a
+                    className="fancyboxContacto show dskbtn"
+                    href="https://yoga-site-six.vercel.app/contact-us"
+                  >
+                    Send question
+                  </a>
+                  {/* <button type="submit" className="submit submit-green">
+                    Reserve
+                  </button> */}
+                </div>
+               
+
+          
+        </div>
+      </div>
+    </div>
+  </div>
+    )
+  }
+
+
+
+  {/*Modal 3 */}
+  function Modal3(){
+    return (
+      <div className="z-50 mt-12 fixed inset-0 flex items-center justify-center bg-gray-500 bg-opacity-20 md:mt-5  h-screen overflow-y-auto ">
+    <div className="lg:h-4/5 md:h-auto bg-white rounded-lg shadow-lg max-w-4xl w-full md:flex">
+      <div className="md:w-3/4 beach-popup-images">
+
+      <Carousel className='beach-popup-carousel' showThumbs={false} showArrows={true} centreMode={true} >
+        {/* Left side content */}
+          <li className="beach-popup-image-list" aria-hidden="true" style={{width: "100%"}}>
+            <img  data-src="https://inspyria.com/storage/media/2021/06/DUPLEX SEA VIEWS-1-medium_large.jpg" alt="Suite room" src="https://inspyria.com/storage/media/2021/06/DUPLEX SEA VIEWS-1-medium_large.jpg" draggable="false" />
+        </li>
+        
+        <li className="beach-popup-image-list" aria-hidden="true" style={{width: "100%"}}>
+            <img  data-src="https://inspyria.com/storage/media/2021/06/DUPLEX SEA VIEWS-1-medium_large.jpg"
+ alt="Suite room" src="https://inspyria.com/storage/media/2021/06/DUPLEX SEA VIEWS-1-medium_large.jpg"
+ draggable="false" />
+        </li>
+
+        <li className="beach-popup-image-list" aria-hidden="true" style={{width: "100%"}}>
+            <img  data-src="https://inspyria.com/storage/media/2021/06/DUPLEX BATHROOM SHARED-medium_large.jpg"
+ alt="Suite room" src="https://inspyria.com/storage/media/2021/06/DUPLEX BATHROOM SHARED-medium_large.jpg"
+ draggable="false" />
+        </li>
+   
+      </Carousel>
+
+      </div>
+      <div className="beach-popup-scroll md:w-2/6 md:flex-shrink-0 md:border-l md:border-gray-200 overflow-y-auto">
+        {/* Right side content */}
+        <div className=" p-4 md:p-6 lg:h-full lg:overflow-y-scroll z-50">
+          <div className="flex justify-end">
+            <button
+              className="text-gray-500 hover:text-gray-700 focus:outline-none"
+              onClick={toggleModal3}
+            >
+              <X size={24} />
+            </button>
+          </div>
+
+
+
+        <div className="popup-title">
+                                    <h2>Suite room</h2>
+                    <ul className="carac-list-popup">
+              <li><img style={{width: "30px",height: "30px"}} alt="personas" className="icon-room-modal" data-src="https://inspyria.com/Themes/ETR//images/icons/plazas-min.png" src="https://inspyria.com/Themes/ETR//images/icons/plazas-min.png"/> 2 people per room</li>
+                                                    
+        <li><img style={{width: "30px",height: "30px"}} alt="cama" className="icon-room-modal" data-src="https://inspyria.com/Themes/ETR//images/icons/camaindividual-min.png" src="https://inspyria.com/Themes/ETR//images/icons/camaindividual-min.png"/>
+                                                                    Double Bed            
+                                                                    
+                                                                                                                    </li>
+  <li><img style={{width: "30px",height: "30px"}} alt="personas" className="icon-room-modal" src="https://inspyria.com/Themes/ETR//images/icons/bano-min.png" data-src="https://inspyria.com/Themes/ETR//images/icons/bano-min.png"/> Private</li>       
+                        
+
+                    </ul>
+                                </div>
+
+          <div className='popup-amenities'>
+            <h2>Amenities</h2>
+            <ul className='popup-amenities-list'>
+              <li>WiFi</li>
+              <li>Private Bathroom</li>
+              <li>Toiletries</li>
+              <li>Views of Nature</li>
+              <li>Sheets</li>
+              <li>Heating</li>
+              <li>Towels</li>
+              <li>Blankets</li>
+              <li>Beach Towel</li>
+              <li>Soap</li>
+              
+            </ul>
+
+            <div className='popup-amenities-description mt-2'>
+            Beautiful double or single-use room. Views of the sea and the pool.
+            </div>
+
+            <div className="info-purchase mt-2">
+
+            <div className="icon-purchase bed">
+                <img style={{width: "22px",marginRight:'0.5rem'}} data-src="https://inspyria.com/Themes/ETR/images/icons/icon-habitacion-cama-min.png" src="https://inspyria.com/Themes/ETR/images/icons/icon-habitacion-cama-min.png"/>
+                <span>Private</span>
+            </div>
+            <div className="icon-purchase person">
+                <img style={{width: "22px",marginRight:'0.5rem'}} className="" data-src="https://inspyria.com/Themes/ETR/images/icons/AVATAR-min.png" src="https://inspyria.com/Themes/ETR/images/icons/AVATAR-min.png"/>
+                <span data-textsingle="Spot" data-textplural="Spots">1 Spot</span>
+            </div>
+            <div className="icon-purchase date">
+                <img style={{width: "22px",marginRight:'0.5rem'}} className="" data-src="https://inspyria.com/Themes/ETR/images/icons/fechas-min.png" src="https://inspyria.com/Themes/ETR/images/icons/fechas-min.png"/>
+                <span>Invalid date - Invalid date</span>
+            </div>
+            <div className="icon-purchase price ">
+                <img style={{width: "22px",marginRight:'0.5rem'}} className="" data-src="https://inspyria.com/Themes/ETR/images/icons/dinero-min.png" src="https://inspyria.com/Themes/ETR/images/icons/dinero-min.png"/>
+                <span data-text="Total Price">€660 Total Price</span>
+            </div>
+                    
+            </div>
+
+          </div>
+
+          <div className="proteccion-datos">
+                        <img style={{width: "50px"}} data-src="https://inspyria.com/Themes/ETR//images/org-confianza-min.png" src="https://inspyria.com/Themes/ETR//images/org-confianza-min.png"/>
+                        <p style={{marginLeft: "1rem"}}>You can trust <span className="orange">Mava Vida</span>! Your information is safe and secure with us. </p>
+                    </div>
+            <div className="cta-box">
+                  <a
+                    className="fancyboxContacto show dskbtn"
+                    href="https://yoga-site-six.vercel.app/contact-us"
+                  >
+                    Send question
+                  </a>
+                  {/* <button type="submit" className="submit submit-green">
+                    Reserve
+                  </button> */}
+                </div>
+               
+
+          
+        </div>
+      </div>
+    </div>
+  </div>
+    )
+  }
+{/*MODAL PART END*/}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   // const {user}=useAuth();
   const [participants, setParticipants] = useState(1);
   const [day, setDay] = useState(15);
@@ -19,14 +454,30 @@ export default function MainSection() {
   const [ind, setInd] = useState(0);
   const [error, setError] = useState("");
   const [booking, setBooking] = useState([]);
+  
 
   let [individualroomcost, setindividualroomcost] = useState(499);
   let [sharedroomcost, setsharedroomcost] = useState(499);
 
-  let [roomCost1,setRoomCost1] = useState(495)
-  let [roomCost2,setRoomCost2] = useState(555)
-  let [roomCost3,setRoomCost3] = useState(225)
-  let [roomCost4,setRoomCost4] = useState(205)
+  let [roomCost1,setRoomCost1] = useState(195 * 3)
+  let [roomCost2,setRoomCost2] = useState(165 * 3)
+  let [roomCost3,setRoomCost3] = useState(185 * 3)
+  let [roomCost4,setRoomCost4] = useState(180 * 3 * 2)
+  let [roomCost5,setRoomCost5] = useState(225 * 3 * 2)
+  let [roomCost6,setRoomCost6] = useState(205 * 3 * 2)
+  let [roomCost7,setRoomCost7] = useState(225 * 3 * 2)
+  let [roomCost8,setRoomCost8] = useState(205* 3 * 2)
+
+  let roomList = [
+    "Garden Villa: Double Room Individual Use with Ensuite shower",
+    "Beach Duplex: Double Room Single use\n or Individual with shared bathroom&gt",
+    "Beach Duplex: Double Room Individual Use Doble or Individual",
+    "Garden Villa: Double Room Use with en Suite Shower",
+    "Garden Villa: Suite Room Individual Occupancy with Ensuite shower and bathtub",
+    "Garden Villa: Suite Room Double Use with Ensuite shower and bathtub & gt",
+    "Duplex Beach: Suite Room Individual Occupancy with Ensuite shower and bathtub",
+    "Duplex Beach: Suite Room Double Use with Ensuite shower and bathtub &gt"
+  ]
 
   const [datesBooked,setDatesBooked] = useState(null)
   const router = useRouter()
@@ -312,26 +763,43 @@ export default function MainSection() {
       setTotalCost(0)
     }
 
+
  if(packageNumb === 4){
-    setRoomCost1(165 * 3)
-    setRoomCost2(185 * 3)
-    setRoomCost3(225 * 3)
-    setRoomCost4(205 * 3)
-    if (ind === 1) setTotalCost(165 * 3)
-    if (ind === 2) setTotalCost(185 * 3)
-    if (ind === 3) setTotalCost(225 * 3)
-    if (ind === 4) setTotalCost(205 * 3)
+    setRoomCost1(195 * 3)
+    setRoomCost2(165 * 3)
+    setRoomCost3(185 * 3)
+    setRoomCost4(180 * 3 * 2)
+    setRoomCost5(225 * 3 * 2)
+    setRoomCost6(205 * 3 * 2)
+    setRoomCost7(225 * 3 * 2)
+    setRoomCost8(205* 3 * 2)
+    if (ind === 1) setTotalCost(195 * 3)
+    if (ind === 2) setTotalCost(165 * 3)
+    if (ind === 3) setTotalCost(185 * 3)
+    if (ind === 4) setTotalCost(180 * 3 * 2)
+    if (ind === 5) setTotalCost(225 * 3 * 2)
+    if (ind === 6) setTotalCost(205 * 3 * 2)
+    if (ind === 7) setTotalCost(225 * 3 * 2)
+    if (ind === 8) setTotalCost(205* 3 * 2)
   }
   else{
-    setRoomCost1(night * 165)
-    setRoomCost2(night * 185)
-    setRoomCost3(night * 225)
-    setRoomCost4(night * 205)
+    setRoomCost1(night * 195)
+    setRoomCost2(night * 165)
+    setRoomCost3(night * 185)
+    setRoomCost4(night * 180 * 2)
+    setRoomCost5(night * 225 * 2)
+    setRoomCost6(night * 205 * 2)
+    setRoomCost7(night * 225 * 2)
+    setRoomCost8(night * 205 * 2)
 
-    if (ind === 1) setTotalCost(165 * night)
-      if (ind === 2) setTotalCost(185 * night)
-      if (ind === 3) setTotalCost(225 * night)
-    if (ind === 4) setTotalCost(205 * night)
+    if (ind === 1) setTotalCost(195 * night)
+      if (ind === 2) setTotalCost(165 * night)
+      if (ind === 3) setTotalCost(185 * night)
+    if (ind === 4) setTotalCost(180 * night * 2)
+    if (ind === 5) setTotalCost(225 * night * 2)
+    if (ind === 6) setTotalCost(205 * night * 2)
+    if (ind === 7) setTotalCost(225 * night * 2)
+  if (ind === 8) setTotalCost(205 * night* 2)
 
   
   }}, [day, night, participants, ind]);
@@ -486,10 +954,15 @@ export default function MainSection() {
 
     let roomType = ""
     
-    if(ind === 1 ) roomType = "Double Room Double Use or Individual with shared bathroom"
-    else if (ind === 2) roomType = "Suite Use Double or Individual"
-    else if(ind === 3) roomType = "Suite Room Individual Occupancy with Ensuite shower and bathtub"
-    else if(ind ===  4) roomType = "Suite Room Double Use with Ensuite shower and bathtub"
+    if(ind === 1 ) roomType = roomList[0]
+    else if (ind === 2) roomType = roomList[1]
+    else if(ind === 3) roomType = roomList[2]
+    else if(ind ===  4) roomType = roomList[3]
+    else if (ind === 5) roomType = roomList[4]
+    else if(ind === 6) roomType = roomList[5]
+    else if(ind ===  7) roomType = roomList[6]
+    else if(ind ===  8) roomType = roomList[7]
+
 
     const bookingData =  {
       mobile:data.mobile,
@@ -1258,10 +1731,10 @@ export default function MainSection() {
                 </div>
               </div>
 
-              <div className="dat-select edit-person">
+              <div className="dat-select edit-person ">
                 <h5>Select room:</h5>
 
-                <ul className="list-offers-dsk">
+                <ul className="list-offers-dsk ">
                 {participants === 1 && (
                     <>
                       <li
@@ -1284,14 +1757,14 @@ export default function MainSection() {
                           
                           />
                         </div>
-                        <div className="edit-pers">
+                        <div className="edit-pers ">
                           <label htmlFor="offer-0-p-1-dsk" style={{width: "65%"}}>
-                            <h2>Double Room Double Use or Individual with shared bathroom</h2>
+                            <h2>{roomList[0]}</h2>
                           </label>
 
                           <small></small>
 
-                          <small className="hab-compartida-two">
+                          <small className="hab-compartida">
                             <img
                               className="mr-9"
                               data-src="https://inspyria.com/Themes/ETR/images/icons/icon-habitacion-cama-min.png"
@@ -1301,12 +1774,19 @@ export default function MainSection() {
                             {/* <span className="uso-privado-room">Individual Use</span> */}
                           </small>
                           <div className="shortcuts-btn">
+                            <div>
+                          
                             <a
-                              className="shortcut-item fancybox9826 show"
-                              href="#poup-txt9826"
+                              className="shortcut-item fancybox9826 show sm:"
+                              // href="#poup-txt9826"
+                              onClick={toggleModal2}
                             >
                               View photos
                             </a>
+
+                        
+                            </div>
+                            {openModal2 && <Modal2/>}
                             <input
                               type="submit"
                               className="shortcut-item"
@@ -1315,7 +1795,7 @@ export default function MainSection() {
                           </div>
                         </div>
                         <div
-                          className="edit-price"
+                          className="edit-price "
                           data-uso="Private"
                           data-person="1"
                           data-price="2480"
@@ -1356,13 +1836,13 @@ export default function MainSection() {
                           />
                         </div>
                         <div className="edit-pers">
-                          <label htmlFor="offer-0-p-1-dsk" style={{width: "65%"}}>
-                            <h2>Suite Use Doble or Individual</h2>
+                          <label htmlFor="offer-0-p-1-dsk" >
+                            <h2  style={{width: "65%"}}>{roomList[1]}</h2>
                           </label>
 
                           <small></small>
 
-                          <small className="hab-compartida-two">
+                          <small className="hab-compartida">
                             <img
                               className="mr-9"
                               data-src="https://inspyria.com/Themes/ETR/images/icons/icon-habitacion-cama-min.png"
@@ -1372,12 +1852,17 @@ export default function MainSection() {
                             {/* <span className="uso-privado-room">Individual Use</span> */}
                           </small>
                           <div className="shortcuts-btn">
+
+                            <div onClick={toggleModal3}>
                             <a
                               className="shortcut-item fancybox9826 show"
                               href="#poup-txt9826"
+                           
                             >
                               View photos
                             </a>
+                            {openModal3 && <Modal3/>}
+                            </div>
                             <input
                               type="submit"
                               className="shortcut-item"
@@ -1421,11 +1906,15 @@ export default function MainSection() {
                             value="3"/>
                           </div><div className="edit-pers">
                             <label htmlFor="offer-0-p-1-dsk" style={{width: "65%"}}>
-                              <h2>Suite Room Individual <br></br> Occupancy with Ensuite <br></br> shower and bathtub</h2>
-                              </label><small></small><small className="hab-compartida-two">
+                              <h2>{roomList[2]}</h2>
+                              </label><small></small><small className="hab-compartida">
                                 <img className="mr-9" data-src="https://inspyria.com/Themes/ETR/images/icons/icon-habitacion-cama-min.png" src="https://inspyria.com/Themes/ETR/images/icons/icon-habitacion-cama-min.png" alt=""/> 
                                 </small><div className="shortcuts-btn">
-                                  <a className="shortcut-item fancybox9826 show" href="#poup-txt9826">View photos</a>
+                                  <div onClick={toggleModal2}>
+                                  <a className="shortcut-item fancybox9826 show" href="#poup-txt9826" >
+                                    View photos
+                                    </a>
+                                    </div>
                                   <input type="submit" className="shortcut-item" value="Reserve" fdprocessedid="sv652"/>
                                   </div></div>
                                   <div 
@@ -1442,7 +1931,7 @@ export default function MainSection() {
                             </li>
 
 
-                    
+{/*                     
                             <li className="offer bck persons-1" 
                       data-price_disscount_day="155" 
                       data-price_day="155" data-price_disscount_day_low_seasson="" 
@@ -1455,7 +1944,7 @@ export default function MainSection() {
                             value="4"/>
                           </div><div className="edit-pers">
                             <label htmlFor="offer-0-p-1-dsk" style={{width: "65%"}}>
-                              <h2>Suite Room Double <br></br>Use with Ensuite <br></br>shower and bathtub</h2>
+                              <h2>{roomList[3]}</h2>
                               </label><small></small><small className="hab-compartida-two">
                                 <img className="mr-9" data-src="https://inspyria.com/Themes/ETR/images/icons/icon-habitacion-cama-min.png" src="https://inspyria.com/Themes/ETR/images/icons/icon-habitacion-cama-min.png" alt=""/> 
                                 </small><div className="shortcuts-btn">
@@ -1473,7 +1962,7 @@ export default function MainSection() {
                                     <span className="numpers">
                                       <img className="logo-numpers" data-src="https://inspyria.com/Themes/ETR/images/icons/AVATAR-min.png" src="https://inspyria.com/Themes/ETR/images/icons/AVATAR-min.png" alt=""/> 
                                       1</span><span className="price">€{roomCost4}</span><small>Total Price</small></div>
-                            </li>
+                            </li> */}
                           
                     </>
 
@@ -1498,7 +1987,7 @@ export default function MainSection() {
                           type="radio"
                           name="offer"
                           value="0-p-2"
-                          onClick={(e) => setInd(1)}
+                          onClick={(e) => setInd(4)}
                         />
                         <input
                           type="hidden"
@@ -1516,7 +2005,7 @@ export default function MainSection() {
 
                       <div className="edit-pers">
                         <label htmlFor="offer-0-p-2-dsk" style={{width: "65%"}}>
-                          <h2>Double Room Double Use or Individual with shared bathroom</h2>
+                          <h2>{roomList[3]}</h2>
                         </label>
 
                         <input type="hidden" name="personas[0-p-2]" value="2" />
@@ -1533,12 +2022,15 @@ export default function MainSection() {
                           <span className="uso-privado-room">Shared Use</span>
                         </small>
                         <div className="shortcuts-btn">
+                          <div onClick={toggleModal3}>
                           <a
                             className="shortcut-item fancybox9826 show"
                             href="#poup-txt9826"
                           >
                             View photos
                           </a>
+                          {openModal3 && <Modal3/>}
+                          </div>
                           <input
                             type="submit"
                             className="shortcut-item"
@@ -1571,7 +2063,7 @@ export default function MainSection() {
                           />{" "}
                           2
                         </span>
-                        <span className="price">€{roomCost1}</span>
+                        <span className="price">€{roomCost4}</span>
                         <small>Total Price</small>
                       </div>
                     </li>
@@ -1592,7 +2084,7 @@ export default function MainSection() {
                           type="radio"
                           name="offer"
                           value="0-p-2"
-                          onClick={(e) => setInd(2)}
+                          onClick={(e) => setInd(5)}
                         />
                         <input
                           type="hidden"
@@ -1610,7 +2102,7 @@ export default function MainSection() {
 
                       <div className="edit-pers">
                         <label htmlFor="offer-0-p-2-dsk" style={{width: "65%"}}>
-                          <h2>Suite Use Double or Individual</h2>
+                          <h2>{roomList[4]}</h2>
                         </label>
 
                         <input type="hidden" name="personas[0-p-2]" value="2" />
@@ -1627,12 +2119,15 @@ export default function MainSection() {
                           <span className="uso-privado-room">Shared Use</span>
                         </small>
                         <div className="shortcuts-btn">
+                          <div onClick={toggleModal1}>
                           <a
                             className="shortcut-item fancybox9826 show"
                             href="#poup-txt9826"
                           >
                             View photos
                           </a>
+                          {openModal1 && <Modal1/>}
+                          </div>
                           <input
                             type="submit"
                             className="shortcut-item"
@@ -1659,7 +2154,7 @@ export default function MainSection() {
                           />{" "}
                           2
                         </span>
-                        <span className="price">€{roomCost2}</span>
+                        <span className="price">€{roomCost5}</span>
                         <small>Total Price</small>
                       </div>
                     </li>
@@ -1674,15 +2169,20 @@ export default function MainSection() {
                       data-price_day_high_seasson="" 
                       data-expired="">
                         <div className="select-name">
-                          <input id="offer-0-p-2-dsk" type="radio" name="offer" onClick={(e) => setInd(3)}
-                            value="3"/>
+                          <input id="offer-0-p-2-dsk" type="radio" name="offer" onClick={(e) => setInd(6)}
+                            value="6"/>
                           </div><div className="edit-pers">
                             <label htmlFor="offer-0-p-1-dsk" style={{width: "65%"}}>
-                              <h2>Suite Room Individual <br></br> Occupancy with Ensuite <br></br> shower and bathtub</h2>
-                              </label><small></small><small className="hab-compartida-two">
+                              <h2>{roomList[5]}</h2>
+                              </label><small></small><small className="hab-compartida">
                                 <img className="mr-9" data-src="https://inspyria.com/Themes/ETR/images/icons/icon-habitacion-cama-min.png" src="https://inspyria.com/Themes/ETR/images/icons/icon-habitacion-cama-min.png" alt=""/> 
                                 </small><div className="shortcuts-btn">
-                                  <a className="shortcut-item fancybox9826 show" href="#poup-txt9826">View photos</a>
+                                  <div onClick={toggleModal1}>
+                                  <a className="shortcut-item fancybox9826 show" href="#poup-txt9826">
+                                    View photos
+                                  </a>
+                                  </div>
+                                  {openModal1 && <Modal1/>}
                                   <input type="submit" className="shortcut-item" value="Reserve" fdprocessedid="sv652"/>
                                   </div></div>
                                   <div 
@@ -1695,7 +2195,7 @@ export default function MainSection() {
                                   data-moneda="€">
                                     <span className="numpers">
                                       <img className="logo-numpers" data-src="https://inspyria.com/Themes/ETR/images/icons/AVATAR-min.png" src="https://inspyria.com/Themes/ETR/images/icons/AVATAR-min.png" alt=""/> 
-                                      1</span><span className="price">€{roomCost3}</span><small>Total Price</small></div>
+                                      1</span><span className="price">€{roomCost6}</span><small>Total Price</small></div>
                             </li>
 
 
@@ -1708,15 +2208,20 @@ export default function MainSection() {
                       data-price_day_high_seasson="" 
                       data-expired="">
                         <div className="select-name">
-                          <input id="offer-0-p-2-dsk" type="radio" name="offer" onClick={(e) => setInd(4)}
-                            value="4"/>
+                          <input id="offer-0-p-2-dsk" type="radio" name="offer" onClick={(e) => setInd(7)}
+                            value="7"/>
                           </div><div className="edit-pers">
                             <label htmlFor="offer-0-p-1-dsk" style={{width: "65%"}}>
-                              <h2>Suite Room Double <br></br>Use with Ensuite <br></br>shower and bathtub</h2>
-                              </label><small></small><small className="hab-compartida-two">
+                              <h2>{roomList[6]}</h2>
+                              </label><small></small><small className="hab-compartida"> {/*hab-compartida-two for bigger size */}
                                 <img className="mr-9" data-src="https://inspyria.com/Themes/ETR/images/icons/icon-habitacion-cama-min.png" src="https://inspyria.com/Themes/ETR/images/icons/icon-habitacion-cama-min.png" alt=""/> 
                                 </small><div className="shortcuts-btn">
-                                  <a className="shortcut-item fancybox9826 show" href="#poup-txt9826">View photos</a>
+                                <div onClick={toggleModal1}>
+                                  <a className="shortcut-item fancybox9826 show" href="#poup-txt9826">
+                                    View photos
+                                  </a>
+                                  {openModal1 && <Modal1/>}
+                                  </div>
                                   <input type="submit" className="shortcut-item" value="Reserve" fdprocessedid="sv652"/>
                                   </div></div>
                                   <div 
@@ -1729,7 +2234,48 @@ export default function MainSection() {
                                   data-moneda="€">
                                     <span className="numpers">
                                       <img className="logo-numpers" data-src="https://inspyria.com/Themes/ETR/images/icons/AVATAR-min.png" src="https://inspyria.com/Themes/ETR/images/icons/AVATAR-min.png" alt=""/> 
-                                      1</span><span className="price">€{roomCost4}</span><small>Total Price</small></div>
+                                      1</span><span className="price">€{roomCost7}</span><small>Total Price</small></div>
+                            </li>
+                          
+
+
+
+                     
+                      <li className="offer bck persons-1" 
+                      data-price_disscount_day="155" 
+                      data-price_day="155" data-price_disscount_day_low_seasson="" 
+                      data-price_day_low_seasson="" 
+                      data-price_disscount_day_high_seasson=""
+                      data-price_day_high_seasson="" 
+                      data-expired="">
+                        <div className="select-name">
+                          <input id="offer-0-p-2-dsk" type="radio" name="offer" onClick={(e) => setInd(8)}
+                            value="7"/>
+                          </div><div className="edit-pers">
+                            <label htmlFor="offer-0-p-1-dsk" style={{width: "65%"}}>
+                              <h2>{roomList[7]}</h2>
+                              </label><small></small><small className="hab-compartida">
+                                <img className="mr-9" data-src="https://inspyria.com/Themes/ETR/images/icons/icon-habitacion-cama-min.png" src="https://inspyria.com/Themes/ETR/images/icons/icon-habitacion-cama-min.png" alt=""/> 
+                                </small><div className="shortcuts-btn">
+                                  <div onClick={toggleModal1}>
+                                  <a className="shortcut-item fancybox9826 show" href="#poup-txt9826">
+                                    View photos
+                                  </a>
+                                  </div>
+                                  {openModal1 && <Modal1/>}
+                                  <input type="submit" className="shortcut-item" value="Reserve" fdprocessedid="sv652"/>
+                                  </div></div>
+                                  <div 
+                                  className="edit-price" 
+                                  data-uso="Private" 
+                                  data-person="1" 
+                                  data-price="2480" 
+                                  data-deposit_percent="0.5" d
+                                  ata-deposit="1240" 
+                                  data-moneda="€">
+                                    <span className="numpers">
+                                      <img className="logo-numpers" data-src="https://inspyria.com/Themes/ETR/images/icons/AVATAR-min.png" src="https://inspyria.com/Themes/ETR/images/icons/AVATAR-min.png" alt=""/> 
+                                      1</span><span className="price">€{roomCost8}</span><small>Total Price</small></div>
                             </li>
                           
 
@@ -1789,12 +2335,15 @@ export default function MainSection() {
                           <span className="uso-privado-room">Shared</span>
                         </small>
                         <div className="shortcuts-btn">
+                          <div onClick={toggleModal1}>
                           <a
                             className="shortcut-item fancybox9826 show"
                             href="#poup-txt9826"
                           >
                             View photos
                           </a>
+                          {openModal1 && <Modal1/>}
+                          </div>
                           <input
                             type="submit"
                             className="shortcut-item"
@@ -1876,12 +2425,15 @@ export default function MainSection() {
                           <span className="uso-privado-room">Shared</span>
                         </small>
                         <div className="shortcuts-btn">
+                          <div onClick={toggleModal1}>
                           <a
                             className="shortcut-item fancybox9826 show"
                             href="#poup-txt9826"
                           >
                             View photos
                           </a>
+                          {openModal1 && <Modal1/>}
+                          </div>
                           <input
                             type="submit"
                             className="shortcut-item"

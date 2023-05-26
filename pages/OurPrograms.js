@@ -35,18 +35,27 @@ function CategoryCards(props) {
          
         </div>
 
-        
-  
         {props.knowMore && (
-          <div
-            className="fixed inset-0 flex items-center justify-center z-50"
-            onClick={() => props.setKnowMoreFalse(props.id)}
-          >
-            <div className="absolute inset-0"></div>
-            <div className="bg-white rounded-lg p-4">
+        <div
+          className="fixed inset-0 flex items-center justify-center z-50"
+          onClick={() => props.setKnowMoreFalse(props.id)}
+        >
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="bg-white rounded-lg p-4 md:w-3/5 sm:w-9/10  overflow-y-auto max-h-screen shadow-lg">
               <h2 className="text-lg font-bold mb-4">{props.name}</h2>
-              {/* <p className="mb-4">Modal content goes here...</p> */}
-              <p className="mb-4">Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum</p>
+              <p className="mb-4 px-4">{props.description}</p>
+              <p className="mb-4 px-4">{props.options}</p>
+              {props.menuType && <b>Menu: </b> }
+              <p className="mb-4 px-4">{props.menuType}</p>
+              {props.forWho && <b>For Who: </b>}
+              <p className="mb-4 px-4">{props.forWho}</p>
+              {props.version && <b>Version: </b>}
+              <p className="mb-4 px-4">{props.version}</p>
+       
+              {props.forWhoList && <div>
+                  {props.forWhoList.map(d => <div>{d}</div>)}
+                </div>}
+                <p className="mb-4 px-4">{props.forWhoExtra}</p>
               <button
                 className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 cursor-pointer"
                 onClick={handleCloseClick}
@@ -55,7 +64,9 @@ function CategoryCards(props) {
               </button>
             </div>
           </div>
-        )}
+        </div>
+      )}
+   
       </div>
     );
   }
@@ -73,9 +84,16 @@ export default function OurPrograms(){
                 name={card.name} 
                 id={card.id}
                 clicked={card.clicked}
+                description={card.description}
+                options={card.options}
+                menuType={card.menuType}
+                forWho={card.forWho}
                 toggleCardClicked={toggleCardClicked}
                 route={card.route}
                 knowMore={card.knowMore}
+                version={card.version}
+                forWhoList={card.forWhoList}
+                forWhoExtra={card.forWhoExtra}
                 setKnowMoreTrue={setKnowMoreTrue}
                 setKnowMoreFalse={setKnowMoreFalse}
                 />
