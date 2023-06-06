@@ -464,7 +464,10 @@ const [openModal1,setOpenModal1] = React.useState(false)
   let [roomCost2,setRoomCost2] = useState(165 * 3)
   let [roomCost3,setRoomCost3] = useState(185 * 3)
   let [roomCost4,setRoomCost4] = useState(180 * 3 * 2)
-  let [roomCost5,setRoomCost5] = useState(225 * 3 * 2)
+
+  /*removed room from participants 2 and placed it in 1 but kept the index same as 5 and removed the *2 multiplier */
+  let [roomCost5,setRoomCost5] = useState(225 * 3)
+
   let [roomCost6,setRoomCost6] = useState(205 * 3 * 2)
   let [roomCost7,setRoomCost7] = useState(225 * 3 * 2)
   let [roomCost8,setRoomCost8] = useState(205* 3 * 2)
@@ -474,7 +477,9 @@ const [openModal1,setOpenModal1] = React.useState(false)
     "Beach Duplex: Double Room Single use\n or Individual with shared bathroom&gt",
     "Beach Duplex: Double Room Individual Use Doble or Individual",
     "Garden Villa: Double Room Use with en Suite Shower",
+
     "Garden Villa: Suite Room Individual Occupancy with Ensuite shower and bathtub",
+    
     "Garden Villa: Suite Room Double Use with Ensuite shower and bathtub & gt",
     "Duplex Beach: Suite Room Individual Occupancy with Ensuite shower and bathtub",
     "Duplex Beach: Suite Room Double Use with Ensuite shower and bathtub &gt"
@@ -770,7 +775,7 @@ const [openModal1,setOpenModal1] = React.useState(false)
     setRoomCost2(165 * 3)
     setRoomCost3(185 * 3)
     setRoomCost4(180 * 3 * 2)
-    setRoomCost5(225 * 3 * 2)
+    setRoomCost5(225 * 3)
     setRoomCost6(205 * 3 * 2)
     setRoomCost7(225 * 3 * 2)
     setRoomCost8(205* 3 * 2)
@@ -788,7 +793,7 @@ const [openModal1,setOpenModal1] = React.useState(false)
     setRoomCost2(night * 165)
     setRoomCost3(night * 185)
     setRoomCost4(night * 180 * 2)
-    setRoomCost5(night * 225 * 2)
+    setRoomCost5(night * 225)
     setRoomCost6(night * 205 * 2)
     setRoomCost7(night * 225 * 2)
     setRoomCost8(night * 205 * 2)
@@ -1937,6 +1942,98 @@ const [openModal1,setOpenModal1] = React.useState(false)
                                       1</span><span className="price">€{roomCost3}</span><small>Total Price</small></div>
                             </li>
 
+                            
+                    <li
+                      className="offer bck  persons-2"
+                      data-price_disscount_day="310"
+                      data-price_day="310"
+                      data-price_disscount_day_low_seasson=""
+                      data-price_day_low_seasson=""
+                      data-price_disscount_day_high_seasson=""
+                      data-price_day_high_seasson=""
+                      data-expired=""
+                    >
+                      <div className="select-name">
+                        <input
+                          id="offer-0-p-2-dsk"
+                          type="radio"
+                          name="offer"
+                          value="0-p-2"
+                          onClick={(e) => setInd(5)}
+                        />
+                        <input
+                          type="hidden"
+                          name="habitacion[0-p-2]"
+                          value="9826"
+                        />
+                        <input
+                          type="hidden"
+                          className="inputPrice"
+                          name="precio[0-p-2]"
+                          value="4960"
+                        />
+                      </div>
+
+
+                      <div className="edit-pers">
+                        <label htmlFor="offer-0-p-2-dsk" style={{width: "65%"}}>
+                          <h2>{roomList[4]}</h2>
+                        </label>
+
+                        <input type="hidden" name="personas[0-p-2]" value="2" />
+
+                        <small></small>
+
+                        <small className="hab-compartida">
+                          <img
+                            className=""
+                            data-src="https://inspyria.com/Themes/ETR/images/icons/icon-habitacion-cama-min.png"
+                            src="https://inspyria.com/Themes/ETR/images/icons/icon-habitacion-cama-min.png"
+                            alt=""
+                          />{" "}
+                          <span className="uso-privado-room"></span>
+                        </small>
+                        <div className="shortcuts-btn">
+                          <div onClick={toggleModal1}>
+                          <a
+                            className="shortcut-item fancybox9826 show"
+                            href="#poup-txt9826"
+                          >
+                            View photos
+                          </a>
+                          {openModal1 && <Modal1/>}
+                          </div>
+                          <input
+                            type="submit"
+                            className="shortcut-item"
+                            value="Reserve"
+                          />
+                        </div>
+                      </div>
+
+                      <div
+                        className="edit-price"
+                        data-uso="Private"
+                        data-person="2"
+                        data-price="4960"
+                        data-deposit_percent="0.5"
+                        data-deposit="2480"
+                        data-moneda="€"
+                      >
+                        <span className="numpers">
+                          <img
+                            className="logo-numpers"
+                            data-src="https://inspyria.com/Themes/ETR/images/icons/AVATAR-min.png"
+                            src="https://inspyria.com/Themes/ETR/images/icons/AVATAR-min.png"
+                            alt=""
+                          />{" "}
+                          1
+                        </span>
+                        <span className="price">€{roomCost5}</span>
+                        <small>Total Price</small>
+                      </div>
+                    </li>
+
 
 {/*                     
                             <li className="offer bck persons-1" 
@@ -1972,6 +2069,8 @@ const [openModal1,setOpenModal1] = React.useState(false)
                             </li> */}
                           
                     </>
+
+                    
 
                     
                   )}
@@ -2075,96 +2174,6 @@ const [openModal1,setOpenModal1] = React.useState(false)
                       </div>
                     </li>
 
-                    <li
-                      className="offer bck  persons-2"
-                      data-price_disscount_day="310"
-                      data-price_day="310"
-                      data-price_disscount_day_low_seasson=""
-                      data-price_day_low_seasson=""
-                      data-price_disscount_day_high_seasson=""
-                      data-price_day_high_seasson=""
-                      data-expired=""
-                    >
-                      <div className="select-name">
-                        <input
-                          id="offer-0-p-2-dsk"
-                          type="radio"
-                          name="offer"
-                          value="0-p-2"
-                          onClick={(e) => setInd(5)}
-                        />
-                        <input
-                          type="hidden"
-                          name="habitacion[0-p-2]"
-                          value="9826"
-                        />
-                        <input
-                          type="hidden"
-                          className="inputPrice"
-                          name="precio[0-p-2]"
-                          value="4960"
-                        />
-                      </div>
-
-
-                      <div className="edit-pers">
-                        <label htmlFor="offer-0-p-2-dsk" style={{width: "65%"}}>
-                          <h2>{roomList[4]}</h2>
-                        </label>
-
-                        <input type="hidden" name="personas[0-p-2]" value="2" />
-
-                        <small></small>
-
-                        <small className="hab-compartida">
-                          <img
-                            className=""
-                            data-src="https://inspyria.com/Themes/ETR/images/icons/icon-habitacion-cama-min.png"
-                            src="https://inspyria.com/Themes/ETR/images/icons/icon-habitacion-cama-min.png"
-                            alt=""
-                          />{" "}
-                          <span className="uso-privado-room">Shared Use</span>
-                        </small>
-                        <div className="shortcuts-btn">
-                          <div onClick={toggleModal1}>
-                          <a
-                            className="shortcut-item fancybox9826 show"
-                            href="#poup-txt9826"
-                          >
-                            View photos
-                          </a>
-                          {openModal1 && <Modal1/>}
-                          </div>
-                          <input
-                            type="submit"
-                            className="shortcut-item"
-                            value="Reserve"
-                          />
-                        </div>
-                      </div>
-
-                      <div
-                        className="edit-price"
-                        data-uso="Private"
-                        data-person="2"
-                        data-price="4960"
-                        data-deposit_percent="0.5"
-                        data-deposit="2480"
-                        data-moneda="€"
-                      >
-                        <span className="numpers">
-                          <img
-                            className="logo-numpers"
-                            data-src="https://inspyria.com/Themes/ETR/images/icons/AVATAR-min.png"
-                            src="https://inspyria.com/Themes/ETR/images/icons/AVATAR-min.png"
-                            alt=""
-                          />{" "}
-                          2
-                        </span>
-                        <span className="price">€{roomCost5}</span>
-                        <small>Total Price</small>
-                      </div>
-                    </li>
 
 
 
