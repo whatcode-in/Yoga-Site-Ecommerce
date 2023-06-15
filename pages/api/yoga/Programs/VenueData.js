@@ -16,7 +16,7 @@ export default [
     // },
     {   
         id: "3",
-        name: "DUPLEX BY THE BEACH GARDEN VILLA SHANTI",
+        name: "DUPLEX BY THE BEACH & GARDEN VILLA SHANTI",
         image: 'beach.jpg',
         clicked: false,
         route: '/DuplexBeach'
