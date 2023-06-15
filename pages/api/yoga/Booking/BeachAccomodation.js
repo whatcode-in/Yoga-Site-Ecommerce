@@ -32,7 +32,7 @@ export default function GardenAccommodation() {
       <Carousel className='beach-popup-carousel' showThumbs={false} showArrows={true} centreMode={true} >
         {/* Left side content */}
           <li className="beach-popup-image-list" aria-hidden="true" style={{width: "100%"}}>
-            <img  data-src="https://inspyria.com/storage/media/2023/03/6a34a754-1d82-4ff8-8db6-9c75e25bf169-medium-medium_large.jpg" alt="Suite room" src="https://inspyria.com/storage/media/2021/06/DUPLEX%20BATHROOM%20SHARED-medium_large.jpg" draggable="false" />
+            <img  data-src="https://inspyria.com/storage/media/2023/03/6a34a754-1d82-4ff8-8db6-9c75e25bf169-medium-medium_large.jpg" alt="Suite room" src="https://inspyria.com/storage/media/2023/03/6a34a754-1d82-4ff8-8db6-9c75e25bf169-medium-medium_large.jpg" draggable="false" />
         </li>
         <li style={{ width: "100%" }} className="beach-popup-image-list">
           <img  data-src="https://inspyria.com/storage/media/2023/03/4d2a10ab-8183-4146-b68a-9ca982a37328-medium_large.jpg" alt="Suite room" src="https://inspyria.com/storage/media/2023/03/4d2a10ab-8183-4146-b68a-9ca982a37328-medium_large.jpg" draggable="false" />
@@ -178,7 +178,9 @@ export default function GardenAccommodation() {
             <img  data-src="https://inspyria.com/storage/media/2021/06/DUPLEX%20BATHROOM%20SHARED-medium_large.jpg" alt="Suite room" src="https://inspyria.com/storage/media/2021/06/DUPLEX%20BATHROOM%20SHARED-medium_large.jpg" draggable="false" />
         </li>
         <li style={{ width: "100%" }} className="beach-popup-image-list">
-            <img  data-src="https://inspyria.com/storage/media/2021/06/DUPLEX%20BATHROOM%20SHARED-medium_large.jpg" alt="Suite room" src="https://inspyria.com/storage/media/2021/06/DUPLEX%20BATHROOM%20SHARED-medium_large.jpg"draggable="false" />
+            <img  data-src="https://inspyria.com/storage/media/2021/02/Screen%20Shot%202021-02-17%20at%204.15.46%20PM-medium_large.png
+" alt="Suite room" src="https://inspyria.com/storage/media/2021/02/Screen%20Shot%202021-02-17%20at%204.15.46%20PM-medium_large.png
+"draggable="false" />
         </li>
    
       </Carousel>
@@ -291,7 +293,9 @@ export default function GardenAccommodation() {
       <Carousel className='beach-popup-carousel' showThumbs={false} showArrows={true} centreMode={true} >
         {/* Left side content */}
           <li className="beach-popup-image-list" aria-hidden="true" style={{width: "100%"}}>
-            <img  data-src="https://inspyria.com/storage/media/2021/06/DUPLEX%20BATHROOM%20SHARED-medium_large.jpg" alt="Suite room" src="https://inspyria.com/storage/media/2021/06/DUPLEX%20BATHROOM%20SHARED-medium_large.jpg" draggable="false" />
+            <img  data-src="https://inspyria.com/storage/media/2021/02/Screen%20Shot%202021-02-17%20at%204.15.46%20PM-medium_large.png
+" alt="Suite room" src="https://inspyria.com/storage/media/2021/02/Screen%20Shot%202021-02-17%20at%204.15.46%20PM-medium_large.png
+" draggable="false" />
         </li>
         
         <li className="beach-popup-image-list" aria-hidden="true" style={{width: "100%"}}>
@@ -571,7 +575,7 @@ export default function GardenAccommodation() {
                     <div className="h-96 carousel-item">
                       <img
                         className='block'
-                        data-src="https://inspyria.com/storage/media/2021/02/Screen Shot 2021-02-17 at 4.17.18 PM-large.png" alt="Shanti Beach House and Shanti Garden House" src="https://inspyria.com/storage/media/2021/02/Screen Shot 2021-02-17 at 4.17.18 PM-large.png"
+                        data-src="https://inspyria.com/storage/media/2021/02/Screen%…202021-02-17%20at%204.15.46%20PM-medium_large.png" alt="Shanti Beach House and Shanti Garden House" src="https://inspyria.com/storage/media/2021/02/Screen Shot 2021-02-17 at 4.17.18 PM-large.png"
                         style={{objectFit:"fill",width:"100%"}}
                       />
                     </div>
