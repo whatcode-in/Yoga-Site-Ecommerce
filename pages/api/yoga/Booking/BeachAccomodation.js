@@ -32,23 +32,30 @@ export default function GardenAccommodation() {
       <Carousel className='beach-popup-carousel' showThumbs={false} showArrows={true} centreMode={true} >
         {/* Left side content */}
           <li className="beach-popup-image-list" aria-hidden="true" style={{width: "100%"}}>
-            <img  data-src="https://inspyria.com/storage/media/2021/06/DUPLEX BATHROOM SHARED-medium_large.jpg" alt="Suite room" src="https://inspyria.com/storage/media/2021/06/DUPLEX BATHROOM SHARED-medium_large.jpg" draggable="false" />
+            <img  data-src="https://inspyria.com/storage/media/2023/03/6a34a754-1d82-4ff8-8db6-9c75e25bf169-medium-medium_large.jpg" alt="Suite room" src="https://inspyria.com/storage/media/2021/06/DUPLEX%20BATHROOM%20SHARED-medium_large.jpg" draggable="false" />
         </li>
         <li style={{ width: "100%" }} className="beach-popup-image-list">
-          <img  data-src="https://inspyria.com/storage/media/2023/03/2f608125-dc04-4ae1-8ea8-ec38fd3d3b40-medium_large.jpg" alt="Suite room" src="https://inspyria.com/storage/media/2023/03/2f608125-dc04-4ae1-8ea8-ec38fd3d3b40-medium_large.jpg" draggable="false" />
+          <img  data-src="https://inspyria.com/storage/media/2023/03/4d2a10ab-8183-4146-b68a-9ca982a37328-medium_large.jpg" alt="Suite room" src="https://inspyria.com/storage/media/2023/03/4d2a10ab-8183-4146-b68a-9ca982a37328-medium_large.jpg" draggable="false" />
         </li>
         <li style={{ width: "100%"}} className="beach-popup-image-list">
-          <img  data-src="https://inspyria.com/storage/media/2023/03/6a34a754-1d82-4ff8-8db6-9c75e25bf169-medium-medium_large.jpg" alt="Suite room" src="https://inspyria.com/storage/media/2023/03/6a34a754-1d82-4ff8-8db6-9c75e25bf169-medium-medium_large.jpg" draggable="false" />
+          <img  data-src="https://inspyria.com/storage/media/2021/06/DUPLEX%20SUITE%201-medium_large.jpg" alt="Suite room" src="https://inspyria.com/storage/media/2021/06/DUPLEX%20SUITE%201-medium_large.jpg" draggable="false" />
         </li>
         <li style={{ width: "100%" }} className="beach-popup-image-list">
-            <img  data-src="https://inspyria.com/storage/media/2023/03/4d2a10ab-8183-4146-b68a-9ca982a37328-medium_large.jpg" alt="Suite room" src="https://inspyria.com/storage/media/2023/03/4d2a10ab-8183-4146-b68a-9ca982a37328-medium_large.jpg" draggable="false" />
+            <img  data-src="https://inspyria.com/storage/media/2021/06/DUPLEX%20SUITE%20LR2-medium_large.jpg" alt="Suite room" src="https://inspyria.com/storage/media/2021/06/DUPLEX%20SUITE%20LR2-medium_large.jpg" draggable="false" />
         </li>
         <li style={{ width: "100%" }} className="beach-popup-image-list">
-            <img  data-src="https://inspyria.com/storage/media/2021/06/DUPLEX SUITE 1-medium_large.jpg" alt="Suite room" src="https://inspyria.com/storage/media/2021/06/DUPLEX SUITE 1-medium_large.jpg" draggable="false" />
+            <img  data-src="https://inspyria.com/storage/media/2021/06/DUPLEX%20SUITE%202-medium_large.jpg" alt="Suite room" src="https://inspyria.com/storage/media/2021/06/DUPLEX%20SUITE%202-medium_large.jpg" draggable="false" />
         </li>
         <li style={{  width: "100%" }} className="beach-popup-image-list">
-          <img  data-src="https://inspyria.com/storage/media/2021/06/DUPLEX SUITE LR-medium_large.jpg" alt="Suite room" src="https://inspyria.com/storage/media/2021/06/DUPLEX SUITE LR-medium_large.jpg" draggable="false" />
+          <img  data-src="https://inspyria.com/storage/media/2021/06/DUPLEX%20SUITE%20LR-medium_large.jpg" alt="Suite room" src="https://inspyria.com/storage/media/2021/06/DUPLEX%20SUITE%20LR-medium_large.jpg" draggable="false" />
         </li>
+        <li style={{  width: "100%" }} className="beach-popup-image-list">
+          <img  data-src="https://inspyria.com/storage/media/2021/06/DUPLEX%20BATHROOM%20SUITE-medium_large.jpg" alt="Suite room" src="https://inspyria.com/storage/media/2021/06/DUPLEX%20BATHROOM%20SUITE-medium_large.jpg" draggable="false" />
+        </li>
+        <li style={{  width: "100%" }} className="beach-popup-image-list">
+          <img  data-src="https://inspyria.com/storage/media/2023/03/2f608125-dc04-4ae1-8ea8-ec38fd3d3b40-medium_large.jpg" alt="Suite room" src="https://inspyria.com/storage/media/2023/03/2f608125-dc04-4ae1-8ea8-ec38fd3d3b40-medium_large.jpg" draggable="false" />
+        </li>
+
    
       </Carousel>
 
@@ -158,23 +165,20 @@ export default function GardenAccommodation() {
       <Carousel className='beach-popup-carousel' showThumbs={false} showArrows={true} centreMode={true} >
         {/* Left side content */}
           <li className="beach-popup-image-list" aria-hidden="true" style={{width: "100%"}}>
-            <img  data-src="https://inspyria.com/storage/media/2021/06/ROOM DOUBLE 2-medium_large.jpg" alt="Suite room" src="https://inspyria.com/storage/media/2021/06/ROOM DOUBLE 2-medium_large.jpg" draggable="false" />
+            <img  data-src="https://inspyria.com/storage/media/2021/06/ROOM%20DOUBLE%202-medium_large.jpg" alt="Suite room" src="https://inspyria.com/storage/media/2021/06/ROOM%20DOUBLE%202-medium_large.jpg" draggable="false" />
         </li>
         <li style={{ width: "100%" }} className="beach-popup-image-list">
-          <img  data-src="https://inspyria.com/storage/media/2021/06/DUPLEX BATHROOM SHARED-medium_large.jpg" alt="Suite room" src="https://inspyria.com/storage/media/2021/06/DUPLEX BATHROOM SHARED-medium_large.jpg"
+          <img  data-src="https://inspyria.com/storage/media/2021/06/DUPLEX%20ROOM%20DOUBLE%201-medium_large.jpg" alt="Suite room" src="https://inspyria.com/storage/media/2021/06/DUPLEX%20ROOM%20DOUBLE%201-medium_large.jpg"
  draggable="false" />
         </li>
         <li style={{ width: "100%"}} className="beach-popup-image-list">
-          <img  data-src="https://inspyria.com/storage/media/2021/06/DUPLEX ROOM DOUBLE 1-medium_large.jpg" alt="Suite room" src="https://inspyria.com/storage/media/2021/06/DUPLEX ROOM DOUBLE 1-medium_large.jpg" draggable="false" />
+          <img  data-src="https://inspyria.com/storage/media/2021/06/DUPLEX%20SEA%20VIEWS-1-medium_large.jpg" alt="Suite room" src="https://inspyria.com/storage/media/2021/06/DUPLEX%20SEA%20VIEWS-1-medium_large.jpg" draggable="false" />
         </li>
         <li style={{ width: "100%" }} className="beach-popup-image-list">
-            <img  data-src="https://inspyria.com/storage/media/2021/02/Screen Shot 2021-02-17 at 4.15.46 PM-medium_large.png" alt="Suite room" src="https://inspyria.com/storage/media/2021/02/Screen Shot 2021-02-17 at 4.15.46 PM-medium_large.png" draggable="false" />
+            <img  data-src="https://inspyria.com/storage/media/2021/06/DUPLEX%20BATHROOM%20SHARED-medium_large.jpg" alt="Suite room" src="https://inspyria.com/storage/media/2021/06/DUPLEX%20BATHROOM%20SHARED-medium_large.jpg" draggable="false" />
         </li>
         <li style={{ width: "100%" }} className="beach-popup-image-list">
-            <img  data-src="https://inspyria.com/storage/media/2021/06/DUPLEX BATHROOM SHARED-medium_large.jpg" alt="Suite room" src="https://inspyria.com/storage/media/2021/06/DUPLEX BATHROOM SHARED-medium_large.jpg"draggable="false" />
-        </li>
-        <li style={{  width: "100%" }} className="beach-popup-image-list">
-          <img  data-src="https://inspyria.com/storage/media/2021/06/ROOM DOUBLE 2-medium_large.jpg" alt="Suite room" src="https://inspyria.com/storage/media/2021/06/ROOM DOUBLE 2-medium_large.jpg" draggable="false" />
+            <img  data-src="https://inspyria.com/storage/media/2021/06/DUPLEX%20BATHROOM%20SHARED-medium_large.jpg" alt="Suite room" src="https://inspyria.com/storage/media/2021/06/DUPLEX%20BATHROOM%20SHARED-medium_large.jpg"draggable="false" />
         </li>
    
       </Carousel>
@@ -287,20 +291,15 @@ export default function GardenAccommodation() {
       <Carousel className='beach-popup-carousel' showThumbs={false} showArrows={true} centreMode={true} >
         {/* Left side content */}
           <li className="beach-popup-image-list" aria-hidden="true" style={{width: "100%"}}>
-            <img  data-src="https://inspyria.com/storage/media/2021/06/DUPLEX SEA VIEWS-1-medium_large.jpg" alt="Suite room" src="https://inspyria.com/storage/media/2021/06/DUPLEX SEA VIEWS-1-medium_large.jpg" draggable="false" />
+            <img  data-src="https://inspyria.com/storage/media/2021/06/DUPLEX%20BATHROOM%20SHARED-medium_large.jpg" alt="Suite room" src="https://inspyria.com/storage/media/2021/06/DUPLEX%20BATHROOM%20SHARED-medium_large.jpg" draggable="false" />
         </li>
         
         <li className="beach-popup-image-list" aria-hidden="true" style={{width: "100%"}}>
-            <img  data-src="https://inspyria.com/storage/media/2021/06/DUPLEX SEA VIEWS-1-medium_large.jpg"
- alt="Suite room" src="https://inspyria.com/storage/media/2021/06/DUPLEX SEA VIEWS-1-medium_large.jpg"
+            <img  data-src="https://inspyria.com/storage/media/2021/11/Inspyria_retiro_detox%20(13)-medium_large.jpeg"
+ alt="Suite room" src="https://inspyria.com/storage/media/2021/11/Inspyria_retiro_detox%20(13)-medium_large.jpeg"
  draggable="false" />
         </li>
 
-        <li className="beach-popup-image-list" aria-hidden="true" style={{width: "100%"}}>
-            <img  data-src="https://inspyria.com/storage/media/2021/06/DUPLEX BATHROOM SHARED-medium_large.jpg"
- alt="Suite room" src="https://inspyria.com/storage/media/2021/06/DUPLEX BATHROOM SHARED-medium_large.jpg"
- draggable="false" />
-        </li>
    
       </Carousel>
 
